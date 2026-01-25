@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light dark;
+}
+
+aside::-webkit-scrollbar {
+  width: 4px;
+}
+aside::-webkit-scrollbar-track {
+  background: transparent;
+}
+aside::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 dark:bg-neutral-700 rounded-full;
+}
+aside::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-300 dark:bg-neutral-600;
+}

@@ -1,0 +1,84 @@
+metadata:
+  title: "Nyagram Docs"
+  version: "1.1.0"
+  githubUrl: "https://github.com/kaleert/nyagram"
+  sourcePath: "src/main/java"
+
+sidebar:
+  - title: "Source code"
+    icon: "code"
+    link: "https://github.com/kaleert/nyagram"
+  
+  # --- СЕКЦИЯ 1: ДОКУМЕНТАЦИЯ ---
+  - title: "Documentation"
+    icon: "book"
+    items:
+      - label: "Введение"
+        link: "/docs/intro"
+        icon: "star"
+
+      - label: "Быстрый старт"
+        icon: "zap"
+        items:
+          - label: "Установка"
+            link: "/docs/installation"
+          - label: "Первый бот"
+            link: "/docs/first-bot"
+          - label: "Конфигурация"
+            link: "/docs/config"
+
+      - label: "Core Concepts"
+        icon: "cpu"
+        items:
+          - label: "Обработка обновлений"
+            link: "/docs/updates"
+          - label: "FSM (Машина состояний)"
+            icon: "layout"
+            items:
+              - label: "Теория"
+                link: "/docs/fsm/theory"
+              - label: "Практика"
+                link: "/docs/fsm/practice"
+
+      - label: "Интерактивность"
+        icon: "zap"
+        items:
+          - label: "Кнопки и Callbacks"
+            link: "/docs/interactivity/keyboards"
+
+      - label: "Гайды и Рецепты"
+        icon: "layers"
+        items:
+          - label: "Обработка ошибок"
+            link: "/docs/guides/exceptions"
+          - label: "Работа с файлами"
+            link: "/docs/guides/files"
+          - label: "Middleware (Пайплайны)"
+            link: "/docs/guides/middleware"
+          - label: "Массовые рассылки"
+            link: "/docs/guides/broadcast"
+  
+  - title: "Updates"
+    icon: "updates"
+    items:
+      - label: "v1.1.0"
+        link: "/version/1.1.0"
+        icon: "version"
+      - label: "v1.0.0"
+        link: "/version/1.0.0"
+        icon: "version"
+  
+  - title: "Social & Links"
+    icon: "link"
+    items:
+      - label: "Автор в VK"
+        link: "https://vk.com/kaleertz"
+        icon: "vk"
+      - label: "Автор в Telegram"
+        link: "https://t.me/cracked_by_kaleert"
+        icon: "tg"
+
+  # --- СЕКЦИЯ 2: API (ГЕНЕРИРУЕТСЯ АВТОМАТИЧЕСКИ) ---
+  - title: "API Reference"
+    icon: "terminal"
+    type: "generated_api"

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Nyagram Docs</title>
+
+    <script>
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('nyagram-theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+            document.body.style.backgroundColor = '#0d1117'; /* Цвет консоли для плавности */
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.body.style.backgroundColor = '#ffffff';
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <style>
+      body { margin: 0; font-family: 'Inter', system-ui, sans-serif; overflow: hidden; }
+      .skiptranslate, .goog-te-banner-frame, .goog-tooltip { display: none !important; }
+      body { top: 0 !important; }
+
+      /* CONSOLE LOADER */
+      #console-loader {
+        position: fixed;
+        inset: 0;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
+        font-size: 13px;
+        padding: 20px;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        line-height: 1.5;
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      }
+      .line { margin-bottom: 2px; word-break: break-all; }
+      .green { color: #7ee787; }
+      .blue { color: #79c0ff; }
+      .gray { color: #8b949e; }
+      .purple { color: #d2a8ff; }
+      .orange { color: #ffa657; }
+      
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 15px;
+        background: #c9d1d9;
+        animation: blink 1s step-end infinite;
+        vertical-align: middle;
+        margin-left: 2px;
+        margin-bottom: 2px;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+    </style>
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div id="console-loader">
+        <div id="terminal-lines"></div>
+        <div class="cmd-line" style="margin-top: 10px;">
+            <span class="green">root@nyagram</span>:<span class="blue">~/core</span>$ <span id="typing-text"></span><span class="cursor"></span>
+        </div>
+    </div>
+    
+    <div id="root"></div>
+
+    <script>
+      const bootLogs = [
+        { t: 'info', m: 'Initializing Nyagram Kernel v1.1.0...' },
+        { t: 'gray', m: 'CPU: 8 cores detected. Allocating workers...' },
+        { t: 'gray', m: 'Memory: 2048MB reserved for heap.' },
+        { t: 'info', m: 'Loading core modules: [api, fsm, context, reflection]' },
+        { t: 'success', m: 'Core modules loaded in 14ms.' },
+        { t: 'info', m: 'Verifying dependency graph...' },
+        { t: 'gray', m: ' - spring-boot-starter-web... OK' },
+        { t: 'gray', m: ' - jackson-databind... OK' },
+        { t: 'gray', m: ' - lombok (patched)... OK' },
+        { t: 'warn', m: 'Optimizing search index for [RU, EN, CN]...' },
+        { t: 'info', m: 'Hydrating Virtual DOM...' },
+        { t: 'info', m: 'Checking security policies...' },
+        { t: 'gray', m: ' - CORS: Allowed' },
+        { t: 'gray', m: ' - CSP: Strict' },
+        { t: 'success', m: 'Environment check passed.' },
+        { t: 'cmd', m: 'npm run dev' },
+        { t: 'sys', m: '> vite v5.1.0 dev server running' },
+        { t: 'sys', m: '> Local: http://localhost:5173/' },
+        { t: 'success', m: 'Ready.' }
+      ];
+
+      const term = document.getElementById('terminal-lines');
+      const typingText = document.getElementById('typing-text');
+      const loader = document.getElementById('console-loader');
+      let idx = 0;
+
+      function createLine(msg) {
+        const div = document.createElement('div');
+        div.className = 'line';
+        const time = new Date().toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit', second:'2-digit', fractionalSecondDigits: 3 });
+        
+        let content = `<span class="gray">[${time}]</span> `;
+        if (msg.t === 'info') content += `<span class="blue">INFO</span> ${msg.m}`;
+        else if (msg.t === 'warn') content += `<span class="orange">WARN</span> ${msg.m}`;
+        else if (msg.t === 'success') content += `<span class="green">SUCCESS</span> ${msg.m}`;
+        else if (msg.t === 'sys') content += `<span class="purple">${msg.m}</span>`;
+        else content += msg.m;
+        
+        div.innerHTML = content;
+        return div;
+      }
+
+      function typeCommand(text, onComplete) {
+        let charI = 0;
+        const typeInterval = setInterval(() => {
+          typingText.textContent += text[charI];
+          charI++;
+          if (charI >= text.length) {
+            clearInterval(typeInterval);
+            setTimeout(onComplete, 150);
+          }
+        }, 40);
+      }
+
+      function runLogs() {
+        if (idx >= bootLogs.length) return;
+
+        const log = bootLogs[idx];
+        
+        if (log.t === 'cmd') {
+          typeCommand(log.m, () => {
+            const cmdDiv = document.createElement('div');
+            cmdDiv.className = 'line';
+            cmdDiv.innerHTML = `<span class="green">root@nyagram</span>:<span class="blue">~/core</span>$ ${log.m}`;
+            term.appendChild(cmdDiv);
+            typingText.textContent = '';
+            idx++;
+            runLogs();
+          });
+        } else {
+          term.appendChild(createLine(log));
+          window.scrollTo(0, document.body.scrollHeight);
+          idx++;
+          
+          const isSystem = log.t === 'sys' || log.t === 'success';
+          const delay = isSystem ? 50 : Math.random() * 100 + 30;
+          
+          setTimeout(runLogs, delay);
+        }
+      }
+
+      setTimeout(runLogs, 100);
+    </script>
+    
+    <!-- Google Translate (Hidden) -->
+    <div id="google_translate_element" style="display:none"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({ pageLanguage: 'ru', includedLanguages: 'en,ru,zh-CN,ja,ko,de,fr,es,it,pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
