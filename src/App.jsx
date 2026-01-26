@@ -14,6 +14,7 @@ import NotificationContainer from './components/NotificationContainer';
 import { typeCache } from './components/TypeLink'; 
 import { useSettings } from './context/SettingsContext';
 import ProgressBar from './components/ProgressBar';
+import { HelmetProvider } from 'react-helmet-async';
 
 const stripMarkdown = (md) => {
     if (!md) return "";
@@ -121,43 +122,47 @@ function App() {
   }
 
   if (!data) return null;
+  
+  const helmetContext = {};
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: isDark ? '#121212' : '#ffffff',
-      color: isDark ? '#f3f4f6' : '#111827',
-      transition: 'background-color 0.3s ease'
-    }}>
-      <Router>
-        <ProgressBar /> 
-        <div className="min-h-screen flex flex-col">
-          <Navbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} data={data} />
-          
-          <Sidebar isOpen={isSidebarOpen} data={data} />
-          {isSettingsOpen && <SettingsDialog onClose={() => setSettingsOpen(false)} />}
-
-          <main className="lg:pl-72 pt-16 flex-1 flex flex-col">
-            <div className="flex-1 w-full max-w-[100vw] px-4 py-8 md:px-8 lg:px-12 mx-auto overflow-x-hidden">
-               <div className="max-w-7xl mx-auto w-full">
-                  <Routes>
-                    {/* 1. Главная страница */}
-                    <Route path="/" element={<LandingPage />} />
-                    
-                    {/* 2. API Браузер */}
-                    <Route path="/api/*" element={<ApiRouter db={data} />} />
-                    <Route path="/api" element={<PackagePage db={data} currentPkg="" />} />
-                    
-                    <Route path="*" element={<DocsPage db={data} />} />
-                  </Routes>
-               </div>
-            </div>
-            <Footer data={data} />
-          </main>
-          <NotificationContainer />
-        </div>
-      </Router>
-    </div>
+    <HelmetProvider context={helmetContext}>
+      <div style={{
+        minHeight: '100vh',
+        backgroundColor: isDark ? '#121212' : '#ffffff',
+        color: isDark ? '#f3f4f6' : '#111827',
+        transition: 'background-color 0.3s ease'
+      }}>
+        <Router>
+          <ProgressBar /> 
+          <div className="min-h-screen flex flex-col">
+            <Navbar toggleSidebar={() => setSidebarOpen(!isSidebarOpen)} data={data} />
+            
+            <Sidebar isOpen={isSidebarOpen} data={data} />
+            {isSettingsOpen && <SettingsDialog onClose={() => setSettingsOpen(false)} />}
+  
+            <main className="lg:pl-72 pt-16 flex-1 flex flex-col">
+              <div className="flex-1 w-full max-w-[100vw] px-4 py-8 md:px-8 lg:px-12 mx-auto overflow-x-hidden">
+                 <div className="max-w-7xl mx-auto w-full">
+                    <Routes>
+                      {/* 1. Главная страница */}
+                      <Route path="/" element={<LandingPage />} />
+                      
+                      {/* 2. API Браузер */}
+                      <Route path="/api/*" element={<ApiRouter db={data} />} />
+                      <Route path="/api" element={<PackagePage db={data} currentPkg="" />} />
+                      
+                      <Route path="*" element={<DocsPage db={data} />} />
+                    </Routes>
+                 </div>
+              </div>
+              <Footer data={data} />
+            </main>
+            <NotificationContainer />
+          </div>
+        </Router>
+      </div>
+    </HelmetProvider>
   );
 }
 
