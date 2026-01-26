@@ -277,7 +277,7 @@ const ApiPage = ({ db, pkg, cls }) => {
   const githubBase = db.metadata?.githubUrl || "https://github.com/kaleert/nyagram";
   const sourcePath = db.metadata?.sourcePath || "src/main/java";
   const pkgPath = `com/kaleert/nyagram/${pkg.replace(/\./g, '/')}`;
-  const fileUrl = `${githubBase}/blob/main/${sourcePath}/${pkgPath}/${classData.name}.java`;
+  const fileUrl = `${githubBase}/blob/master/${sourcePath}/${pkgPath}/${classData.name}.java`;
 
   const scrollToAnchor = (id) => {
     const element = document.getElementById(id);
