@@ -33,7 +33,7 @@ const LandingPage = () => {
   return (
     <div className="animate-in fade-in duration-500">
       <Seo 
-          title="Nyagram - Java Telegram Bot Framework" 
+          title="Nyagram — Best Java Telegram Bot Api Library & Spring Boot Framework"
           path="/"
         />
       
