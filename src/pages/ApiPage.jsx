@@ -953,7 +953,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                         },
                       }}
                     >
-                      {classData.description}
+                      {method.description}
                     </ReactMarkdown>
                   </div>
 
