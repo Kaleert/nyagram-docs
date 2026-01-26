@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import NotFoundPage from './NotFoundPage';
+import Seo from '../components/Seo';
 
 const slugify = (text) => {
   return text.toString().toLowerCase()
@@ -297,10 +298,19 @@ const DocsPage = ({ db }) => {
     borderRadius: '12px', cursor: 'pointer', transition: 'all 0.2s',
     width: '100%', minWidth: '0', textDecoration: 'none'
   };
-
+  
+  const currentTitle = navigationData.breadcrumbs.length > 0 
+    ? navigationData.breadcrumbs[navigationData.breadcrumbs.length - 1].label 
+    : 'Documentation';
+  
   return (
     <div className="flex flex-col xl:flex-row gap-10 max-w-7xl mx-auto px-4 pb-20 animate-in fade-in duration-300">
-      
+        <Seo 
+           title={currentTitle}
+           description={`Documentation for ${currentTitle} in Nyagram Framework.`}
+           path={location.pathname}
+           type="article"
+         />
       <div className="flex-1 min-w-0">
         
         {/* Breadcrumbs */}

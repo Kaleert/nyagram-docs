@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Shield, Box, Code2, Globe, Terminal } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
+import Seo from '../components/Seo';
 
 const LandingPage = () => {
   const { isDark } = useSettings();
@@ -31,6 +32,10 @@ const LandingPage = () => {
 
   return (
     <div className="animate-in fade-in duration-500">
+      <Seo 
+          title="Nyagram - Java Telegram Bot Framework" 
+          path="/"
+        />
       
       {/* HERO SECTION */}
       <div className="relative pt-10 pb-20 sm:pt-20 sm:pb-24 overflow-hidden">
