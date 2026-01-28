@@ -13,7 +13,7 @@ import PackageNavigation from '../components/PackageNavigation';
 
 const Breadcrumbs = ({ pkg, cls, colors }) => {
   const parts = pkg ? pkg.split('.') : [];
-  
+
   const linkStyle = {
     textDecoration: 'none',
     color: colors.muted,
@@ -273,7 +273,7 @@ const ApiPage = ({ db, pkg, cls }) => {
       </div>
     );
   }
-  
+
   const githubBase = db.metadata?.githubUrl || "https://github.com/kaleert/nyagram";
   const sourcePath = db.metadata?.sourcePath || "src/main/java";
   const pkgPath = `com/kaleert/nyagram/${pkg.replace(/\./g, '/')}`;
@@ -302,7 +302,7 @@ const ApiPage = ({ db, pkg, cls }) => {
     classData.constructors?.length > 0 && { id: 'constructors', label: 'Constructors', Icon: Hammer },
     classData.methods?.length > 0 && { id: 'methods', label: 'Methods', Icon: Code2 },
   ].filter(Boolean);
-  
+
   const basePkg = "com.kaleert.nyagram";
   const fullPackageName = pkg.startsWith('com.') ? pkg : `${basePkg}.${pkg}`;
 
@@ -318,7 +318,7 @@ const ApiPage = ({ db, pkg, cls }) => {
       overflowX: 'hidden'
     }}>
       <div style={{ minWidth: 0, flex: 1 }}>
-        
+
         <Breadcrumbs pkg={pkg} cls={classData.name} colors={colors} />
 
         {/* --- CLASS HEADER CARD --- */}
@@ -354,7 +354,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                 }}>
                   {classData.name}
                 </h1>
-                
+
                 <div style={{
                   display: 'flex',
                   flexWrap: 'wrap',
@@ -365,10 +365,10 @@ const ApiPage = ({ db, pkg, cls }) => {
                   paddingBottom: '4px'
                 }}>
                   <Badge type={classData.type} isDark={isDark} />
-                  {classData.deprecated && <DeprecatedBadge isDark={isDark} />}
+                  {classData.deprecated && <DeprecatedBadge isDark={isDark} since={method.deprecation?.since} />}
                   {classData.since && <SinceBadge version={classData.since} isDark={isDark} />}
                 </div>
-              
+
               <div style={{
                 display: 'flex', alignItems: 'center', gap: '8px',
                 fontSize: '14px', fontFamily: '"JetBrains Mono", monospace', color: colors.muted,
@@ -416,6 +416,28 @@ const ApiPage = ({ db, pkg, cls }) => {
             </a>
           </div>
           
+          {classData.deprecation && classData.deprecation.isDeprecated && (
+              <div style={{
+                padding: '16px 20px',
+                marginBottom: '24px',
+                background: isDark ? 'rgba(239, 68, 68, 0.1)' : '#fef2f2',
+                borderLeft: '4px solid #ef4444',
+                borderRadius: '0 8px 8px 0',
+                color: isDark ? '#fca5a5' : '#b91c1c'
+              }}>
+                <div style={{ fontWeight: '800', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                  <AlertTriangle size={18} /> 
+                  Устарело {classData.deprecation.since && `с версии ${classData.deprecation.since}`}
+                  {classData.deprecation.forRemoval && <span style={{ color: '#ef4444', fontSize: '10px' }}>[БУДЕТ УДАЛЕНО]</span>}
+                </div>
+                {classData.deprecation.description && (
+                  <div style={{ fontSize: '14px', fontStyle: 'italic', opacity: 0.9 }}>
+                    {classData.deprecation.description}
+                  </div>
+                )}
+              </div>
+            )}
+
            {/* TYPE PARAMETERS */}
            {classData.typeParameters && classData.typeParameters.length > 0 && (
              <div style={{
@@ -493,7 +515,7 @@ const ApiPage = ({ db, pkg, cls }) => {
             </div>
           )}
         </div>
-        
+
         <MobileTOC sections={tocSections} colors={colors} scrollToAnchor={scrollToAnchor} />
 
         {/* --- DESCRIPTION --- */}
@@ -512,7 +534,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                     <span>{children}</span>
                   </p>
                 ),
-                
+
                 li: ({node, children, ...props}) => (
                   <li style={{
                     overflowWrap: 'anywhere',
@@ -521,7 +543,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                     <span>{children}</span>
                   </li>
                 ),
-                
+
                 code: ({ node, inline, className, children, ...props }) => {
                   const match = /language-(\w+)/.exec(className || '');
                   if (!inline && match) {
@@ -571,7 +593,7 @@ const ApiPage = ({ db, pkg, cls }) => {
             <CodeBlock code={classData.example} theme={syntaxTheme} colors={colors} />
           </div>
         )}
-        
+
         {/* --- ENUM CONSTANTS --- */}
         {classData.enumConstants && classData.enumConstants.length > 0 && (
           <div id="enums" style={{ marginBottom: '64px', scrollMarginTop: '96px' }}>
@@ -671,7 +693,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                     width: '100%',
                     overflow: 'hidden'
                   }}>
-                  
+
                   {/* Signature Code Block */}
                   <div style={{
                     borderRadius: '8px',
@@ -705,7 +727,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                         </SyntaxHighlighter>
                     </div>
                   </div>
-        
+
                   <div style={{ color: colors.muted, fontSize: '14px', marginBottom: '24px', lineHeight: '1.6' }}>
                     <ReactMarkdown>{ctor.description}</ReactMarkdown>
                   </div>
@@ -817,10 +839,17 @@ const ApiPage = ({ db, pkg, cls }) => {
                           <button 
                             onClick={() => scrollToAnchor(method.anchor)} 
                             style={{
-                              textAlign: 'left', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace',
-                              fontSize: '14px', color: colors.primary, background: 'none', border: 'none',
-                              cursor: 'pointer', padding: 0, textDecoration: method.deprecated ? 'line-through' : 'none',
-                              opacity: method.deprecated ? 0.6 : 1
+                              textAlign: 'left', 
+                              fontWeight: 'bold', 
+                              fontFamily: '"JetBrains Mono", monospace',
+                              fontSize: '14px', 
+                              color: colors.primary, 
+                              background: 'none', 
+                              border: 'none',
+                              cursor: 'pointer', 
+                              padding: 0, 
+                              textDecoration: method.deprecation ? 'line-through' : 'none',
+                              opacity: method.deprecation ? 0.5 : 1
                             }}
                           >
                             {method.name}
@@ -840,19 +869,28 @@ const ApiPage = ({ db, pkg, cls }) => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '64px' }}>
               {classData.methods.map((method, idx) => (
                 <div key={idx} id={method.anchor} style={{ marginBottom: '60px', scrollMarginTop: '120px' }}>
-                  
+
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '16px' }}>
                     <h3 style={{
                       fontSize: '20px', fontWeight: 'bold', fontFamily: '"JetBrains Mono", monospace',
-                      color: colors.text, textDecoration: method.deprecated ? 'line-through' : 'none',
-                      opacity: method.deprecated ? 0.6 : 1, margin: 0, wordBreak: 'break-word', lineHeight: '1.3'
+                      color: colors.text, 
+                      // ИСПРАВЛЕНО: используем method.deprecation?.isDeprecated
+                      textDecoration: method.deprecation?.isDeprecated ? 'line-through' : 'none',
+                      opacity: method.deprecation?.isDeprecated ? 0.6 : 1, 
+                      margin: 0, wordBreak: 'break-word', lineHeight: '1.3'
                     }}>
                       {method.name}
                     </h3>
+                    
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
                       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                         <MethodBadge type={method.tag} isDark={isDark} />
-                        {method.deprecated && <DeprecatedBadge isDark={isDark} />}
+                        
+                        {/* ИСПРАВЛЕНО: Добавляем бейдж если метод устарел */}
+                        {method.deprecation?.isDeprecated && (
+                          <DeprecatedBadge isDark={isDark} since={method.deprecation.since} />
+                        )}
+                        
                         {method.since && <SinceBadge version={method.since} isDark={isDark} />}
                       </div>
                       <div style={{ display: 'flex', gap: '8px' }}>
@@ -880,7 +918,29 @@ const ApiPage = ({ db, pkg, cls }) => {
                       </div>
                     </div>
                   </div>
-
+                  
+                  {method.deprecation?.isDeprecated && (
+                    <div style={{
+                      padding: '12px 16px',
+                      marginBottom: '20px',
+                      background: isDark ? 'rgba(239, 68, 68, 0.08)' : '#fef2f2',
+                      borderLeft: '4px solid #ef4444',
+                      borderRadius: '4px',
+                      fontSize: '14px',
+                      color: isDark ? '#fca5a5' : '#b91c1c'
+                    }}>
+                      <div style={{ fontWeight: 'bold', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <AlertCircle size={16} /> 
+                        Устарело {method.deprecation.since && `в версии ${method.deprecation.since}`}
+                      </div>
+                      {method.deprecation.description && (
+                        <div style={{ opacity: 0.9, fontStyle: 'italic' }}>
+                          {method.deprecation.description}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
                   <div style={{
                     borderRadius: '12px',
                     border: `1px solid ${colors.border}`,
@@ -914,7 +974,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                             <span>{children}</span>
                           </p>
                         ),
-                        
+
                         li: ({node, children, ...props}) => (
                           <li style={{
                             overflowWrap: 'anywhere',
@@ -923,7 +983,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                             <span>{children}</span>
                           </li>
                         ),
-                        
+
                         code: ({ node, inline, className, children, ...props }) => {
                           const match = /language-(\w+)/.exec(className || '');
                           if (!inline && match) {
@@ -993,7 +1053,7 @@ const ApiPage = ({ db, pkg, cls }) => {
                       </div>
                     </div>
                   )}
-                  
+
                   {/* THROWS / EXCEPTIONS */}
                   {method.exceptions && method.exceptions.length > 0 && (
                     <div style={{ marginBottom: '24px' }}>
@@ -1068,7 +1128,7 @@ const ApiPage = ({ db, pkg, cls }) => {
           currentClsId={cls} 
           colors={colors} 
         />
-        
+
       </div>
       <div className="hidden lg:block" style={{
         position: 'sticky', top: '96px', alignSelf: 'flex-start',
@@ -1124,7 +1184,7 @@ const Badge = ({ type, isDark }) => (
   </span>
 );
 
-const DeprecatedBadge = ({ isDark }) => (
+const DeprecatedBadge = ({ isDark, since }) => (
   <span style={{
     display: 'flex', alignItems: 'center', gap: '4px', padding: '2px 8px',
     fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase', borderRadius: '4px',
@@ -1132,7 +1192,7 @@ const DeprecatedBadge = ({ isDark }) => (
     color: '#ef4444', 
     border: `1px solid ${isDark ? 'rgba(239, 68, 68, 0.4)' : '#fecaca'}`
   }}>
-    <AlertTriangle size={10} /> Deprecated
+    <AlertTriangle size={10} /> Deprecated {since && `since ${since}`}
   </span>
 );
 
@@ -1161,7 +1221,7 @@ const MethodBadge = ({ type, isDark }) => {
         col: '#f59e0b', 
         bord: isDark ? 'rgba(245, 158, 11, 0.3)' : '#fde68a' 
       };
-    
+
   return (
     <span style={{
       padding: '2px 8px', fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase',

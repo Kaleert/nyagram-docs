@@ -1,6 +1,6 @@
 metadata:
   title: "Nyagram Docs"
-  version: "1.1.0"
+  version: "1.1.1"
   githubUrl: "https://github.com/kaleert/nyagram"
   sourcePath: "src/main/java"
 
@@ -61,6 +61,9 @@ sidebar:
   - title: "Updates"
     icon: "updates"
     items:
+      - label: "v1.1.1"
+        link: "/version/1.1.1"
+        icon: "version"
       - label: "v1.1.0"
         link: "/version/1.1.0"
         icon: "version"
