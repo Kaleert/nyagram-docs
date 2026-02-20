@@ -50,7 +50,7 @@ const LandingPage = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
             </span>
-            Версия v1.1.1 уже доступна
+            Версия v1.1.2 уже доступна
           </div>
           
           <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight" style={{ color: colors.text }}>
