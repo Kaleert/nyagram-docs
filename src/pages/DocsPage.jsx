@@ -215,6 +215,12 @@ const DocsPage = ({ db }) => {
       })
       .then((text) => {
         setContent(text);
+
+        const currentVersion = db?.version || '1.1.4';
+
+        const processedText = text.replace(/\{\{VERSION\}\}/g, currentVersion);
+        
+        setContent(processedText);
         
         const lines = text.split('\n');
         const extractedHeadings = lines.filter(line => line.startsWith('#')).map(line => {

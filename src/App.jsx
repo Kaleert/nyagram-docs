@@ -146,7 +146,7 @@ function App() {
                  <div className="max-w-7xl mx-auto w-full">
                     <Routes>
                       {/* 1. Главная страница */}
-                      <Route path="/" element={<LandingPage />} />
+                      <Route path="/" element={<LandingPage data={data} />} />
                       
                       {/* 2. API Браузер */}
                       <Route path="/api/*" element={<ApiRouter db={data} />} />

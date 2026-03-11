@@ -47,7 +47,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    implementation 'io.github.kaleert:nyagram:1.1.3'
+    implementation 'io.github.kaleert:nyagram:{{VERSION}}'
 }
 ```
 
@@ -59,7 +59,7 @@ dependencies {
 <dependency>
     <groupId>io.github.kaleert</groupId>
     <artifactId>nyagram</artifactId>
-    <version>1.1.3</version>
+    <version>{{VERSION}}</version>
 </dependency>
 ```
 

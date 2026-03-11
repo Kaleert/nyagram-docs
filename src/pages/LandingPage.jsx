@@ -4,8 +4,10 @@ import { ArrowRight, Zap, Shield, Box, Code2, Globe, Terminal } from 'lucide-rea
 import { useSettings } from '../context/SettingsContext';
 import Seo from '../components/Seo';
 
-const LandingPage = () => {
+const LandingPage = ({ data }) => {
   const { isDark } = useSettings();
+
+  const currentVersion = data?.version || '1.1.4';
 
   const colors = {
     text: isDark ? '#f3f4f6' : '#111827',
@@ -50,7 +52,7 @@ const LandingPage = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
             </span>
-            Версия v1.1.3 уже доступна
+            Версия v{currentVersion} уже доступна
           </div>
           
           <h1 className="text-4xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight" style={{ color: colors.text }}>

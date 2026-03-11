@@ -2,7 +2,7 @@ import { Github, Heart } from 'lucide-react';
 
 const Footer = ({ data }) => {
   const year = new Date().getFullYear();
-  const version = data?.metadata?.version || '1.0.0';
+  const version = data?.version || data?.metadata?.version || '1.1.4';
 
   return (
     <div style={{
