@@ -1,4 +1,4 @@
-version: "1.2.0"
+version: "1.2.1"
 packages:
 - name: "api.dto"
   items:
@@ -384,8 +384,8 @@ packages:
     name: "MultipartRequest"
     type: "Interface"
     description: "Интерфейс для методов API, которые содержат файлы и должны отпра\
-      вляться как `multipart/form-data`.\n\n\n\nПримерами таких методов являются `com.kaleert.nyagram.api.methods.send.SendPhoto`,\n\
-      `com.kaleert.nyagram.api.methods.send.SendDocument` и т.д.\nКлиент используе\
+      вляться как `multipart/form-data`.\n\n\n\nПримерами таких методов являются `pro.kaleert.nyagram.api.methods.send.SendPhoto`,\n\
+      `pro.kaleert.nyagram.api.methods.send.SendDocument` и т.д.\nКлиент используе\
       т этот интерфейс для извлечения файлов и формирования корректного HTTP-запро\
       са."
     fields: []
@@ -1202,7 +1202,7 @@ packages:
       parameters:
       - name: "scope"
         type: "BotCommandScope"
-        desc: "Объект области видимости (например, {@link com.kaleert.nyagram.api.objects.commands.scope.BotCommandScopeDefault})."
+        desc: "Объект области видимости (например, {@link pro.kaleert.nyagram.api.objects.commands.scope.BotCommandScopeDefault})."
       returns:
         type: "SetMyCommands"
         desc: "текущий билдер."
@@ -1239,6 +1239,97 @@ packages:
     enumConstants: []
     line: 23
     since: "1.0.0"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "SetMyDescription"
+    name: "SetMyDescription"
+    type: "Class"
+    description: "Изменяет описание бота (текст, который видят пользователи на пус\
+      том экране перед нажатием \"Start\")."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 20
+    - name: "description"
+      type: "String"
+      visibility: "private"
+      description: "Описание (0-512 символов)."
+      line: 23
+    - name: "languageCode"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 13
+    since: "1.2.1"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "SetMyShortDescription"
+    name: "SetMyShortDescription"
+    type: "Class"
+    description: "Изменяет краткое описание бота (текст, который отображается в пр\
+      офиле бота под именем)."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 20
+    - name: "shortDescription"
+      type: "String"
+      visibility: "private"
+      description: "Краткое описание (0-120 символов)."
+      line: 23
+    - name: "languageCode"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 13
+    since: "1.2.1"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "SetMyName"
+    name: "SetMyName"
+    type: "Class"
+    description: "Изменяет имя бота (отображается в списке контактов и сверху в ча\
+      те)."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 20
+    - name: "name"
+      type: "String"
+      visibility: "private"
+      description: "Новое имя бота (0-64 символа). Передайте пустое, чтобы удалить\
+        ."
+      line: 23
+    - name: "languageCode"
+      type: "String"
+      visibility: "private"
+      description: "Двухбуквенный код языка (например, \"ru\")."
+      line: 27
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 13
+    since: "1.2.1"
     extendsList:
     - "BotApiMethodBoolean"
     implementsList: []
@@ -3290,6 +3381,47 @@ packages:
     - "BotApiMethod<ChatInviteLink>"
     implementsList: []
     typeParameters: []
+  - id: "CreateChatSubscriptionInviteLink"
+    name: "CreateChatSubscriptionInviteLink"
+    type: "Class"
+    description: "Создает пригласительную ссылку для платной подписки на канал (за\
+      \ Telegram Stars).\n\n\n\nБот должен быть администратором канала с правом пр\
+      иглашать пользователей."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 29
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 31
+    - name: "name"
+      type: "String"
+      visibility: "private"
+      description: "Название ссылки (0-32 символа)."
+      line: 35
+    - name: "subscriptionPeriod"
+      type: "Integer"
+      visibility: "private"
+      description: "Количество месяцев подписки (1-12)."
+      line: 39
+    - name: "subscriptionPrice"
+      type: "Integer"
+      visibility: "private"
+      description: "Цена подписки в Telegram Stars за указанный период (1-2500)."
+      line: 43
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 20
+    since: "1.2.1"
+    extendsList:
+    - "BotApiMethod<ChatInviteLink>"
+    implementsList: []
+    typeParameters: []
   - id: "ExportChatInviteLink"
     name: "ExportChatInviteLink"
     type: "Class"
@@ -3947,7 +4079,7 @@ packages:
     methods: []
     enumConstants: []
     line: 13
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList:
     - "BotApiMethod<String>"
     implementsList: []
@@ -4059,7 +4191,7 @@ packages:
       type: "String"
       visibility: "private"
       description: "Идентификатор транзакции (charge ID), которую нужно вернуть.\n\
-        Этот ID можно найти в `com.kaleert.nyagram.api.objects.payments.SuccessfulPayment`."
+        Этот ID можно найти в `pro.kaleert.nyagram.api.objects.payments.SuccessfulPayment`."
       line: 36
     constructors: []
     methods: []
@@ -4099,6 +4231,26 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<List<StarTransaction>>"
+    implementsList: []
+    typeParameters: []
+  - id: "GetMyStarBalance"
+    name: "GetMyStarBalance"
+    type: "Class"
+    description: "Используйте этот метод для получения текущего баланса Telegram Stars\
+      \ вашего бота.\n\n\n\nВозвращает объект `StarBalance`."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 27
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 20
+    since: "1.2.1"
+    extendsList:
+    - "BotApiMethod<StarBalance>"
     implementsList: []
     typeParameters: []
 - name: "api.methods.pinnedmessages"
@@ -4580,6 +4732,12 @@ packages:
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
       line: 197
+    - name: "correctOptionIds"
+      type: "List<Integer>"
+      visibility: "private"
+      description: "Список индексов правильных ответов (от 0). Обязательно для quiz\
+        \ с несколькими ответами."
+      line: 286
     constructors: []
     methods:
     - name: "addOption"
@@ -4658,6 +4816,34 @@ packages:
       exceptions: []
       line: 277
       since: "1.2.0"
+    - name: "asQuiz"
+      anchor: "asQuiz_1"
+      tag: "API"
+      description: "Настраивает опрос как викторину (quiz) с несколькими правильны\
+        ми ответами."
+      signature: "public SendPoll asQuiz(List<Integer> correctOptionIds)"
+      parameters:
+      - name: "correctOptionIds"
+        type: "List<Integer>"
+        desc: "Индексы правильных ответов (начиная с 0)."
+      returns:
+        type: "SendPoll"
+        desc: "текущий билдер."
+      exceptions: []
+      line: 296
+      since: "1.2.1"
+    - name: "allowRevoting"
+      anchor: "allowRevoting_0"
+      tag: "API"
+      description: "Разрешает пользователям менять свой выбор после голосования."
+      signature: "public SendPoll allowRevoting()"
+      parameters: []
+      returns:
+        type: "SendPoll"
+        desc: "текущий билдер."
+      exceptions: []
+      line: 308
+      since: "1.2.1"
     enumConstants: []
     line: 27
     since: "1.0.0"
@@ -6263,7 +6449,7 @@ packages:
       visibility: "private"
       description: "Режим парсинга сущностей в тексте сообщения.\n\n\n\nВозможные\
         \ значения: \"MarkdownV2\", \"HTML\", \"Markdown\".\nРекомендуется использ\
-        овать `com.kaleert.nyagram.api.methods.ParseMode`."
+        овать `pro.kaleert.nyagram.api.methods.ParseMode`."
       line: 63
     - name: "entities"
       type: "List<MessageEntity>"
@@ -6421,6 +6607,21 @@ packages:
       exceptions: []
       line: 223
       since: "1.2.0"
+    - name: "withEffect"
+      anchor: "withEffect_1"
+      tag: "API"
+      description: "Добавляет визуальный эффект к сообщению (API 7.3+)."
+      signature: "public SendMessage withEffect(String effectId)"
+      parameters:
+      - name: "effectId"
+        type: "String"
+        desc: "ID эффекта."
+      returns:
+        type: "SendMessage"
+        desc: "текущий билдер."
+      exceptions: []
+      line: 235
+      since: "1.2.1"
     enumConstants: []
     line: 27
     since: "1.0.0"
@@ -8671,7 +8872,7 @@ packages:
     name: "EditMessageText"
     type: "Class"
     description: "Используйте этот метод для редактирования текста сообщений.\n\n\n\
-      \nВ случае успеха, если редактировалось обычное сообщение, возвращает `com.kaleert.nyagram.api.objects.message.Message`.\n\
+      \nВ случае успеха, если редактировалось обычное сообщение, возвращает `pro.kaleert.nyagram.api.objects.message.Message`.\n\
       Если редактировалось inline-сообщение, возвращает `True`."
     fields:
     - name: "PATH"
@@ -9949,7 +10150,7 @@ packages:
     type: "Class"
     description: "Этот объект представляет входящий callback-запрос, отправленный\
       \ при нажатии на inline-кнопку.\n\n\n\nПри получении этого обновления бот до\
-      лжен обязательно ответить на него методом\n`com.kaleert.nyagram.api.methods.AnswerCallbackQuery`,\
+      лжен обязательно ответить на него методом\n`pro.kaleert.nyagram.api.methods.AnswerCallbackQuery`,\
       \ иначе у пользователя\nбудет вечно крутиться индикатор загрузки."
     fields:
     - name: "id"
@@ -13548,7 +13749,7 @@ packages:
         desc: ""
       exceptions: []
       line: 57
-      since: "1.2.0"
+      since: "1.2.1"
     methods:
     - name: "getDurationMinutes"
       anchor: "getDurationMinutes_0"
@@ -13561,10 +13762,10 @@ packages:
         desc: "количество минут."
       exceptions: []
       line: 67
-      since: "1.2.0"
+      since: "1.2.1"
     enumConstants: []
     line: 57
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BusinessIntro"
     name: "BusinessIntro"
@@ -16029,11 +16230,11 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeAllPrivateChats"
     name: "BotCommandScopeAllPrivateChats"
@@ -16052,11 +16253,11 @@ packages:
         desc: ""
       exceptions: []
       line: 80
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 80
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeAllGroupChats"
     name: "BotCommandScopeAllGroupChats"
@@ -16076,11 +16277,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeAllChatAdministrators"
     name: "BotCommandScopeAllChatAdministrators"
@@ -16099,11 +16300,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeChat"
     name: "BotCommandScopeChat"
@@ -16130,11 +16331,11 @@ packages:
         desc: ""
       exceptions: []
       line: 109
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeChatAdministrators"
     name: "BotCommandScopeChatAdministrators"
@@ -16161,11 +16362,11 @@ packages:
         desc: ""
       exceptions: []
       line: 121
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 121
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "BotCommandScopeChatMember"
     name: "BotCommandScopeChatMember"
@@ -16200,11 +16401,11 @@ packages:
         desc: ""
       exceptions: []
       line: 134
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 134
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
 - name: "api.objects.forum"
   items:
@@ -16341,7 +16542,7 @@ packages:
       description: "Record component"
       line: 31
     - name: "animation"
-      type: "com.kaleert.nyagram.api.objects.Animation"
+      type: "pro.kaleert.nyagram.api.objects.Animation"
       visibility: "private final"
       description: "Record component"
       line: 32
@@ -16351,7 +16552,7 @@ packages:
       tag: "API"
       description: "Canonical constructor"
       signature: "Game(String title, String description, List<PhotoSize> photo, String\
-        \ text, List<MessageEntity> textEntities, com.kaleert.nyagram.api.objects.Animation\
+        \ text, List<MessageEntity> textEntities, pro.kaleert.nyagram.api.objects.Animation\
         \ animation)"
       parameters:
       - name: "title"
@@ -16370,7 +16571,7 @@ packages:
         type: "List<MessageEntity>"
         desc: ""
       - name: "animation"
-        type: "com.kaleert.nyagram.api.objects.Animation"
+        type: "pro.kaleert.nyagram.api.objects.Animation"
         desc: ""
       returns:
         type: "Game"
@@ -16386,7 +16587,7 @@ packages:
   - id: "CallbackGame"
     name: "CallbackGame"
     type: "Record"
-    description: "Заглушка (placeholder), используемая в объекте `com.kaleert.nyagram.api.objects.replykeyboard.buttons.InlineKeyboardButton`.\n\
+    description: "Заглушка (placeholder), используемая в объекте `pro.kaleert.nyagram.api.objects.replykeyboard.buttons.InlineKeyboardButton`.\n\
       \n\n\nУказывает, что кнопка должна запустить игру."
     fields: []
     constructors:
@@ -17920,11 +18121,11 @@ packages:
         desc: ""
       exceptions: []
       line: 9
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 9
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "PaidMediaPhoto"
     name: "PaidMediaPhoto"
@@ -17951,11 +18152,11 @@ packages:
         desc: ""
       exceptions: []
       line: 18
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 18
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "PaidMediaVideo"
     name: "PaidMediaVideo"
@@ -17982,11 +18183,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "PaidMedia"
     name: "PaidMedia"
@@ -19243,12 +19444,12 @@ packages:
         )."
       line: 285
     - name: "paidMedia"
-      type: "com.kaleert.nyagram.api.objects.media.PaidMediaInfo"
+      type: "pro.kaleert.nyagram.api.objects.media.PaidMediaInfo"
       visibility: "private final"
       description: "Информация о платном контенте (за Telegram Stars)."
       line: 288
     - name: "refundedPayment"
-      type: "com.kaleert.nyagram.api.objects.payments.RefundedPayment"
+      type: "pro.kaleert.nyagram.api.objects.payments.RefundedPayment"
       visibility: "private final"
       description: "Уведомление о возврате платежа."
       line: 291
@@ -19307,6 +19508,17 @@ packages:
       visibility: "private final"
       description: "Служебное сообщение: пользователь отправил подарок."
       line: 309
+    - name: "paidStarCount"
+      type: "Integer"
+      visibility: "private final"
+      description: "Количество звезд, уплаченных отправителем за это сообщение."
+      line: 312
+    - name: "paidMessagePriceChanged"
+      type: "pro.kaleert.nyagram.api.objects.system.SystemMessages.PaidMessagePriceChanged"
+      visibility: "private final"
+      description: "Служебное сообщение: Изменилась цена отправки платного сообщен\
+        ия в чат."
+      line: 315
     constructors:
     - name: "Message"
       anchor: "new"
@@ -19339,12 +19551,14 @@ packages:
         \ giveaway, GiveawayWinners giveawayWinners, GiveawayCompleted giveawayCompleted,\
         \ WebAppData webAppData, InlineKeyboardMarkup replyMarkup, User senderBusinessBot,\
         \ String businessConnectionId, Boolean isFromOffline, String effectId, Boolean\
-        \ showCaptionAboveMedia, com.kaleert.nyagram.api.objects.media.PaidMediaInfo\
-        \ paidMedia, com.kaleert.nyagram.api.objects.payments.RefundedPayment refundedPayment,\
+        \ showCaptionAboveMedia, pro.kaleert.nyagram.api.objects.media.PaidMediaInfo\
+        \ paidMedia, pro.kaleert.nyagram.api.objects.payments.RefundedPayment refundedPayment,\
         \ Boolean isDirectMessage, Boolean isSuggested, ManagedBotCreated managedBotCreated,\
         \ PollOptionAdded pollOptionAdded, PollOptionDeleted pollOptionDeleted, String\
         \ replyToPollOptionId, LivePhoto livePhoto, User guestBotCallerUser, Chat\
-        \ guestBotCallerChat, String guestQueryId, GiftInfo gift)"
+        \ guestBotCallerChat, String guestQueryId, GiftInfo gift, Integer paidStarCount,\
+        \ pro.kaleert.nyagram.api.objects.system.SystemMessages.PaidMessagePriceChanged\
+        \ paidMessagePriceChanged)"
       parameters:
       - name: "messageId"
         type: "Long"
@@ -19590,10 +19804,10 @@ packages:
         type: "Boolean"
         desc: ""
       - name: "paidMedia"
-        type: "com.kaleert.nyagram.api.objects.media.PaidMediaInfo"
+        type: "pro.kaleert.nyagram.api.objects.media.PaidMediaInfo"
         desc: ""
       - name: "refundedPayment"
-        type: "com.kaleert.nyagram.api.objects.payments.RefundedPayment"
+        type: "pro.kaleert.nyagram.api.objects.payments.RefundedPayment"
         desc: ""
       - name: "isDirectMessage"
         type: "Boolean"
@@ -19628,6 +19842,12 @@ packages:
       - name: "gift"
         type: "GiftInfo"
         desc: ""
+      - name: "paidStarCount"
+        type: "Integer"
+        desc: ""
+      - name: "paidMessagePriceChanged"
+        type: "pro.kaleert.nyagram.api.objects.system.SystemMessages.PaidMessagePriceChanged"
+        desc: ""
       returns:
         type: "Message"
         desc: ""
@@ -19645,7 +19865,7 @@ packages:
         type: "Long"
         desc: "ID (Long)."
       exceptions: []
-      line: 318
+      line: 325
       since: "1.0.0"
     - name: "getMessageThreadId"
       anchor: "getMessageThreadId_0"
@@ -19658,7 +19878,7 @@ packages:
         type: "Integer"
         desc: "ID топика или null."
       exceptions: []
-      line: 325
+      line: 332
       since: "1.0.0"
     - name: "getFrom"
       anchor: "getFrom_0"
@@ -19671,7 +19891,7 @@ packages:
         type: "User"
         desc: "объект User или null."
       exceptions: []
-      line: 335
+      line: 342
       since: "1.0.0"
     - name: "getSenderChat"
       anchor: "getSenderChat_0"
@@ -19684,7 +19904,7 @@ packages:
         type: "Chat"
         desc: "объект Chat или null."
       exceptions: []
-      line: 342
+      line: 349
       since: "1.0.0"
     - name: "getDate"
       anchor: "getDate_0"
@@ -19696,7 +19916,7 @@ packages:
         type: "Integer"
         desc: "Unix timestamp."
       exceptions: []
-      line: 349
+      line: 356
       since: "1.0.0"
     - name: "getChat"
       anchor: "getChat_0"
@@ -19708,7 +19928,7 @@ packages:
         type: "Chat"
         desc: "объект Chat."
       exceptions: []
-      line: 356
+      line: 363
       since: "1.0.0"
     - name: "getForwardOrigin"
       anchor: "getForwardOrigin_0"
@@ -19720,7 +19940,7 @@ packages:
         type: "MessageOrigin"
         desc: "объект MessageOrigin или null."
       exceptions: []
-      line: 365
+      line: 372
       since: "1.0.0"
     - name: "getForwardDate"
       anchor: "getForwardDate_0"
@@ -19733,7 +19953,7 @@ packages:
         type: "Integer"
         desc: "Unix timestamp или null."
       exceptions: []
-      line: 372
+      line: 379
       since: "1.0.0"
     - name: "getIsTopicMessage"
       anchor: "getIsTopicMessage_0"
@@ -19746,7 +19966,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 379
+      line: 386
       since: "1.0.0"
     - name: "getIsAutomaticForward"
       anchor: "getIsAutomaticForward_0"
@@ -19759,7 +19979,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 386
+      line: 393
       since: "1.0.0"
     - name: "getReplyToMessage"
       anchor: "getReplyToMessage_0"
@@ -19772,7 +19992,7 @@ packages:
         type: "Message"
         desc: "объект Message или null."
       exceptions: []
-      line: 393
+      line: 400
       since: "1.0.0"
     - name: "getExternalReplyInfo"
       anchor: "getExternalReplyInfo_0"
@@ -19785,7 +20005,7 @@ packages:
         type: "ExternalReplyInfo"
         desc: "объект ExternalReplyInfo или null."
       exceptions: []
-      line: 400
+      line: 407
       since: "1.0.0"
     - name: "getTextQuote"
       anchor: "getTextQuote_0"
@@ -19797,7 +20017,7 @@ packages:
         type: "TextQuote"
         desc: "объект TextQuote или null."
       exceptions: []
-      line: 407
+      line: 414
       since: "1.0.0"
     - name: "getViaBot"
       anchor: "getViaBot_0"
@@ -19810,7 +20030,7 @@ packages:
         type: "User"
         desc: "объект User или null."
       exceptions: []
-      line: 414
+      line: 421
       since: "1.0.0"
     - name: "getEditDate"
       anchor: "getEditDate_0"
@@ -19822,7 +20042,7 @@ packages:
         type: "Integer"
         desc: "Unix timestamp или null."
       exceptions: []
-      line: 421
+      line: 428
       since: "1.0.0"
     - name: "getHasProtectedContent"
       anchor: "getHasProtectedContent_0"
@@ -19835,7 +20055,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 428
+      line: 435
       since: "1.0.0"
     - name: "getMediaGroupId"
       anchor: "getMediaGroupId_0"
@@ -19848,7 +20068,7 @@ packages:
         type: "String"
         desc: "строковый ID или null."
       exceptions: []
-      line: 436
+      line: 443
       since: "1.0.0"
     - name: "getAuthorSignature"
       anchor: "getAuthorSignature_0"
@@ -19860,7 +20080,7 @@ packages:
         type: "String"
         desc: "текст подписи или null."
       exceptions: []
-      line: 442
+      line: 449
       since: "1.0.0"
     - name: "getText"
       anchor: "getText_0"
@@ -19872,7 +20092,7 @@ packages:
         type: "String"
         desc: "текст или null."
       exceptions: []
-      line: 450
+      line: 457
       since: "1.0.0"
     - name: "getEntities"
       anchor: "getEntities_0"
@@ -19885,7 +20105,7 @@ packages:
         type: "List<MessageEntity>"
         desc: "список сущностей или null."
       exceptions: []
-      line: 457
+      line: 464
       since: "1.0.0"
     - name: "getLinkPreviewOptions"
       anchor: "getLinkPreviewOptions_0"
@@ -19897,7 +20117,7 @@ packages:
         type: "LinkPreviewOptions"
         desc: "объект LinkPreviewOptions или null."
       exceptions: []
-      line: 464
+      line: 471
       since: "1.0.0"
     - name: "getAnimation"
       anchor: "getAnimation_0"
@@ -19909,7 +20129,7 @@ packages:
         type: "Animation"
         desc: "объект Animation или null."
       exceptions: []
-      line: 472
+      line: 479
       since: "1.0.0"
     - name: "getAudio"
       anchor: "getAudio_0"
@@ -19921,7 +20141,7 @@ packages:
         type: "Audio"
         desc: "объект Audio или null."
       exceptions: []
-      line: 478
+      line: 485
       since: "1.0.0"
     - name: "getDocument"
       anchor: "getDocument_0"
@@ -19933,7 +20153,7 @@ packages:
         type: "Document"
         desc: "объект Document или null."
       exceptions: []
-      line: 485
+      line: 492
       since: "1.0.0"
     - name: "getPhoto"
       anchor: "getPhoto_0"
@@ -19945,7 +20165,7 @@ packages:
         type: "List<PhotoSize>"
         desc: "список PhotoSize или null."
       exceptions: []
-      line: 492
+      line: 499
       since: "1.0.0"
     - name: "getSticker"
       anchor: "getSticker_0"
@@ -19957,7 +20177,7 @@ packages:
         type: "Sticker"
         desc: "объект Sticker или null."
       exceptions: []
-      line: 499
+      line: 506
       since: "1.0.0"
     - name: "getStory"
       anchor: "getStory_0"
@@ -19969,7 +20189,7 @@ packages:
         type: "Story"
         desc: "объект Story или null."
       exceptions: []
-      line: 506
+      line: 513
       since: "1.0.0"
     - name: "getVideo"
       anchor: "getVideo_0"
@@ -19981,7 +20201,7 @@ packages:
         type: "Video"
         desc: "объект Video или null."
       exceptions: []
-      line: 513
+      line: 520
       since: "1.0.0"
     - name: "getVoice"
       anchor: "getVoice_0"
@@ -19993,7 +20213,7 @@ packages:
         type: "Voice"
         desc: "объект Voice или null."
       exceptions: []
-      line: 520
+      line: 527
       since: "1.0.0"
     - name: "getVideoNote"
       anchor: "getVideoNote_0"
@@ -20005,7 +20225,7 @@ packages:
         type: "VideoNote"
         desc: "объект VideoNote или null."
       exceptions: []
-      line: 527
+      line: 534
       since: "1.0.0"
     - name: "getCaption"
       anchor: "getCaption_0"
@@ -20018,7 +20238,7 @@ packages:
         type: "String"
         desc: "текст подписи или null."
       exceptions: []
-      line: 535
+      line: 542
       since: "1.0.0"
     - name: "getCaptionEntities"
       anchor: "getCaptionEntities_0"
@@ -20031,7 +20251,7 @@ packages:
         type: "List<MessageEntity>"
         desc: "список сущностей или null."
       exceptions: []
-      line: 542
+      line: 549
       since: "1.0.0"
     - name: "getHasMediaSpoiler"
       anchor: "getHasMediaSpoiler_0"
@@ -20043,7 +20263,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 549
+      line: 556
       since: "1.0.0"
     - name: "getContact"
       anchor: "getContact_0"
@@ -20055,7 +20275,7 @@ packages:
         type: "Contact"
         desc: "объект Contact или null."
       exceptions: []
-      line: 558
+      line: 565
       since: "1.0.0"
     - name: "getDice"
       anchor: "getDice_0"
@@ -20068,7 +20288,7 @@ packages:
         type: "Dice"
         desc: "объект Dice или null."
       exceptions: []
-      line: 565
+      line: 572
       since: "1.0.0"
     - name: "getGame"
       anchor: "getGame_0"
@@ -20080,7 +20300,7 @@ packages:
         type: "Game"
         desc: "объект Game или null."
       exceptions: []
-      line: 572
+      line: 579
       since: "1.0.0"
     - name: "getPoll"
       anchor: "getPoll_0"
@@ -20092,7 +20312,7 @@ packages:
         type: "Poll"
         desc: "объект Poll или null."
       exceptions: []
-      line: 579
+      line: 586
       since: "1.0.0"
     - name: "getVenue"
       anchor: "getVenue_0"
@@ -20104,7 +20324,7 @@ packages:
         type: "Venue"
         desc: "объект Venue или null."
       exceptions: []
-      line: 586
+      line: 593
       since: "1.0.0"
     - name: "getLocation"
       anchor: "getLocation_0"
@@ -20116,7 +20336,7 @@ packages:
         type: "Location"
         desc: "объект Location или null."
       exceptions: []
-      line: 593
+      line: 600
       since: "1.0.0"
     - name: "getNewChatMembers"
       anchor: "getNewChatMembers_0"
@@ -20128,7 +20348,7 @@ packages:
         type: "List<User>"
         desc: "список пользователей или null."
       exceptions: []
-      line: 603
+      line: 610
       since: "1.0.0"
     - name: "getLeftChatMember"
       anchor: "getLeftChatMember_0"
@@ -20141,7 +20361,7 @@ packages:
         type: "User"
         desc: "объект User или null."
       exceptions: []
-      line: 611
+      line: 618
       since: "1.0.0"
     - name: "getNewChatTitle"
       anchor: "getNewChatTitle_0"
@@ -20153,7 +20373,7 @@ packages:
         type: "String"
         desc: "строка заголовка или null."
       exceptions: []
-      line: 619
+      line: 626
       since: "1.0.0"
     - name: "getNewChatPhoto"
       anchor: "getNewChatPhoto_0"
@@ -20165,7 +20385,7 @@ packages:
         type: "List<PhotoSize>"
         desc: "список PhotoSize или null."
       exceptions: []
-      line: 627
+      line: 634
       since: "1.0.0"
     - name: "getDeleteChatPhoto"
       anchor: "getDeleteChatPhoto_0"
@@ -20177,7 +20397,7 @@ packages:
         type: "Boolean"
         desc: "true, если фото удалено."
       exceptions: []
-      line: 635
+      line: 642
       since: "1.0.0"
     - name: "getGroupChatCreated"
       anchor: "getGroupChatCreated_0"
@@ -20189,7 +20409,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 642
+      line: 649
       since: "1.0.0"
     - name: "getSupergroupChatCreated"
       anchor: "getSupergroupChatCreated_0"
@@ -20202,7 +20422,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 649
+      line: 656
       since: "1.0.0"
     - name: "getChannelChatCreated"
       anchor: "getChannelChatCreated_0"
@@ -20215,7 +20435,7 @@ packages:
         type: "Boolean"
         desc: "Boolean."
       exceptions: []
-      line: 656
+      line: 663
       since: "1.0.0"
     - name: "getMessageAutoDeleteTimerChanged"
       anchor: "getMessageAutoDeleteTimerChanged_0"
@@ -20228,7 +20448,7 @@ packages:
         type: "MessageAutoDeleteTimerChanged"
         desc: "объект MessageAutoDeleteTimerChanged или null."
       exceptions: []
-      line: 664
+      line: 671
       since: "1.0.0"
     - name: "getMigrateToChatId"
       anchor: "getMigrateToChatId_0"
@@ -20242,7 +20462,7 @@ packages:
         type: "Long"
         desc: "ID новой супергруппы или null."
       exceptions: []
-      line: 674
+      line: 681
       since: "1.0.0"
     - name: "getMigrateFromChatId"
       anchor: "getMigrateFromChatId_0"
@@ -20256,7 +20476,7 @@ packages:
         type: "Long"
         desc: "ID старой группы или null."
       exceptions: []
-      line: 684
+      line: 691
       since: "1.0.0"
     - name: "getPinnedMessage"
       anchor: "getPinnedMessage_0"
@@ -20269,7 +20489,7 @@ packages:
         type: "MaybeInaccessibleMessage"
         desc: "объект MaybeInaccessibleMessage или null."
       exceptions: []
-      line: 692
+      line: 699
       since: "1.0.0"
     - name: "getInvoice"
       anchor: "getInvoice_0"
@@ -20281,7 +20501,7 @@ packages:
         type: "Invoice"
         desc: "объект Invoice или null."
       exceptions: []
-      line: 699
+      line: 706
       since: "1.0.0"
     - name: "getSuccessfulPayment"
       anchor: "getSuccessfulPayment_0"
@@ -20294,7 +20514,7 @@ packages:
         type: "SuccessfulPayment"
         desc: "объект SuccessfulPayment или null."
       exceptions: []
-      line: 707
+      line: 714
       since: "1.0.0"
     - name: "getUsersShared"
       anchor: "getUsersShared_0"
@@ -20307,7 +20527,7 @@ packages:
         type: "UsersShared"
         desc: "объект UsersShared или null."
       exceptions: []
-      line: 715
+      line: 722
       since: "1.0.0"
     - name: "getChatShared"
       anchor: "getChatShared_0"
@@ -20320,7 +20540,7 @@ packages:
         type: "ChatShared"
         desc: "объект ChatShared или null."
       exceptions: []
-      line: 723
+      line: 730
       since: "1.0.0"
     - name: "getConnectedWebsite"
       anchor: "getConnectedWebsite_0"
@@ -20333,7 +20553,7 @@ packages:
         type: "String"
         desc: "домен сайта."
       exceptions: []
-      line: 730
+      line: 737
       since: "1.0.0"
     - name: "getWriteAccessAllowed"
       anchor: "getWriteAccessAllowed_0"
@@ -20348,7 +20568,7 @@ packages:
         type: "WriteAccessAllowed"
         desc: "объект WriteAccessAllowed или null."
       exceptions: []
-      line: 741
+      line: 748
       since: "1.0.0"
     - name: "getPassportData"
       anchor: "getPassportData_0"
@@ -20360,7 +20580,7 @@ packages:
         type: "PassportData"
         desc: "объект PassportData или null."
       exceptions: []
-      line: 748
+      line: 755
       since: "1.0.0"
     - name: "getProximityAlertTriggered"
       anchor: "getProximityAlertTriggered_0"
@@ -20373,7 +20593,7 @@ packages:
         type: "ProximityAlertTriggered"
         desc: "объект ProximityAlertTriggered или null."
       exceptions: []
-      line: 756
+      line: 763
       since: "1.0.0"
     - name: "getBoostAdded"
       anchor: "getBoostAdded_0"
@@ -20386,7 +20606,7 @@ packages:
         type: "ChatBoostAdded"
         desc: "объект ChatBoostAdded или null."
       exceptions: []
-      line: 764
+      line: 771
       since: "1.0.0"
     - name: "getForumTopicCreated"
       anchor: "getForumTopicCreated_0"
@@ -20399,7 +20619,7 @@ packages:
         type: "ForumTopic"
         desc: "объект ForumTopic или null."
       exceptions: []
-      line: 774
+      line: 781
       since: "1.0.0"
     - name: "getForumTopicEdited"
       anchor: "getForumTopicEdited_0"
@@ -20412,7 +20632,7 @@ packages:
         type: "ForumTopicEdited"
         desc: "объект ForumTopicEdited или null."
       exceptions: []
-      line: 782
+      line: 789
       since: "1.0.0"
     - name: "getForumTopicClosed"
       anchor: "getForumTopicClosed_0"
@@ -20425,7 +20645,7 @@ packages:
         type: "ForumTopicClosed"
         desc: "объект ForumTopicClosed или null."
       exceptions: []
-      line: 790
+      line: 797
       since: "1.0.0"
     - name: "getForumTopicReopened"
       anchor: "getForumTopicReopened_0"
@@ -20438,7 +20658,7 @@ packages:
         type: "ForumTopicReopened"
         desc: "объект ForumTopicReopened или null."
       exceptions: []
-      line: 798
+      line: 805
       since: "1.0.0"
     - name: "getGeneralForumTopicHidden"
       anchor: "getGeneralForumTopicHidden_0"
@@ -20451,7 +20671,7 @@ packages:
         type: "GeneralForumTopicHidden"
         desc: "объект GeneralForumTopicHidden или null."
       exceptions: []
-      line: 806
+      line: 813
       since: "1.0.0"
     - name: "getGeneralForumTopicUnhidden"
       anchor: "getGeneralForumTopicUnhidden_0"
@@ -20464,7 +20684,7 @@ packages:
         type: "GeneralForumTopicUnhidden"
         desc: "объект GeneralForumTopicUnhidden или null."
       exceptions: []
-      line: 814
+      line: 821
       since: "1.0.0"
     - name: "getGiveawayCreated"
       anchor: "getGiveawayCreated_0"
@@ -20477,7 +20697,7 @@ packages:
         type: "GiveawayCreated"
         desc: "объект GiveawayCreated или null."
       exceptions: []
-      line: 824
+      line: 831
       since: "1.0.0"
     - name: "getGiveaway"
       anchor: "getGiveaway_0"
@@ -20489,7 +20709,7 @@ packages:
         type: "Giveaway"
         desc: "объект Giveaway или null."
       exceptions: []
-      line: 831
+      line: 838
       since: "1.0.0"
     - name: "getGiveawayWinners"
       anchor: "getGiveawayWinners_0"
@@ -20502,7 +20722,7 @@ packages:
         type: "GiveawayWinners"
         desc: "объект GiveawayWinners или null."
       exceptions: []
-      line: 838
+      line: 845
       since: "1.0.0"
     - name: "getGiveawayCompleted"
       anchor: "getGiveawayCompleted_0"
@@ -20515,7 +20735,7 @@ packages:
         type: "GiveawayCompleted"
         desc: "объект GiveawayCompleted или null."
       exceptions: []
-      line: 846
+      line: 853
       since: "1.0.0"
     - name: "getVideoChatScheduled"
       anchor: "getVideoChatScheduled_0"
@@ -20528,7 +20748,7 @@ packages:
         type: "VideoChatScheduled"
         desc: "объект VideoChatScheduled или null."
       exceptions: []
-      line: 854
+      line: 861
       since: "1.0.0"
     - name: "getVideoChatStarted"
       anchor: "getVideoChatStarted_0"
@@ -20541,7 +20761,7 @@ packages:
         type: "VideoChatStarted"
         desc: "объект VideoChatStarted или null."
       exceptions: []
-      line: 862
+      line: 869
       since: "1.0.0"
     - name: "getVideoChatEnded"
       anchor: "getVideoChatEnded_0"
@@ -20554,7 +20774,7 @@ packages:
         type: "VideoChatEnded"
         desc: "объект VideoChatEnded или null."
       exceptions: []
-      line: 870
+      line: 877
       since: "1.0.0"
     - name: "getVideoChatParticipantsInvited"
       anchor: "getVideoChatParticipantsInvited_0"
@@ -20567,7 +20787,7 @@ packages:
         type: "VideoChatParticipantsInvited"
         desc: "объект VideoChatParticipantsInvited или null."
       exceptions: []
-      line: 878
+      line: 885
       since: "1.0.0"
     - name: "getWebAppData"
       anchor: "getWebAppData_0"
@@ -20579,7 +20799,7 @@ packages:
         type: "WebAppData"
         desc: "объект WebAppData или null."
       exceptions: []
-      line: 885
+      line: 892
       since: "1.0.0"
     - name: "getReplyMarkup"
       anchor: "getReplyMarkup_0"
@@ -20591,7 +20811,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "объект InlineKeyboardMarkup или null."
       exceptions: []
-      line: 892
+      line: 899
       since: "1.0.0"
     - name: "getSenderBusinessBot"
       anchor: "getSenderBusinessBot_0"
@@ -20602,7 +20822,7 @@ packages:
       returns:
         type: "User"
       exceptions: []
-      line: 894
+      line: 901
       since: "1.0.0"
     - name: "getBusinessConnectionId"
       anchor: "getBusinessConnectionId_0"
@@ -20613,7 +20833,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 895
+      line: 902
       since: "1.0.0"
     - name: "getIsFromOffline"
       anchor: "getIsFromOffline_0"
@@ -20624,7 +20844,7 @@ packages:
       returns:
         type: "Boolean"
       exceptions: []
-      line: 896
+      line: 903
       since: "1.0.0"
     - name: "getEffectId"
       anchor: "getEffectId_0"
@@ -20635,7 +20855,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 897
+      line: 904
       since: "1.0.0"
     - name: "getShowCaptionAboveMedia"
       anchor: "getShowCaptionAboveMedia_0"
@@ -20646,30 +20866,30 @@ packages:
       returns:
         type: "Boolean"
       exceptions: []
-      line: 898
+      line: 905
       since: "1.0.0"
     - name: "getPaidMedia"
       anchor: "getPaidMedia_0"
       tag: "API"
       description: "No description provided."
-      signature: "public com.kaleert.nyagram.api.objects.media.PaidMediaInfo getPaidMedia()"
+      signature: "public pro.kaleert.nyagram.api.objects.media.PaidMediaInfo getPaidMedia()"
       parameters: []
       returns:
-        type: "com.kaleert.nyagram.api.objects.media.PaidMediaInfo"
+        type: "pro.kaleert.nyagram.api.objects.media.PaidMediaInfo"
       exceptions: []
-      line: 899
+      line: 906
       since: "1.0.0"
     - name: "getRefundedPayment"
       anchor: "getRefundedPayment_0"
       tag: "API"
       description: "No description provided."
-      signature: "public com.kaleert.nyagram.api.objects.payments.RefundedPayment\
+      signature: "public pro.kaleert.nyagram.api.objects.payments.RefundedPayment\
         \ getRefundedPayment()"
       parameters: []
       returns:
-        type: "com.kaleert.nyagram.api.objects.payments.RefundedPayment"
+        type: "pro.kaleert.nyagram.api.objects.payments.RefundedPayment"
       exceptions: []
-      line: 900
+      line: 907
       since: "1.0.0"
     - name: "getIsDirectMessage"
       anchor: "getIsDirectMessage_0"
@@ -20680,7 +20900,7 @@ packages:
       returns:
         type: "Boolean"
       exceptions: []
-      line: 901
+      line: 908
       since: "1.0.0"
     - name: "getIsSuggested"
       anchor: "getIsSuggested_0"
@@ -20691,7 +20911,7 @@ packages:
       returns:
         type: "Boolean"
       exceptions: []
-      line: 902
+      line: 909
       since: "1.0.0"
     - name: "getManagedBotCreated"
       anchor: "getManagedBotCreated_0"
@@ -20702,7 +20922,7 @@ packages:
       returns:
         type: "ManagedBotCreated"
       exceptions: []
-      line: 903
+      line: 910
       since: "1.0.0"
     - name: "getPollOptionAdded"
       anchor: "getPollOptionAdded_0"
@@ -20713,7 +20933,7 @@ packages:
       returns:
         type: "PollOptionAdded"
       exceptions: []
-      line: 904
+      line: 911
       since: "1.0.0"
     - name: "getPollOptionDeleted"
       anchor: "getPollOptionDeleted_0"
@@ -20724,7 +20944,7 @@ packages:
       returns:
         type: "PollOptionDeleted"
       exceptions: []
-      line: 905
+      line: 912
       since: "1.0.0"
     - name: "getReplyToPollOptionId"
       anchor: "getReplyToPollOptionId_0"
@@ -20735,7 +20955,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 906
+      line: 913
       since: "1.0.0"
     - name: "hasPaidMedia"
       anchor: "hasPaidMedia_0"
@@ -20746,7 +20966,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 908
+      line: 915
       since: "1.0.0"
     - name: "hasEffect"
       anchor: "hasEffect_0"
@@ -20757,7 +20977,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 911
+      line: 918
       since: "1.0.0"
     - name: "isCaptionAbove"
       anchor: "isCaptionAbove_0"
@@ -20768,7 +20988,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 914
+      line: 921
       since: "1.0.0"
     - name: "hasRefundedPayment"
       anchor: "hasRefundedPayment_0"
@@ -20779,7 +20999,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 917
+      line: 924
       since: "1.0.0"
     - name: "hasText"
       anchor: "hasText_0"
@@ -20792,7 +21012,7 @@ packages:
         type: "boolean"
         desc: "true, если поле text не пустое."
       exceptions: []
-      line: 928
+      line: 935
       since: "1.0.0"
     - name: "hasCaption"
       anchor: "hasCaption_0"
@@ -20804,7 +21024,7 @@ packages:
         type: "boolean"
         desc: "true, если поле caption не пустое."
       exceptions: []
-      line: 938
+      line: 945
       since: "1.0.0"
     - name: "hasTextOrCaption"
       anchor: "hasTextOrCaption_0"
@@ -20817,7 +21037,7 @@ packages:
         type: "boolean"
         desc: "true, если есть текст или подпись."
       exceptions: []
-      line: 948
+      line: 955
       since: "1.0.0"
     - name: "getTextOrCaption"
       anchor: "getTextOrCaption_0"
@@ -20829,7 +21049,7 @@ packages:
         type: "String"
         desc: "содержимое сообщения или null."
       exceptions: []
-      line: 958
+      line: 965
       since: "1.0.0"
     - name: "getEntitiesOrCaptionEntities"
       anchor: "getEntitiesOrCaptionEntities_0"
@@ -20842,7 +21062,7 @@ packages:
         type: "List<MessageEntity>"
         desc: "список сущностей."
       exceptions: []
-      line: 971
+      line: 978
       since: "1.0.0"
     - name: "hasEntities"
       anchor: "hasEntities_0"
@@ -20855,7 +21075,7 @@ packages:
         type: "boolean"
         desc: "true, если список entities не пуст."
       exceptions: []
-      line: 983
+      line: 990
       since: "1.0.0"
     - name: "hasCaptionEntities"
       anchor: "hasCaptionEntities_0"
@@ -20867,7 +21087,7 @@ packages:
         type: "boolean"
         desc: "true, если список captionEntities не пуст."
       exceptions: []
-      line: 993
+      line: 1000
       since: "1.0.0"
     - name: "isCommand"
       anchor: "isCommand_0"
@@ -20881,7 +21101,7 @@ packages:
         type: "boolean"
         desc: "true, если это валидная команда."
       exceptions: []
-      line: 1006
+      line: 1013
       since: "1.0.0"
     - name: "getCommand"
       anchor: "getCommand_0"
@@ -20894,7 +21114,7 @@ packages:
         type: "String"
         desc: "текст команды (включая слэш) или null."
       exceptions: []
-      line: 1025
+      line: 1032
       since: "1.0.0"
     - name: "getCommandArgs"
       anchor: "getCommandArgs_0"
@@ -20907,7 +21127,7 @@ packages:
         type: "String"
         desc: "аргументы строкой или пустая строка."
       exceptions: []
-      line: 1041
+      line: 1048
       since: "1.0.0"
     - name: "getChatId"
       anchor: "getChatId_0"
@@ -20919,7 +21139,7 @@ packages:
         type: "Long"
         desc: "ID чата или null, если объект чата отсутствует."
       exceptions: []
-      line: 1058
+      line: 1065
       since: "1.0.0"
     - name: "getFromId"
       anchor: "getFromId_0"
@@ -20931,7 +21151,7 @@ packages:
         type: "Long"
         desc: "ID пользователя или null."
       exceptions: []
-      line: 1068
+      line: 1075
       since: "1.0.0"
     - name: "getSenderChatId"
       anchor: "getSenderChatId_0"
@@ -20944,7 +21164,7 @@ packages:
         type: "Long"
         desc: "ID чата или null."
       exceptions: []
-      line: 1081
+      line: 1088
       since: "1.0.0"
     - name: "isGroupChat"
       anchor: "isGroupChat_0"
@@ -20957,7 +21177,7 @@ packages:
         type: "boolean"
         desc: "true, если это группа."
       exceptions: []
-      line: 1091
+      line: 1098
       since: "1.0.0"
     - name: "isUserChat"
       anchor: "isUserChat_0"
@@ -20969,7 +21189,7 @@ packages:
         type: "boolean"
         desc: "true, если это приватный чат."
       exceptions: []
-      line: 1101
+      line: 1108
       since: "1.0.0"
     - name: "isChannelChat"
       anchor: "isChannelChat_0"
@@ -20981,7 +21201,7 @@ packages:
         type: "boolean"
         desc: "true, если это канал."
       exceptions: []
-      line: 1111
+      line: 1118
       since: "1.0.0"
     - name: "isSuperGroupChat"
       anchor: "isSuperGroupChat_0"
@@ -20993,7 +21213,7 @@ packages:
         type: "boolean"
         desc: "true, если это супергруппа."
       exceptions: []
-      line: 1121
+      line: 1128
       since: "1.0.0"
     - name: "isAnonymous"
       anchor: "isAnonymous_0"
@@ -21007,7 +21227,7 @@ packages:
         type: "boolean"
         desc: "true, если сообщение анонимное."
       exceptions: []
-      line: 1136
+      line: 1143
       since: "1.0.0"
     - name: "hasViaBot"
       anchor: "hasViaBot_0"
@@ -21019,7 +21239,7 @@ packages:
         type: "boolean"
         desc: "true, если поле via_bot присутствует."
       exceptions: []
-      line: 1146
+      line: 1153
       since: "1.0.0"
     - name: "isTopicMessage"
       anchor: "isTopicMessage_0"
@@ -21033,7 +21253,7 @@ packages:
         type: "Boolean"
         desc: "true, если isTopicMessage = true."
       exceptions: []
-      line: 1157
+      line: 1164
       since: "1.0.0"
     - name: "isAutomaticForward"
       anchor: "isAutomaticForward_0"
@@ -21046,7 +21266,7 @@ packages:
         type: "Boolean"
         desc: "true, если isAutomaticForward = true."
       exceptions: []
-      line: 1167
+      line: 1174
       since: "1.0.0"
     - name: "hasProtectedContent"
       anchor: "hasProtectedContent_0"
@@ -21059,7 +21279,7 @@ packages:
         type: "Boolean"
         desc: "true, если hasProtectedContent = true."
       exceptions: []
-      line: 1177
+      line: 1184
       since: "1.0.0"
     - name: "hasMediaSpoiler"
       anchor: "hasMediaSpoiler_0"
@@ -21072,7 +21292,7 @@ packages:
         type: "Boolean"
         desc: "true, если hasMediaSpoiler = true."
       exceptions: []
-      line: 1187
+      line: 1194
       since: "1.0.0"
     - name: "isServiceMessage"
       anchor: "isServiceMessage_0"
@@ -21086,7 +21306,7 @@ packages:
         type: "boolean"
         desc: "true, если это служебное уведомление."
       exceptions: []
-      line: 1201
+      line: 1208
       since: "1.0.0"
     - name: "isReply"
       anchor: "isReply_0"
@@ -21099,7 +21319,7 @@ packages:
         type: "boolean"
         desc: "true, если reply_to_message присутствует."
       exceptions: []
-      line: 1225
+      line: 1232
       since: "1.0.0"
     - name: "isForward"
       anchor: "isForward_0"
@@ -21111,7 +21331,7 @@ packages:
         type: "boolean"
         desc: "true, если есть дата пересылки или источник."
       exceptions: []
-      line: 1235
+      line: 1242
       since: "1.0.0"
     - name: "hasPhoto"
       anchor: "hasPhoto_0"
@@ -21123,7 +21343,7 @@ packages:
         type: "boolean"
         desc: "true, если список фото не пуст."
       exceptions: []
-      line: 1245
+      line: 1252
       since: "1.0.0"
     - name: "hasDocument"
       anchor: "hasDocument_0"
@@ -21135,7 +21355,7 @@ packages:
         type: "boolean"
         desc: "true, если document != null."
       exceptions: []
-      line: 1254
+      line: 1261
       since: "1.0.0"
     - name: "hasVideo"
       anchor: "hasVideo_0"
@@ -21147,7 +21367,7 @@ packages:
         type: "boolean"
         desc: "true, если video != null."
       exceptions: []
-      line: 1263
+      line: 1270
       since: "1.0.0"
     - name: "hasAudio"
       anchor: "hasAudio_0"
@@ -21159,7 +21379,7 @@ packages:
         type: "boolean"
         desc: "true, если audio != null."
       exceptions: []
-      line: 1272
+      line: 1279
       since: "1.0.0"
     - name: "hasSticker"
       anchor: "hasSticker_0"
@@ -21171,7 +21391,7 @@ packages:
         type: "boolean"
         desc: "true, если sticker != null."
       exceptions: []
-      line: 1281
+      line: 1288
       since: "1.0.0"
     - name: "hasVoice"
       anchor: "hasVoice_0"
@@ -21183,7 +21403,7 @@ packages:
         type: "boolean"
         desc: "true, если voice != null."
       exceptions: []
-      line: 1290
+      line: 1297
       since: "1.0.0"
     - name: "hasAnimation"
       anchor: "hasAnimation_0"
@@ -21195,7 +21415,7 @@ packages:
         type: "boolean"
         desc: "true, если animation != null."
       exceptions: []
-      line: 1299
+      line: 1306
       since: "1.0.0"
     - name: "hasVideoNote"
       anchor: "hasVideoNote_0"
@@ -21207,7 +21427,7 @@ packages:
         type: "boolean"
         desc: "true, если videoNote != null."
       exceptions: []
-      line: 1308
+      line: 1315
       since: "1.0.0"
     - name: "hasStory"
       anchor: "hasStory_0"
@@ -21219,7 +21439,7 @@ packages:
         type: "boolean"
         desc: "true, если story != null."
       exceptions: []
-      line: 1317
+      line: 1324
       since: "1.0.0"
     - name: "hasContact"
       anchor: "hasContact_0"
@@ -21231,7 +21451,7 @@ packages:
         type: "boolean"
         desc: "true, если contact != null."
       exceptions: []
-      line: 1326
+      line: 1333
       since: "1.0.0"
     - name: "hasDice"
       anchor: "hasDice_0"
@@ -21243,7 +21463,7 @@ packages:
         type: "boolean"
         desc: "true, если dice != null."
       exceptions: []
-      line: 1335
+      line: 1342
       since: "1.0.0"
     - name: "hasGame"
       anchor: "hasGame_0"
@@ -21255,7 +21475,7 @@ packages:
         type: "boolean"
         desc: "true, если game != null."
       exceptions: []
-      line: 1344
+      line: 1351
       since: "1.0.0"
     - name: "hasPoll"
       anchor: "hasPoll_0"
@@ -21267,7 +21487,7 @@ packages:
         type: "boolean"
         desc: "true, если poll != null."
       exceptions: []
-      line: 1353
+      line: 1360
       since: "1.0.0"
     - name: "hasVenue"
       anchor: "hasVenue_0"
@@ -21279,7 +21499,7 @@ packages:
         type: "boolean"
         desc: "true, если venue != null."
       exceptions: []
-      line: 1362
+      line: 1369
       since: "1.0.0"
     - name: "hasLocation"
       anchor: "hasLocation_0"
@@ -21291,7 +21511,7 @@ packages:
         type: "boolean"
         desc: "true, если location != null."
       exceptions: []
-      line: 1371
+      line: 1378
       since: "1.0.0"
     - name: "hasInvoice"
       anchor: "hasInvoice_0"
@@ -21303,7 +21523,7 @@ packages:
         type: "boolean"
         desc: "true, если invoice != null."
       exceptions: []
-      line: 1380
+      line: 1387
       since: "1.0.0"
     - name: "hasSuccessfulPayment"
       anchor: "hasSuccessfulPayment_0"
@@ -21315,7 +21535,7 @@ packages:
         type: "boolean"
         desc: "true, если successfulPayment != null."
       exceptions: []
-      line: 1389
+      line: 1396
       since: "1.0.0"
     - name: "hasPassportData"
       anchor: "hasPassportData_0"
@@ -21327,7 +21547,7 @@ packages:
         type: "boolean"
         desc: "true, если passportData != null."
       exceptions: []
-      line: 1398
+      line: 1405
       since: "1.0.0"
     - name: "hasWebAppData"
       anchor: "hasWebAppData_0"
@@ -21339,7 +21559,7 @@ packages:
         type: "boolean"
         desc: "true, если webAppData != null."
       exceptions: []
-      line: 1407
+      line: 1414
       since: "1.0.0"
     - name: "hasReplyMarkup"
       anchor: "hasReplyMarkup_0"
@@ -21351,7 +21571,7 @@ packages:
         type: "boolean"
         desc: "true, если replyMarkup != null."
       exceptions: []
-      line: 1416
+      line: 1423
       since: "1.0.0"
     - name: "isEdited"
       anchor: "isEdited_0"
@@ -21363,7 +21583,7 @@ packages:
         type: "boolean"
         desc: "true, если edit_date присутствует."
       exceptions: []
-      line: 1425
+      line: 1432
       since: "1.0.0"
     - name: "hasMediaGroup"
       anchor: "hasMediaGroup_0"
@@ -21375,7 +21595,7 @@ packages:
         type: "boolean"
         desc: "true, если media_group_id присутствует."
       exceptions: []
-      line: 1434
+      line: 1441
       since: "1.0.0"
     - name: "isPartOfAlbum"
       anchor: "isPartOfAlbum_0"
@@ -21387,7 +21607,7 @@ packages:
         type: "boolean"
         desc: "true, если сообщение часть альбома."
       exceptions: []
-      line: 1443
+      line: 1450
       since: "1.0.0"
     - name: "hasAuthorSignature"
       anchor: "hasAuthorSignature_0"
@@ -21399,7 +21619,7 @@ packages:
         type: "boolean"
         desc: "true, если authorSignature != null."
       exceptions: []
-      line: 1452
+      line: 1459
       since: "1.0.0"
     - name: "hasConnectedWebsite"
       anchor: "hasConnectedWebsite_0"
@@ -21411,7 +21631,7 @@ packages:
         type: "boolean"
         desc: "true, если connectedWebsite != null."
       exceptions: []
-      line: 1461
+      line: 1468
       since: "1.0.0"
     - name: "isMigrateToMessage"
       anchor: "isMigrateToMessage_0"
@@ -21424,7 +21644,7 @@ packages:
         type: "boolean"
         desc: "true, если migrateToChatId != null."
       exceptions: []
-      line: 1470
+      line: 1477
       since: "1.0.0"
     - name: "isMigrateFromMessage"
       anchor: "isMigrateFromMessage_0"
@@ -21437,7 +21657,7 @@ packages:
         type: "boolean"
         desc: "true, если migrateFromChatId != null."
       exceptions: []
-      line: 1479
+      line: 1486
       since: "1.0.0"
     - name: "isGroupMigrationMessage"
       anchor: "isGroupMigrationMessage_0"
@@ -21451,7 +21671,7 @@ packages:
         type: "boolean"
         desc: "true, если это миграция."
       exceptions: []
-      line: 1493
+      line: 1500
       since: "1.0.0"
     - name: "getBestPhoto"
       anchor: "getBestPhoto_0"
@@ -21465,7 +21685,7 @@ packages:
         type: "PhotoSize"
         desc: "объект PhotoSize или null, если фото нет."
       exceptions: []
-      line: 1507
+      line: 1514
       since: "1.0.0"
     - name: "getBestPhotoId"
       anchor: "getBestPhotoId_0"
@@ -21478,7 +21698,7 @@ packages:
         type: "String"
         desc: "строка file_id или null."
       exceptions: []
-      line: 1531
+      line: 1538
       since: "1.0.0"
     - name: "hasMedia"
       anchor: "hasMedia_0"
@@ -21491,7 +21711,7 @@ packages:
         type: "boolean"
         desc: "true, если есть медиа."
       exceptions: []
-      line: 1543
+      line: 1550
       since: "1.0.0"
     - name: "isMediaMessage"
       anchor: "isMediaMessage_0"
@@ -21503,7 +21723,7 @@ packages:
         type: "boolean"
         desc: "true, если сообщение содержит медиа."
       exceptions: []
-      line: 1555
+      line: 1562
       since: "1.0.0"
     - name: "getContentType"
       anchor: "getContentType_0"
@@ -21518,7 +21738,7 @@ packages:
         type: "String"
         desc: "строка с типом контента."
       exceptions: []
-      line: 1570
+      line: 1577
       since: "1.0.0"
     - name: "canBeDeleted"
       anchor: "canBeDeleted_0"
@@ -21531,7 +21751,7 @@ packages:
         type: "boolean"
         desc: "true, если удаление допустимо."
       exceptions: []
-      line: 1600
+      line: 1607
       since: "1.0.0"
     - name: "canBeEdited"
       anchor: "canBeEdited_0"
@@ -21545,7 +21765,7 @@ packages:
         type: "boolean"
         desc: "true, если редактирование допустимо."
       exceptions: []
-      line: 1613
+      line: 1620
       since: "1.0.0"
     - name: "getEffectiveSender"
       anchor: "getEffectiveSender_0"
@@ -21559,7 +21779,7 @@ packages:
         type: "User"
         desc: "объект User или null."
       exceptions: []
-      line: 1627
+      line: 1634
       since: "1.0.0"
     - name: "getSenderDisplayName"
       anchor: "getSenderDisplayName_0"
@@ -21573,7 +21793,7 @@ packages:
         type: "String"
         desc: "имя отправителя."
       exceptions: []
-      line: 1650
+      line: 1657
       since: "1.0.0"
     - name: "getSenderMention"
       anchor: "getSenderMention_0"
@@ -21585,7 +21805,7 @@ packages:
         type: "String"
         desc: "@username или имя."
       exceptions: []
-      line: 1667
+      line: 1674
       since: "1.0.0"
     - name: "getPrimaryFileId"
       anchor: "getPrimaryFileId_0"
@@ -21598,7 +21818,7 @@ packages:
         type: "String"
         desc: "File ID или null."
       exceptions: []
-      line: 1684
+      line: 1691
       since: "1.1.4"
     - name: "getPrimaryMediaType"
       anchor: "getPrimaryMediaType_0"
@@ -21611,7 +21831,7 @@ packages:
         desc: "\"photo\", \"video\", \"document\", \"voice\", \"video_note\", \"audio\"\
           , \"animation\", \"sticker\" или null."
       exceptions: []
-      line: 1702
+      line: 1709
       since: "1.1.4"
     - name: "getGift"
       anchor: "getGift_0"
@@ -21623,7 +21843,7 @@ packages:
         type: "GiftInfo"
         desc: "GiftInfo"
       exceptions: []
-      line: 1720
+      line: 1727
       since: "1.2.0"
     enumConstants: []
     line: 130
@@ -22303,11 +22523,11 @@ packages:
         desc: ""
       exceptions: []
       line: 43
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 43
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginHiddenUser"
     name: "MessageOrigin.MessageOriginHiddenUser"
@@ -22343,11 +22563,11 @@ packages:
         desc: ""
       exceptions: []
       line: 54
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 54
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChat"
     name: "MessageOrigin.MessageOriginChat"
@@ -22391,11 +22611,11 @@ packages:
         desc: ""
       exceptions: []
       line: 66
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChannel"
     name: "MessageOrigin.MessageOriginChannel"
@@ -22447,11 +22667,11 @@ packages:
         desc: ""
       exceptions: []
       line: 79
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 79
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "MessageOrigin.UnknownMessageOrigin"
     name: "MessageOrigin.UnknownMessageOrigin"
@@ -22478,11 +22698,11 @@ packages:
         desc: ""
       exceptions: []
       line: 89
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 89
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
 - name: "api.objects.passport"
   items:
@@ -22554,11 +22774,11 @@ packages:
         desc: ""
       exceptions: []
       line: 38
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 38
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "PassportElementErrorUnspecified"
     name: "PassportElementErrorUnspecified"
@@ -22602,11 +22822,11 @@ packages:
         desc: ""
       exceptions: []
       line: 56
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 56
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "PassportData"
     name: "PassportData"
@@ -23294,6 +23514,37 @@ packages:
     line: 14
     since: "1.0.0"
     typeParameters: []
+  - id: "StarBalance"
+    name: "StarBalance"
+    type: "Record"
+    description: "Описывает текущий баланс Telegram Stars (Звезд) бота."
+    fields:
+    - name: "balance"
+      type: "Long"
+      visibility: "private final"
+      description: "Record component"
+      line: 14
+    constructors:
+    - name: "StarBalance"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "StarBalance(Long balance)"
+      parameters:
+      - name: "balance"
+        type: "Long"
+        desc: ""
+      returns:
+        type: "StarBalance"
+        desc: ""
+      exceptions: []
+      line: 12
+      since: "1.2.1"
+    methods: []
+    enumConstants: []
+    line: 12
+    since: "1.2.1"
+    typeParameters: []
   - id: "ShippingOption"
     name: "ShippingOption"
     type: "Record"
@@ -23624,6 +23875,11 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 55
+    - name: "correctOptionIds"
+      type: "List<Integer>"
+      visibility: "private final"
+      description: "Record component"
+      line: 56
     constructors:
     - name: "Poll"
       anchor: "new"
@@ -23634,7 +23890,8 @@ packages:
         \ allowsMultipleAnswers, Integer correctOptionId, String explanation, List<MessageEntity>\
         \ explanationEntities, Integer openPeriod, Integer closeDate, Boolean allowsRevoting,\
         \ String description, List<MessageEntity> descriptionEntities, PollMedia media,\
-        \ PollMedia explanationMedia, Boolean membersOnly, List<String> countryCodes)"
+        \ PollMedia explanationMedia, Boolean membersOnly, List<String> countryCodes,\
+        \ List<Integer> correctOptionIds)"
       parameters:
       - name: "id"
         type: "String"
@@ -23696,6 +23953,9 @@ packages:
       - name: "countryCodes"
         type: "List<String>"
         desc: ""
+      - name: "correctOptionIds"
+        type: "List<Integer>"
+        desc: ""
       returns:
         type: "Poll"
         desc: ""
@@ -23714,7 +23974,7 @@ packages:
         type: "boolean"
         desc: "true, если type=\"quiz\"."
       exceptions: []
-      line: 64
+      line: 65
       since: "1.0.0"
     - name: "isRegular"
       anchor: "isRegular_0"
@@ -23726,7 +23986,7 @@ packages:
         type: "boolean"
         desc: "true, если type=\"regular\"."
       exceptions: []
-      line: 74
+      line: 75
       since: "1.0.0"
     - name: "getWinningOption"
       anchor: "getWinningOption_0"
@@ -23738,7 +23998,7 @@ packages:
         type: "Optional<PollOption>"
         desc: "опциональный вариант ответа."
       exceptions: []
-      line: 83
+      line: 84
       since: "1.0.0"
     - name: "getCorrectOption"
       anchor: "getCorrectOption_0"
@@ -23750,7 +24010,7 @@ packages:
         type: "Optional<PollOption>"
         desc: "опциональный вариант ответа."
       exceptions: []
-      line: 95
+      line: 96
       since: "1.0.0"
     enumConstants: []
     line: 34
@@ -24642,7 +24902,7 @@ packages:
   - id: "InlineKeyboardRow"
     name: "InlineKeyboardRow"
     type: "Class"
-    description: "Вспомогательный класс, представляющий один ряд кнопок в `com.kaleert.nyagram.api.objects.replykeyboard.InlineKeyboardMarkup`.\n\
+    description: "Вспомогательный класс, представляющий один ряд кнопок в `pro.kaleert.nyagram.api.objects.replykeyboard.InlineKeyboardMarkup`.\n\
       \n\n\nЯвляется наследником `ArrayList`, что упрощает создание списков кнопок\
       ."
     fields: []
@@ -24741,11 +25001,11 @@ packages:
         desc: ""
       exceptions: []
       line: 8
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 8
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "CopyTextButton"
     name: "CopyTextButton"
@@ -24783,7 +25043,7 @@ packages:
   - id: "KeyboardRow"
     name: "KeyboardRow"
     type: "Class"
-    description: "Вспомогательный класс, представляющий один ряд кнопок в `com.kaleert.nyagram.api.objects.replykeyboard.ReplyKeyboardMarkup`."
+    description: "Вспомогательный класс, представляющий один ряд кнопок в `pro.kaleert.nyagram.api.objects.replykeyboard.ReplyKeyboardMarkup`."
     fields: []
     constructors:
     - name: "KeyboardRow"
@@ -25080,11 +25340,11 @@ packages:
         desc: ""
       exceptions: []
       line: 122
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 122
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "KeyboardButtonRequestChat"
     name: "KeyboardButtonRequestChat"
@@ -25636,11 +25896,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.VideoChatStarted"
     name: "SystemMessages.VideoChatStarted"
@@ -25659,11 +25919,11 @@ packages:
         desc: ""
       exceptions: []
       line: 33
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 33
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.VideoChatEnded"
     name: "SystemMessages.VideoChatEnded"
@@ -25690,11 +25950,11 @@ packages:
         desc: ""
       exceptions: []
       line: 41
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 41
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.VideoChatParticipantsInvited"
     name: "SystemMessages.VideoChatParticipantsInvited"
@@ -25721,11 +25981,11 @@ packages:
         desc: ""
       exceptions: []
       line: 51
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 51
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.ForumTopicClosed"
     name: "SystemMessages.ForumTopicClosed"
@@ -25744,11 +26004,11 @@ packages:
         desc: ""
       exceptions: []
       line: 61
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 61
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.ForumTopicReopened"
     name: "SystemMessages.ForumTopicReopened"
@@ -25767,11 +26027,11 @@ packages:
         desc: ""
       exceptions: []
       line: 67
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 67
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.ForumTopicEdited"
     name: "SystemMessages.ForumTopicEdited"
@@ -25807,11 +26067,11 @@ packages:
         desc: ""
       exceptions: []
       line: 76
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 76
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicHidden"
     name: "SystemMessages.GeneralForumTopicHidden"
@@ -25830,11 +26090,11 @@ packages:
         desc: ""
       exceptions: []
       line: 85
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 85
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicUnhidden"
     name: "SystemMessages.GeneralForumTopicUnhidden"
@@ -25853,11 +26113,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.MessageAutoDeleteTimerChanged"
     name: "SystemMessages.MessageAutoDeleteTimerChanged"
@@ -25884,11 +26144,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.WriteAccessAllowed"
     name: "SystemMessages.WriteAccessAllowed"
@@ -25934,11 +26194,11 @@ packages:
         desc: ""
       exceptions: []
       line: 115
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 115
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.ChatBoostAdded"
     name: "SystemMessages.ChatBoostAdded"
@@ -25965,11 +26225,11 @@ packages:
         desc: ""
       exceptions: []
       line: 127
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.GiveawayCreated"
     name: "SystemMessages.GiveawayCreated"
@@ -25996,11 +26256,11 @@ packages:
         desc: ""
       exceptions: []
       line: 137
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 137
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "SystemMessages.GiveawayCompleted"
     name: "SystemMessages.GiveawayCompleted"
@@ -26018,7 +26278,7 @@ packages:
       description: "Record component"
       line: 152
     - name: "giveawayMessage"
-      type: "com.kaleert.nyagram.api.objects.message.Message"
+      type: "pro.kaleert.nyagram.api.objects.message.Message"
       visibility: "private final"
       description: "Record component"
       line: 153
@@ -26028,7 +26288,7 @@ packages:
       tag: "API"
       description: "Canonical constructor"
       signature: "SystemMessages.GiveawayCompleted(Integer winnerCount, Integer unclaimedPrizeCount,\
-        \ com.kaleert.nyagram.api.objects.message.Message giveawayMessage)"
+        \ pro.kaleert.nyagram.api.objects.message.Message giveawayMessage)"
       parameters:
       - name: "winnerCount"
         type: "Integer"
@@ -26037,18 +26297,49 @@ packages:
         type: "Integer"
         desc: ""
       - name: "giveawayMessage"
-        type: "com.kaleert.nyagram.api.objects.message.Message"
+        type: "pro.kaleert.nyagram.api.objects.message.Message"
         desc: ""
       returns:
         type: "SystemMessages.GiveawayCompleted"
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 149
-    since: "1.2.0"
+    since: "1.2.1"
+    typeParameters: []
+  - id: "SystemMessages.PaidMessagePriceChanged"
+    name: "SystemMessages.PaidMessagePriceChanged"
+    type: "Record"
+    description: "Служебное сообщение: Изменена цена отправки сообщений в чат."
+    fields:
+    - name: "starCount"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 162
+    constructors:
+    - name: "SystemMessages.PaidMessagePriceChanged"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "SystemMessages.PaidMessagePriceChanged(Integer starCount)"
+      parameters:
+      - name: "starCount"
+        type: "Integer"
+        desc: ""
+      returns:
+        type: "SystemMessages.PaidMessagePriceChanged"
+        desc: ""
+      exceptions: []
+      line: 160
+      since: "1.2.1"
+    methods: []
+    enumConstants: []
+    line: 160
+    since: "1.2.1"
     typeParameters: []
   - id: "Story"
     name: "Story"
@@ -26093,7 +26384,7 @@ packages:
     name: "ChatShared"
     type: "Record"
     description: "Содержит информацию о чате, которым пользователь поделился с бот\
-      ом.\n\n\n\nПриходит в ответ на нажатие кнопки `com.kaleert.nyagram.api.objects.replykeyboard.buttons.KeyboardButtonRequestChat`."
+      ом.\n\n\n\nПриходит в ответ на нажатие кнопки `pro.kaleert.nyagram.api.objects.replykeyboard.buttons.KeyboardButtonRequestChat`."
     fields:
     - name: "requestId"
       type: "Integer"
@@ -26182,7 +26473,7 @@ packages:
     name: "UsersShared"
     type: "Record"
     description: "Содержит информацию о пользователях, которыми текущий пользовате\
-      ль поделился с ботом.\n\n\n\nПриходит в ответ на нажатие кнопки `com.kaleert.nyagram.api.objects.replykeyboard.buttons.KeyboardButtonRequestUser`."
+      ль поделился с ботом.\n\n\n\nПриходит в ответ на нажатие кнопки `pro.kaleert.nyagram.api.objects.replykeyboard.buttons.KeyboardButtonRequestUser`."
     fields:
     - name: "requestId"
       type: "Integer"
@@ -26456,7 +26747,7 @@ packages:
         desc: ""
       exceptions: []
       line: 78
-      since: "1.2.0"
+      since: "1.2.1"
     methods:
     - name: "matches"
       anchor: "matches_1"
@@ -26472,10 +26763,10 @@ packages:
         desc: "true, если соответствует."
       exceptions: []
       line: 86
-      since: "1.2.0"
+      since: "1.2.1"
     enumConstants: []
     line: 78
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "CallbackMeta"
     name: "CallbackMeta"
@@ -26640,7 +26931,7 @@ packages:
     name: "CallbackRegistry"
     type: "Class"
     description: "Реестр обработчиков callback-запросов.\n\n\n\nСканирует бины Spring\
-      \ на наличие методов, помеченных аннотацией `com.kaleert.nyagram.callback.annotation.Callback`,\n\
+      \ на наличие методов, помеченных аннотацией `pro.kaleert.nyagram.callback.annotation.Callback`,\n\
       и сохраняет их для последующего использования в диспетчере.\nПоддерживает со\
       ртировку обработчиков по специфичности шаблона."
     fields:
@@ -26847,12 +27138,12 @@ packages:
       parameters:
       - name: "method"
         type: "BotApiMethod<T>"
-        desc: "Объект метода API (например, {@link com.kaleert.nyagram.api.methods.send.SendMessage})."
+        desc: "Объект метода API (например, {@link pro.kaleert.nyagram.api.methods.send.SendMessage})."
       returns:
         type: "T"
         desc: "Результат выполнения запроса (объект Telegram)."
       exceptions:
-      - type: "com.kaleert.nyagram.api.exception.TelegramApiRequestException"
+      - type: "pro.kaleert.nyagram.api.exception.TelegramApiRequestException"
         desc: "если API вернул ошибку."
       line: 129
       since: "1.0.0"
@@ -26910,7 +27201,7 @@ packages:
       returns:
         type: "MultiValueMap<String,Object>"
       exceptions: []
-      line: 212
+      line: 222
       since: "1.0.0"
     - name: "requiresMultipart"
       anchor: "requiresMultipart_1"
@@ -26924,7 +27215,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 233
+      line: 243
       since: "1.0.0"
     - name: "handleClientError"
       anchor: "handleClientError_2"
@@ -26942,7 +27233,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 271
+      line: 281
       since: "1.0.0"
     - name: "parseRetryAfter"
       anchor: "parseRetryAfter_1"
@@ -26956,7 +27247,7 @@ packages:
       returns:
         type: "long"
       exceptions: []
-      line: 285
+      line: 295
       since: "1.0.0"
     - name: "sleep"
       anchor: "sleep_1"
@@ -26970,7 +27261,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 293
+      line: 303
       since: "1.0.0"
     - name: "getFileAsync"
       anchor: "getFileAsync_1"
@@ -26987,13 +27278,13 @@ packages:
         type: "CompletableFuture<File>"
         desc: "Future с объектом {@link File}."
       exceptions: []
-      line: 307
+      line: 317
       since: "1.0.0"
     - name: "downloadFileAsStream"
       anchor: "downloadFileAsStream_1"
       tag: "API"
       description: "Скачивает файл с серверов Telegram по его пути.\n\n\n\nПуть к\
-        \ файлу можно получить, вызвав `com.kaleert.nyagram.api.methods.GetFile`."
+        \ файлу можно получить, вызвав `pro.kaleert.nyagram.api.methods.GetFile`."
       signature: "public InputStream downloadFileAsStream(String filePath)"
       parameters:
       - name: "filePath"
@@ -27003,7 +27294,7 @@ packages:
         type: "InputStream"
         desc: "InputStream с содержимым файла."
       exceptions: []
-      line: 320
+      line: 330
       since: "1.0.0"
     - name: "toJson"
       anchor: "toJson_1"
@@ -27017,7 +27308,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 388
+      line: 398
       since: "1.0.0"
     enumConstants: []
     line: 51
@@ -27037,22 +27328,22 @@ packages:
       type: "long"
       visibility: "private"
       description: "No description provided."
-      line: 333
+      line: 343
     - name: "refillPeriodNanos"
       type: "long"
       visibility: "private"
       description: "No description provided."
-      line: 334
+      line: 344
     - name: "tokens"
       type: "AtomicLong"
       visibility: "private"
       description: "No description provided."
-      line: 335
+      line: 345
     - name: "lastRefillNanos"
       type: "AtomicLong"
       visibility: "private"
       description: "No description provided."
-      line: 336
+      line: 346
     constructors:
     - name: "NyagramClient.TokenBucketRateLimiter"
       anchor: "new_2"
@@ -27070,8 +27361,8 @@ packages:
         type: "NyagramClient.TokenBucketRateLimiter"
         desc: ""
       exceptions: []
-      line: 344
-      since: "1.2.0"
+      line: 354
+      since: "1.2.1"
     methods:
     - name: "acquire"
       anchor: "acquire_0"
@@ -27084,8 +27375,8 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 358
-      since: "1.2.0"
+      line: 368
+      since: "1.2.1"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -27095,11 +27386,11 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 376
-      since: "1.2.0"
+      line: 386
+      since: "1.2.1"
     enumConstants: []
-    line: 332
-    since: "1.2.0"
+    line: 342
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -27305,7 +27596,7 @@ packages:
     name: "AutoMultipartBuilder"
     type: "Class"
     description: "Утилита для автоматического преобразования объектов API в Multipart-з\
-      апросы.\n\n\n\nИспользует рефлексию для поиска полей типа `com.kaleert.nyagram.api.objects.InputFile`\n\
+      апросы.\n\n\n\nИспользует рефлексию для поиска полей типа `pro.kaleert.nyagram.api.objects.InputFile`\n\
       и добавляет их в тело запроса как файлы, а остальные поля — как текстовые па\
       раметры или JSON."
     fields:
@@ -27473,11 +27764,11 @@ packages:
         desc: ""
       exceptions: []
       line: 136
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList:
     - "ByteArrayResource"
     implementsList: []
@@ -27585,7 +27876,7 @@ packages:
       anchor: "build_1"
       tag: "API"
       description: "Строит тело Multipart-запроса на основе объекта метода API.\n\n\
-        \n\nПреобразует поля объекта в параметры формы. Файлы (`com.kaleert.nyagram.api.objects.InputFile`)\n\
+        \n\nПреобразует поля объекта в параметры формы. Файлы (`pro.kaleert.nyagram.api.objects.InputFile`)\n\
         добавляются как ресурсы, остальные поля — как строки или JSON."
       signature: "public MultiValueMap<String, Object> build(BotApiMethod<?> method)"
       parameters:
@@ -28029,7 +28320,7 @@ packages:
     name: "BackoffStrategy"
     type: "Interface"
     description: "Стратегия расчета задержки перед повторной попыткой запроса.\n\n\
-      \n\nИспользуется в `com.kaleert.nyagram.client.NyagramClient` для обработки\n\
+      \n\nИспользуется в `pro.kaleert.nyagram.client.NyagramClient` для обработки\n\
       сетевых ошибок (5xx) или ограничений скорости (429)."
     fields: []
     constructors: []
@@ -28121,7 +28412,7 @@ packages:
         type: "void"
       exceptions: []
       line: 17
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "canHandle"
       anchor: "canHandle_1"
       tag: "Internal"
@@ -28136,7 +28427,7 @@ packages:
         desc: "true, если команда должна быть выполнена."
       exceptions: []
       line: 24
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "getCommand"
       anchor: "getCommand_0"
       tag: "Internal"
@@ -28150,10 +28441,10 @@ packages:
           о назначения."
       exceptions: []
       line: 31
-      since: "1.2.0"
+      since: "1.2.1"
     enumConstants: []
     line: 11
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -28703,8 +28994,8 @@ packages:
     type: "Class"
     description: "Основной конфигурационный класс Spring Boot для библиотеки Nyagram.\n\
       \n\n\nАвтоматически настраивает бины в зависимости от свойств в `application.yml`:\n\
-      \n    \n- Создает `com.kaleert.nyagram.client.NyagramClient`.\n    \n- Настр\
-      аивает `com.kaleert.nyagram.core.polling.NyagramPoller` или Webhook контролл\
+      \n    \n- Создает `pro.kaleert.nyagram.client.NyagramClient`.\n    \n- Настр\
+      аивает `pro.kaleert.nyagram.core.polling.NyagramPoller` или Webhook контролл\
       ер.\n    \n- Регистрирует дефолтные провайдеры безопасности и обработчики, е\
       сли пользователь не предоставил свои."
     fields: []
@@ -28719,7 +29010,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 65
+      line: 66
       since: "1.1.1"
     - name: "defaultNyagramConfig"
       anchor: "defaultNyagramConfig_1"
@@ -28733,7 +29024,7 @@ packages:
       returns:
         type: "NyagramBotConfig"
       exceptions: []
-      line: 75
+      line: 76
       deprecation:
         isDeprecated: true
         since: "1.1.1"
@@ -28756,7 +29047,7 @@ packages:
         type: "NyagramExecutor"
         desc: "Исполнитель задач Nyagram."
       exceptions: []
-      line: 90
+      line: 91
       since: "1.0.0"
     - name: "nyagramClient"
       anchor: "nyagramClient_7"
@@ -28792,7 +29083,7 @@ packages:
         type: "NyagramClient"
         desc: "Клиент Nyagram."
       exceptions: []
-      line: 106
+      line: 107
       since: "1.0.0"
     - name: "botConcurrencyStrategy"
       anchor: "botConcurrencyStrategy_1"
@@ -28810,7 +29101,7 @@ packages:
         type: "BotConcurrencyStrategy"
         desc: "Стратегия конкурентности."
       exceptions: []
-      line: 127
+      line: 128
       since: "1.0.0"
     - name: "nyagramPoller"
       anchor: "nyagramPoller_7"
@@ -28847,7 +29138,7 @@ packages:
         type: "NyagramPoller"
         desc: "Объект пуллера."
       exceptions: []
-      line: 144
+      line: 145
       since: "1.0.0"
     - name: "nyagramWebhookController"
       anchor: "nyagramWebhookController_2"
@@ -28867,15 +29158,15 @@ packages:
         type: "NyagramWebhookController"
         desc: "Контроллер вебхуков."
       exceptions: []
-      line: 166
+      line: 167
       since: "1.0.0"
     - name: "webhookLifecycleService"
-      anchor: "webhookLifecycleService_2"
+      anchor: "webhookLifecycleService_3"
       tag: "API"
       description: "Создает сервис для автоматической установки и удаления вебхука\
         \ при старте/остановке приложения."
       signature: "public WebhookLifecycleService webhookLifecycleService(NyagramClient\
-        \ client, NyagramBotConfig config)"
+        \ client, NyagramBotConfig config, ObjectProvider<NyagramBotProvider> nyagramBotProvider)"
       parameters:
       - name: "client"
         type: "NyagramClient"
@@ -28883,11 +29174,14 @@ packages:
       - name: "config"
         type: "NyagramBotConfig"
         desc: "Конфигурация бота (содержит URL вебхука и секрет)."
+      - name: "nyagramBotProvider"
+        type: "ObjectProvider<NyagramBotProvider>"
+        desc: "No description."
       returns:
         type: "WebhookLifecycleService"
         desc: "Сервис управления жизненным циклом вебхука."
       exceptions: []
-      line: 184
+      line: 185
       since: "1.0.0"
     - name: "defaultUserLevelProvider"
       anchor: "defaultUserLevelProvider_0"
@@ -28899,7 +29193,7 @@ packages:
       returns:
         type: "UserLevelProvider"
       exceptions: []
-      line: 197
+      line: 199
       since: "1.0.0"
     - name: "defaultUserPermissionProvider"
       anchor: "defaultUserPermissionProvider_0"
@@ -28911,7 +29205,7 @@ packages:
       returns:
         type: "UserPermissionProvider"
       exceptions: []
-      line: 208
+      line: 210
       since: "1.0.0"
     - name: "defaultBroadcastProvider"
       anchor: "defaultBroadcastProvider_0"
@@ -28923,7 +29217,7 @@ packages:
       returns:
         type: "BroadcastTargetProvider"
       exceptions: []
-      line: 219
+      line: 221
       since: "1.0.0"
     - name: "defaultMissingArgumentHandler"
       anchor: "defaultMissingArgumentHandler_0"
@@ -28935,7 +29229,7 @@ packages:
       returns:
         type: "MissingArgumentHandler"
       exceptions: []
-      line: 230
+      line: 232
       since: "1.0.0"
     - name: "topicIdCache"
       anchor: "topicIdCache_0"
@@ -28946,7 +29240,7 @@ packages:
       returns:
         type: "TopicIdCache"
       exceptions: []
-      line: 240
+      line: 242
       since: "1.0.0"
     - name: "defaultLocaleResolver"
       anchor: "defaultLocaleResolver_0"
@@ -28957,10 +29251,10 @@ packages:
       returns:
         type: "LocaleResolver"
       exceptions: []
-      line: 246
+      line: 248
       since: "1.0.0"
     enumConstants: []
-    line: 54
+    line: 55
     since: "1.0.0"
     extendsList: []
     implementsList: []
@@ -29047,7 +29341,7 @@ packages:
       anchor: "restTemplate_2"
       tag: "API"
       description: "Создает `RestTemplate` для синхронных HTTP-запросов.\n\n\n\nВ\
-        \ основном используется компонентом `com.kaleert.nyagram.core.polling.NyagramPoller`\n\
+        \ основном используется компонентом `pro.kaleert.nyagram.core.polling.NyagramPoller`\n\
         для выполнения long-polling запросов, так как RestClient реактивен, а полл\
         инг требует блокировки."
       signature: "public RestTemplate restTemplate(NyagramBotConfig config, ObjectProvider<NyagramProxyProvider>\
@@ -29116,7 +29410,7 @@ packages:
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList:
     - "RedisTemplate<K, V>"
     implementsList: []
@@ -29154,6 +29448,92 @@ packages:
     enumConstants: []
     line: 15
     since: "1.0.0"
+    extendsList: []
+    implementsList: []
+    typeParameters: []
+  - id: "BotTokenContext"
+    name: "BotTokenContext"
+    type: "Class"
+    description: "Хранилище токена бота для текущего потока.\n\n\n\nПозволяет фрей\
+      мворку работать в режиме Multi-Bot. Если токен установлен,\n`pro.kaleert.nyagram.client.NyagramClient`\
+      \ будет использовать его\nвместо дефолтного токена из конфигурации."
+    fields:
+    - name: "TOKEN_HOLDER"
+      type: "ThreadLocal<String>"
+      visibility: "private"
+      description: "No description provided."
+      line: 18
+    - name: "USERNAME_HOLDER"
+      type: "ThreadLocal<String>"
+      visibility: "private"
+      description: "No description provided."
+      line: 19
+    constructors: []
+    methods:
+    - name: "setToken"
+      anchor: "setToken_1"
+      tag: "API"
+      description: "No description provided."
+      signature: "public static void setToken(String token)"
+      parameters:
+      - name: "token"
+        type: "String"
+        desc: "No description."
+      returns:
+        type: "void"
+      exceptions: []
+      line: 21
+      since: "1.2.1"
+    - name: "getToken"
+      anchor: "getToken_0"
+      tag: "API"
+      description: "No description provided."
+      signature: "public static String getToken()"
+      parameters: []
+      returns:
+        type: "String"
+      exceptions: []
+      line: 25
+      since: "1.2.1"
+    - name: "setUsername"
+      anchor: "setUsername_1"
+      tag: "API"
+      description: "No description provided."
+      signature: "public static void setUsername(String username)"
+      parameters:
+      - name: "username"
+        type: "String"
+        desc: "No description."
+      returns:
+        type: "void"
+      exceptions: []
+      line: 29
+      since: "1.2.1"
+    - name: "getUsername"
+      anchor: "getUsername_0"
+      tag: "API"
+      description: "No description provided."
+      signature: "public static String getUsername()"
+      parameters: []
+      returns:
+        type: "String"
+      exceptions: []
+      line: 33
+      since: "1.2.1"
+    - name: "clear"
+      anchor: "clear_0"
+      tag: "API"
+      description: "No description provided."
+      signature: "public static void clear()"
+      parameters: []
+      returns:
+        type: "void"
+      exceptions: []
+      line: 37
+      since: "1.2.1"
+    enumConstants: []
+    line: 15
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -29277,7 +29657,7 @@ packages:
         \ задач (генерация отчетов, долгие I/O запросы),\nкоторые не изменяют сост\
         ояние FSM."
     line: 30
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "CommandResult"
     name: "CommandResult"
@@ -29483,7 +29863,7 @@ packages:
         type: "void"
       exceptions: []
       line: 34
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "checkForUpdates"
       anchor: "checkForUpdates_0"
       tag: "API"
@@ -29494,7 +29874,7 @@ packages:
         type: "void"
       exceptions: []
       line: 45
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "isNewerVersion"
       anchor: "isNewerVersion_2"
       tag: "Internal"
@@ -29511,10 +29891,10 @@ packages:
         type: "boolean"
       exceptions: []
       line: 88
-      since: "1.2.0"
+      since: "1.2.1"
     enumConstants: []
     line: 21
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -29916,7 +30296,7 @@ packages:
         type: "String"
         desc: "Диагностическая строка."
       exceptions: []
-      line: 204
+      line: 209
       since: "1.0.0"
     - name: "isShutdown"
       anchor: "isShutdown_0"
@@ -29927,7 +30307,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 228
+      line: 233
       since: "1.0.0"
     - name: "shutdown"
       anchor: "shutdown_0"
@@ -29940,7 +30320,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 239
+      line: 244
       since: "1.0.0"
     enumConstants: []
     line: 27
@@ -29959,12 +30339,12 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 263
+      line: 268
     - name: "threadNumber"
       type: "AtomicInteger"
       visibility: "private"
       description: "No description provided."
-      line: 264
+      line: 269
     constructors:
     - name: "NyagramExecutor.PlatformThreadFactory"
       anchor: "new_1"
@@ -29979,12 +30359,12 @@ packages:
         type: "NyagramExecutor.PlatformThreadFactory"
         desc: ""
       exceptions: []
-      line: 266
-      since: "1.2.0"
+      line: 271
+      since: "1.2.1"
     methods: []
     enumConstants: []
-    line: 262
-    since: "1.2.0"
+    line: 267
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "ThreadFactory"
@@ -30062,7 +30442,7 @@ packages:
     type: "Class"
     description: "Компонент, отвечающий за получение обновлений методом Long Polling.\n\
       \n\n\nРаботает в бесконечном цикле в отдельном потоке. Выполняет запросы `getUpdates`\n\
-      к API Telegram, получает массив обновлений и передает их в `com.kaleert.nyagram.core.UpdateProcessor`.\n\
+      к API Telegram, получает массив обновлений и передает их в `pro.kaleert.nyagram.core.UpdateProcessor`.\n\
       \n\n\n\nУправляет смещением (offset), чтобы не получать одни и те же сообщен\
       ия дважды,\nи обрабатывает сетевые ошибки (backoff)."
     fields:
@@ -30593,7 +30973,7 @@ packages:
     methods: []
     enumConstants: []
     line: 26
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Integer>"
@@ -30607,7 +30987,7 @@ packages:
     methods: []
     enumConstants: []
     line: 46
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Long>"
@@ -30621,7 +31001,7 @@ packages:
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Double>"
@@ -30646,7 +31026,7 @@ packages:
     methods: []
     enumConstants: []
     line: 87
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Boolean>"
@@ -30660,7 +31040,7 @@ packages:
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<String>"
@@ -30674,7 +31054,7 @@ packages:
     methods: []
     enumConstants: []
     line: 126
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Enum<?>>"
@@ -30691,7 +31071,7 @@ packages:
     methods: []
     enumConstants: []
     line: 158
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Object>"
@@ -30911,8 +31291,8 @@ packages:
       returns:
         type: "boolean"
         desc: "true, если обновление было полностью обработано и дальнейшая\n    \
-          \    передача в {@link com.kaleert.nyagram.dispatcher.CommandDispatcher}\n\
-          \        или {@link com.kaleert.nyagram.dispatcher.EventDispatcher} не т\
+          \    передача в {@link pro.kaleert.nyagram.dispatcher.CommandDispatcher}\n\
+          \        или {@link pro.kaleert.nyagram.dispatcher.EventDispatcher} не т\
           ребуется.\n        false, если нужно продолжить стандартную обработку."
       exceptions: []
       line: 26
@@ -30920,6 +31300,34 @@ packages:
     enumConstants: []
     line: 15
     since: "1.0.0"
+    extendsList: []
+    implementsList: []
+    typeParameters: []
+  - id: "NyagramBotProvider"
+    name: "NyagramBotProvider"
+    type: "Interface"
+    description: "Провайдер токенов для работы фреймворка в режиме Multi-Bot (SaaS).\n\
+      \n\n\nЕсли вы реализуете этот интерфейс и зарегистрируете его как Spring Bean,\n\
+      Nyagram автоматически перейдет в многопользовательский режим и установит\nве\
+      бхуки для всех переданных токенов."
+    fields: []
+    constructors: []
+    methods:
+    - name: "getBotTokens"
+      anchor: "getBotTokens_0"
+      tag: "Internal"
+      description: "Возвращает коллекцию токенов всех дочерних ботов."
+      signature: " Collection<String> getBotTokens()"
+      parameters: []
+      returns:
+        type: "Collection<String>"
+        desc: "Коллекция токенов."
+      exceptions: []
+      line: 21
+      since: "1.2.1"
+    enumConstants: []
+    line: 15
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -31164,7 +31572,7 @@ packages:
     - name: "WEBHOOK"
       description: "Telegram отправляет запросы на сервер бота."
     line: 120
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
 - name: "dispatcher"
   items:
@@ -31173,7 +31581,7 @@ packages:
     type: "Class"
     description: "Диспетчер событий (не команд).\n\n\n\nМаршрутизирует обновления\
       , которые не являются текстовыми командами (например,\nнажатия кнопок, добав\
-      ление бота в чат, платежи, опросы), в методы,\nпомеченные аннотацией `com.kaleert.nyagram.event.NyagramEventHandler`."
+      ление бота в чат, платежи, опросы), в методы,\nпомеченные аннотацией `pro.kaleert.nyagram.event.NyagramEventHandler`."
     fields:
     - name: "eventRegistry"
       type: "EventRegistry"
@@ -31206,7 +31614,7 @@ packages:
       anchor: "dispatch_1"
       tag: "API"
       description: "Обрабатывает входящее обновление как событие.\n\n\n\nОпределяе\
-        т тип события (`com.kaleert.nyagram.event.EventType`), находит\nсписок под\
+        т тип события (`pro.kaleert.nyagram.event.EventType`), находит\nсписок под\
         писчиков в реестре и вызывает их последовательно."
       signature: "public void dispatch(Update update)"
       parameters:
@@ -31881,6 +32289,20 @@ packages:
     - "RuntimeException"
     implementsList: []
     typeParameters: []
+  - id: "NyagramFailureAnalyzer"
+    name: "NyagramFailureAnalyzer"
+    type: "Class"
+    description: "Универсальный перехватчик фатальных ошибок при запуске Spring Boot."
+    fields: []
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 11
+    since: "1.2.1"
+    extendsList:
+    - "AbstractFailureAnalyzer<Throwable>"
+    implementsList: []
+    typeParameters: []
   - id: "BotControllerAdvice"
     name: "BotControllerAdvice"
     type: "Type"
@@ -31984,11 +32406,11 @@ packages:
         desc: ""
       exceptions: []
       line: 101
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 101
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "TelegramNetworkException"
     name: "TelegramNetworkException"
@@ -32053,7 +32475,7 @@ packages:
     type: "Class"
     description: "Исключение, выбрасываемое системой безопасности бота, когда у по\
       льзователя\nнедостаточно прав для выполнения действия.\n\n\n\nВозникает при\
-      \ проверке аннотации `com.kaleert.nyagram.security.RequiresPermission`."
+      \ проверке аннотации `pro.kaleert.nyagram.security.RequiresPermission`."
     fields: []
     constructors:
     - name: "NoPermissionException"
@@ -32121,7 +32543,7 @@ packages:
     type: "Class"
     description: "Исключение, выбрасываемое при ошибке преобразования аргумента ко\
       манды.\n\n\n\nНапример, если метод ожидает `Integer`, а пользователь ввел \"\
-      abc\".\nОбычно обрабатывается `com.kaleert.nyagram.core.spi.MissingArgumentHandler`\n\
+      abc\".\nОбычно обрабатывается `pro.kaleert.nyagram.core.spi.MissingArgumentHandler`\n\
       для отправки понятного сообщения пользователю."
     fields: []
     constructors:
@@ -32364,11 +32786,11 @@ packages:
       description: "Внутренний цикл продвинутой массовой рассылки сообщений.\n\n\n\
         \nОсуществляет многопоточную отправку существующего сообщения (поддерживаю\
         тся любые медиаформаты).\nИспользует гибридный механизм отправки:\n\n    \n\
-        - Если `replyMarkup` **не задан**, используется метод `com.kaleert.nyagram.api.methods.send.ForwardMessage`\n\
+        - Если `replyMarkup` **не задан**, используется метод `pro.kaleert.nyagram.api.methods.send.ForwardMessage`\n\
         \    для максимальной скорости и сохранения оригинального вида поста.\n  \
-        \  \n- Если `replyMarkup` **задан**, используется метод `com.kaleert.nyagram.api.methods.send.CopyMessage`,\n\
+        \  \n- Если `replyMarkup` **задан**, используется метод `pro.kaleert.nyagram.api.methods.send.CopyMessage`,\n\
         \    позволяющий прикрепить новые кнопки к рассылаемому контенту.\n\nЗадач\
-        и распределяются через `com.kaleert.nyagram.core.concurrency.NyagramExecutor`,\
+        и распределяются через `pro.kaleert.nyagram.core.concurrency.NyagramExecutor`,\
         \ а ожидание завершения всех потоков \nсинхронизируется с помощью `java.util.concurrent.Phaser`."
       signature: "private void runAdvancedBroadcastLoop(Long fromChatId, Integer messageId,\
         \ ReplyKeyboard replyMarkup, Integer senderAdminId)"
@@ -32432,7 +32854,7 @@ packages:
     methods: []
     enumConstants: []
     line: 23
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -32470,7 +32892,7 @@ packages:
     methods: []
     enumConstants: []
     line: 34
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -32480,7 +32902,7 @@ packages:
     name: "BroadcastTargetProvider"
     type: "Interface"
     description: "Интерфейс поставщика целевой аудитории для рассылок.\n\n\n\nПоль\
-      зователь библиотеки должен реализовать этот интерфейс, чтобы указать `com.kaleert.nyagram.feature.broadcast.BroadcastManager`,\n\
+      зователь библиотеки должен реализовать этот интерфейс, чтобы указать `pro.kaleert.nyagram.feature.broadcast.BroadcastManager`,\n\
       кому отправлять сообщения."
     fields: []
     constructors: []
@@ -32512,7 +32934,7 @@ packages:
     name: "FileService"
     type: "Class"
     description: "Сервис для работы с файлами Telegram.\n\n\n\nУпрощает процесс ск\
-      ачивания файлов:\n1. Получает объект `com.kaleert.nyagram.api.objects.File`\
+      ачивания файлов:\n1. Получает объект `pro.kaleert.nyagram.api.objects.File`\
       \ по `file_id`.\n2. Формирует ссылку для скачивания.\n3. Загружает поток бай\
       тов и сохраняет его на диск."
     fields:
@@ -32606,8 +33028,8 @@ packages:
   - id: "TopicServiceImpl"
     name: "TopicServiceImpl"
     type: "Class"
-    description: "Стандартная реализация `TopicService`.\n\n\n\nИспользует `com.kaleert.nyagram.client.NyagramClient`\
-      \ для выполнения запросов\nи `com.kaleert.nyagram.feature.forum.spi.TopicIdCache`\
+    description: "Стандартная реализация `TopicService`.\n\n\n\nИспользует `pro.kaleert.nyagram.client.NyagramClient`\
+      \ для выполнения запросов\nи `pro.kaleert.nyagram.feature.forum.spi.TopicIdCache`\
       \ для кэширования ID топиков."
     fields:
     - name: "client"
@@ -33440,11 +33862,11 @@ packages:
         desc: ""
       exceptions: []
       line: 167
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 167
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
 - name: "fsm"
   items:
@@ -33454,7 +33876,7 @@ packages:
     description: "Реестр обработчиков состояний (State Handlers).\n\n\n\nПри запус\
       ке приложения сканирует бины на наличие методов с аннотацией `StateAction`\n\
       и сохраняет маппинг \"Название состояния\" -> \"Метод для выполнения\".\nИсп\
-      ользуется в `com.kaleert.nyagram.middleware.FsmMiddleware` для маршрутизации\
+      ользуется в `pro.kaleert.nyagram.middleware.FsmMiddleware` для маршрутизации\
       ."
     fields:
     - name: "stateHandlers"
@@ -33792,11 +34214,11 @@ packages:
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 145
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList:
     - "UserSession"
     implementsList: []
@@ -33805,7 +34227,7 @@ packages:
     name: "FsmArgumentResolver"
     type: "Class"
     description: "Резолвер аргументов для методов-обработчиков состояний FSM.\n\n\n\
-      \nОтвечает за инъекцию параметров в методы, помеченные аннотацией `com.kaleert.nyagram.fsm.annotation.StateAction`.\n\
+      \nОтвечает за инъекцию параметров в методы, помеченные аннотацией `pro.kaleert.nyagram.fsm.annotation.StateAction`.\n\
       Поддерживает внедрение:\n\n    \n- `CommandContext`\n    \n- `UserSession`\n\
       \    \n- Данных сессии через аннотацию `SessionData`\n    \n- Любых Spring-б\
       инов (сервисов, репозиториев)"
@@ -33921,8 +34343,8 @@ packages:
     type: "Interface"
     description: "Интерфейс хранилища сессий (Persistence Layer).\n\n\n\nОпределяе\
       т контракт для сохранения, загрузки и удаления сессий пользователей.\nРеализ\
-      ации могут хранить данные в памяти (`com.kaleert.nyagram.fsm.store.InMemorySessionStore`),\n\
-      в Redis (`com.kaleert.nyagram.fsm.store.RedisSessionStore`) или в SQL базе д\
+      ации могут хранить данные в памяти (`pro.kaleert.nyagram.fsm.store.InMemorySessionStore`),\n\
+      в Redis (`pro.kaleert.nyagram.fsm.store.RedisSessionStore`) или в SQL базе д\
       анных."
     fields: []
     constructors: []
@@ -34416,7 +34838,7 @@ packages:
     description: "Метаданные зарегистрированной команды.\n\n\n\nХранит всю информа\
       цию, необходимую для выполнения команды: ссылку на метод,\nтребования безопа\
       сности (права, уровни), ограничения скорости (rate limits)\nи описание аргум\
-      ентов. Собирается `com.kaleert.nyagram.core.registry.CommandRegistry`\nпри с\
+      ентов. Собирается `pro.kaleert.nyagram.core.registry.CommandRegistry`\nпри с\
       тарте приложения."
     fields:
     - name: "fullCommandPath"
@@ -34554,11 +34976,11 @@ packages:
         desc: ""
       exceptions: []
       line: 63
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 63
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "CommandMeta.RateLimitMeta"
     name: "CommandMeta.RateLimitMeta"
@@ -34602,18 +35024,18 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "EventMeta"
     name: "EventMeta"
     type: "Class"
     description: "Метаданные обработчика событий (не команд).\n\n\n\nХранит ссылку\
       \ на бин и метод, который должен быть вызван при наступлении\nопределенного\
-      \ события `com.kaleert.nyagram.event.EventType`."
+      \ события `pro.kaleert.nyagram.event.EventType`."
     fields:
     - name: "bean"
       type: "Object"
@@ -35029,12 +35451,12 @@ packages:
       description: "Перенаправить выполнение на другую команду (внутренний редирек\
         т)."
     line: 20
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "ContextMiddleware"
     name: "ContextMiddleware"
     type: "Class"
-    description: "Системный Middleware, инициализирующий `com.kaleert.nyagram.context.BotContextHolder`.\n\
+    description: "Системный Middleware, инициализирующий `pro.kaleert.nyagram.context.BotContextHolder`.\n\
       \n\n\nГарантирует, что статический доступ к контексту через `BotContextHolder.getContext()`\n\
       будет доступен на протяжении всей цепочки обработки, и очищает его после зав\
       ершения.\nИмеет наивысший приоритет."
@@ -35085,8 +35507,8 @@ packages:
     name: "ValidationMiddleware"
     type: "Class"
     description: "Middleware для валидации аргументов команды.\n\n\n\nПроверяет вх\
-      одные параметры метода на соответствие аннотациям `com.kaleert.nyagram.validation.Validation`\n\
-      (длина, regex и т.д.) и `com.kaleert.nyagram.command.CommandArgument` (обяза\
+      одные параметры метода на соответствие аннотациям `pro.kaleert.nyagram.validation.Validation`\n\
+      (длина, regex и т.д.) и `pro.kaleert.nyagram.command.CommandArgument` (обяза\
       тельность).\nЕсли валидация не проходит, возвращает ошибку с описанием пробл\
       емы."
     fields: []
@@ -35352,8 +35774,8 @@ packages:
     name: "PermissionCheckPreProcessor"
     type: "Class"
     description: "Пре-процессор для проверки прав (Permissions) пользователя.\n\n\n\
-      \nОбрабатывает аннотацию `com.kaleert.nyagram.security.RequiresPermission`.\n\
-      Проверяет наличие у пользователя необходимых прав через `com.kaleert.nyagram.security.spi.UserPermissionProvider`."
+      \nОбрабатывает аннотацию `pro.kaleert.nyagram.security.RequiresPermission`.\n\
+      Проверяет наличие у пользователя необходимых прав через `pro.kaleert.nyagram.security.spi.UserPermissionProvider`."
     fields:
     - name: "permissionProvider"
       type: "Optional<UserPermissionProvider>"
@@ -35373,7 +35795,7 @@ packages:
     name: "RateLimitPreProcessor"
     type: "Class"
     description: "Пре-процессор для ограничения частоты вызовов команд (Rate Limiting).\n\
-      \n\n\nОбрабатывает аннотацию `com.kaleert.nyagram.security.RateLimit`.\nИспо\
+      \n\n\nОбрабатывает аннотацию `pro.kaleert.nyagram.security.RateLimit`.\nИспо\
       льзует алгоритм Token Bucket для контроля количества запросов от пользовател\
       я или чата\nза определенный промежуток времени."
     fields:
@@ -35456,7 +35878,7 @@ packages:
         desc: ""
       exceptions: []
       line: 125
-      since: "1.2.0"
+      since: "1.2.1"
     methods:
     - name: "tryConsume"
       anchor: "tryConsume_0"
@@ -35471,7 +35893,7 @@ packages:
           \ если токенов нет (лимит превышен)."
       exceptions: []
       line: 142
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "getRetryAfterSeconds"
       anchor: "getRetryAfterSeconds_0"
       tag: "API"
@@ -35484,7 +35906,7 @@ packages:
         desc: "Количество секунд или 0, если токены есть."
       exceptions: []
       line: 161
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "isExpired"
       anchor: "isExpired_1"
       tag: "API"
@@ -35500,7 +35922,7 @@ packages:
         desc: "true, если бакет можно удалить."
       exceptions: []
       line: 186
-      since: "1.2.0"
+      since: "1.2.1"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -35511,10 +35933,10 @@ packages:
         type: "void"
       exceptions: []
       line: 191
-      since: "1.2.0"
+      since: "1.2.1"
     enumConstants: []
     line: 112
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -35558,8 +35980,8 @@ packages:
     name: "LevelCheckPreProcessor"
     type: "Class"
     description: "Пре-процессор для проверки уровня доступа пользователя.\n\n\n\nО\
-      брабатывает аннотацию `com.kaleert.nyagram.security.LevelRequired`.\nСравнив\
-      ает уровень пользователя (полученный от `com.kaleert.nyagram.security.spi.UserLevelProvider`)\n\
+      брабатывает аннотацию `pro.kaleert.nyagram.security.LevelRequired`.\nСравнив\
+      ает уровень пользователя (полученный от `pro.kaleert.nyagram.security.spi.UserLevelProvider`)\n\
       с требуемым уровнем команды."
     fields:
     - name: "levelProvider"
@@ -35679,7 +36101,7 @@ packages:
     methods: []
     enumConstants: []
     line: 57
-    since: "1.2.0"
+    since: "1.2.1"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -35826,13 +36248,13 @@ packages:
       description: "Лимит применяется ко всему чату (Chat ID), независимо от того\
         , кто пишет."
     line: 50
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
   - id: "LevelRequired"
     name: "LevelRequired"
     type: "Type"
     description: "Ограничивает доступ к команде на основе числового уровня доступа\
-      \ пользователя.\n\n\n\nТребует реализации `com.kaleert.nyagram.security.spi.UserLevelProvider`\
+      \ пользователя.\n\n\n\nТребует реализации `pro.kaleert.nyagram.security.spi.UserLevelProvider`\
       \ в контексте Spring."
     fields: []
     constructors: []
@@ -35848,7 +36270,7 @@ packages:
     name: "RequiresPermission"
     type: "Type"
     description: "Ограничивает доступ к команде на основе строкового разрешения (Permission).\n\
-      \n\n\nТребует реализации `com.kaleert.nyagram.security.spi.UserPermissionProvider`.\n\
+      \n\n\nТребует реализации `pro.kaleert.nyagram.security.spi.UserPermissionProvider`.\n\
       Поддерживает систему прав в стиле \"domain.resource.action\" (например, \"admin.users.ban\"\
       )."
     fields: []
@@ -35887,7 +36309,7 @@ packages:
     description: "Интерфейс (SPI) для определения уровня доступа пользователя.\n\n\
       \n\nРеализуйте этот интерфейс, чтобы интегрировать бота с вашей системой рол\
       ей.\nНапример, можно возвращать 0 для обычных юзеров, 10 для модераторов и 100\
-      \ для администраторов.\nИспользуется аннотацией `com.kaleert.nyagram.security.LevelRequired`."
+      \ для администраторов.\nИспользуется аннотацией `pro.kaleert.nyagram.security.LevelRequired`."
     fields: []
     constructors: []
     methods:
@@ -35916,7 +36338,7 @@ packages:
     name: "UserPermissionProvider"
     type: "Interface"
     description: "Интерфейс (SPI) для определения конкретных прав (Permissions) по\
-      льзователя.\n\n\n\nРеализуйте этот интерфейс для поддержки аннотации `com.kaleert.nyagram.security.RequiresPermission`.\n\
+      льзователя.\n\n\n\nРеализуйте этот интерфейс для поддержки аннотации `pro.kaleert.nyagram.security.RequiresPermission`.\n\
       Позволяет гибко настраивать доступ к отдельным командам (например, \"reports.view\"\
       , \"users.ban\")."
     fields: []
@@ -36061,7 +36483,7 @@ packages:
     name: "HelpGenerator"
     type: "Class"
     description: "Сервис для автоматической генерации справки (/help).\n\n\n\nАнал\
-      изирует зарегистрированные команды в `com.kaleert.nyagram.core.registry.CommandRegistry`.\n\
+      изирует зарегистрированные команды в `pro.kaleert.nyagram.core.registry.CommandRegistry`.\n\
       Фильтрует их в зависимости от прав и уровня текущего пользователя, чтобы не\
       \ показывать\nнедоступные админские команды обычным пользователям."
     fields:
@@ -36281,6 +36703,38 @@ packages:
       exceptions: []
       line: 85
       since: "1.0.0"
+    - name: "blockquote"
+      anchor: "blockquote_1"
+      tag: "API"
+      description: "Создает стандартную цитату (Blockquote)."
+      signature: "public static String blockquote(String text)"
+      parameters:
+      - name: "text"
+        type: "String"
+        desc: "Текст цитаты."
+      returns:
+        type: "String"
+        desc: "Строка <blockquote>text</blockquote>."
+      exceptions: []
+      line: 97
+      since: "1.2.1"
+    - name: "expandableBlockquote"
+      anchor: "expandableBlockquote_1"
+      tag: "API"
+      description: "Создает сворачиваемую цитату (Expandable Blockquote) (API 7.3+).\n\
+        \n\n\nИдеально подходит для длинных текстов, FAQ или логов. Пользователь у\
+        видит\nтолько первые строки, а остальное развернется по клику."
+      signature: "public static String expandableBlockquote(String text)"
+      parameters:
+      - name: "text"
+        type: "String"
+        desc: "Текст длинной цитаты."
+      returns:
+        type: "String"
+        desc: "Строка <blockquote expandable>text</blockquote>."
+      exceptions: []
+      line: 113
+      since: "1.2.1"
     enumConstants: []
     line: 14
     since: "1.0.0"
@@ -36439,7 +36893,7 @@ packages:
   - id: "InlineKeyboardBuilder"
     name: "InlineKeyboardBuilder"
     type: "Class"
-    description: "Строитель (Builder) для создания `com.kaleert.nyagram.api.objects.replykeyboard.InlineKeyboardMarkup`.\n\
+    description: "Строитель (Builder) для создания `pro.kaleert.nyagram.api.objects.replykeyboard.InlineKeyboardMarkup`.\n\
       \n\n\nПозволяет создавать клавиатуры в Fluent-стиле, автоматически управляя\
       \ рядами кнопок.\nПример:\n\n```java\n\nInlineKeyboardBuilder.create()\n   \
       \ .button(\"Да\", \"yes\")\n    .button(\"Нет\", \"no\")\n    .row()\n    .url(\"\
@@ -36645,7 +37099,7 @@ packages:
   - id: "ReplyKeyboardBuilder"
     name: "ReplyKeyboardBuilder"
     type: "Class"
-    description: "Строитель (Builder) для создания `com.kaleert.nyagram.api.objects.replykeyboard.ReplyKeyboardMarkup`.\n\
+    description: "Строитель (Builder) для создания `pro.kaleert.nyagram.api.objects.replykeyboard.ReplyKeyboardMarkup`.\n\
       \n\n\nПозволяет легко собирать обычные клавиатуры (под полем ввода), настраи\
       вать их размер\nи поведение (скрытие после нажатия)."
     fields:
@@ -36912,11 +37366,11 @@ packages:
         desc: ""
       exceptions: []
       line: 103
-      since: "1.2.0"
+      since: "1.2.1"
     methods: []
     enumConstants: []
     line: 103
-    since: "1.2.0"
+    since: "1.2.1"
     typeParameters: []
 - name: "validation"
   items:
@@ -36925,7 +37379,7 @@ packages:
     type: "Class"
     description: "Утилитарный класс, предоставляющий статические методы для валида\
       ции различных форматов данных.\n\n\n\nИспользуется для проверки строк, чисел\
-      \ и специфичных для Telegram форматов\n(username, deep links и т.д.) в `com.kaleert.nyagram.middleware.ValidationMiddleware`."
+      \ и специфичных для Telegram форматов\n(username, deep links и т.д.) в `pro.kaleert.nyagram.middleware.ValidationMiddleware`."
     fields:
     - name: "USERNAME_PATTERN"
       type: "Pattern"
@@ -37254,25 +37708,29 @@ packages:
       type: "NyagramBotConfig"
       visibility: "private"
       description: "No description provided."
-      line: 30
+      line: 31
     - name: "updateProcessor"
       type: "UpdateProcessor"
       visibility: "private"
       description: "No description provided."
-      line: 31
+      line: 32
     constructors: []
     methods:
     - name: "onUpdateReceived"
-      anchor: "onUpdateReceived_2"
+      anchor: "onUpdateReceived_3"
       tag: "API"
       description: "Обрабатывает входящий POST-запрос с обновлением от серверов Telegram.\n\
         \n\n\nМетод проверяет наличие и корректность заголовка `X-Telegram-Bot-Api-Secret-Token`\n\
         (если он настроен), после чего передает объект `Update` в `UpdateProcessor`\n\
         для асинхронной обработки."
-      signature: "public ResponseEntity<String> onUpdateReceived(@RequestBody Update\
-        \ update, @RequestHeader(value = \"X-Telegram-Bot-Api-Secret-Token\", required\
-        \ = false) String secretToken)"
+      signature: "public ResponseEntity<String> onUpdateReceived(@PathVariable(value\
+        \ = \"token\", required = false) String token, @RequestBody Update update,\
+        \ @RequestHeader(value = \"X-Telegram-Bot-Api-Secret-Token\", required = false)\
+        \ String secretToken)"
       parameters:
+      - name: "token"
+        type: "String"
+        desc: "No description."
       - name: "update"
         type: "Update"
         desc: "Тело запроса (JSON), десериализованное в объект Update."
@@ -37283,10 +37741,10 @@ packages:
         type: "ResponseEntity<String>"
         desc: "200 OK, если запрос принят. 403 Forbidden, если токен неверен."
       exceptions: []
-      line: 45
+      line: 46
       since: "1.0.0"
     enumConstants: []
-    line: 25
+    line: 26
     since: "1.0.0"
     extendsList: []
     implementsList: []
@@ -37294,31 +37752,50 @@ packages:
   - id: "WebhookLifecycleService"
     name: "WebhookLifecycleService"
     type: "Class"
-    description: "Сервис управления жизненным циклом вебхука.\n\n\n\nАвтоматически\
-      \ устанавливает вебхук при запуске приложения (через `setWebhook`)\nи удаляе\
-      т его при остановке (через `deleteWebhook`).\nГарантирует корректную регистр\
-      ацию URL бота в Telegram API."
+    description: "No description provided."
     fields:
     - name: "client"
       type: "NyagramClient"
       visibility: "private"
       description: "No description provided."
-      line: 25
+      line: 20
     - name: "config"
       type: "NyagramBotConfig"
       visibility: "private"
       description: "No description provided."
-      line: 26
+      line: 21
+    - name: "botProvider"
+      type: "ObjectProvider<NyagramBotProvider>"
+      visibility: "private"
+      description: "No description provided."
+      line: 22
     - name: "running"
       type: "boolean"
       visibility: "private"
       description: "No description provided."
-      line: 27
+      line: 23
     constructors: []
-    methods: []
+    methods:
+    - name: "setupSingleWebhook"
+      anchor: "setupSingleWebhook_2"
+      tag: "Internal"
+      description: "No description provided."
+      signature: "private void setupSingleWebhook(String token, String targetUrl)"
+      parameters:
+      - name: "token"
+        type: "String"
+        desc: "No description."
+      - name: "targetUrl"
+        type: "String"
+        desc: "No description."
+      returns:
+        type: "void"
+      exceptions: []
+      line: 57
+      since: "1.2.1"
     enumConstants: []
-    line: 21
-    since: "1.0.0"
+    line: 16
+    since: "1.2.1"
     extendsList: []
     implementsList:
     - "SmartLifecycle"

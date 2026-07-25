@@ -1,6 +1,6 @@
 metadata:
   title: "Nyagram Docs"
-  version: "1.2.0"
+  version: "1.2.1"
   githubUrl: "https://github.com/kaleert/nyagram"
   sourcePath: "src/main/java"
 
@@ -57,10 +57,17 @@ sidebar:
             link: "/docs/guides/middleware"
           - label: "Массовые рассылки"
             link: "/docs/guides/broadcast"
+            
+      - label: "Миграция на 1.2.1"
+        link: "/docs/migration-to-1.2.1"
+        icon: "star"
   
   - title: "Updates"
     icon: "updates"
     items:
+      - label: "v1.2.1"
+        link: "/version/1.2.1"
+        icon: "version"
       - label: "v1.2.0"
         link: "/version/1.2.0"
         icon: "version"
@@ -89,11 +96,11 @@ sidebar:
   - title: "Social & Links"
     icon: "link"
     items:
-      - label: "Автор в VK"
+      - label: "Автор в VK (неактуально)"
         link: "https://vk.com/kaleertz"
         icon: "vk"
       - label: "Автор в Telegram"
-        link: "https://t.me/cracked_by_kaleert"
+        link: "https://t.me/wuzeru"
         icon: "tg"
 
   # --- СЕКЦИЯ 2: API (ГЕНЕРИРУЕТСЯ АВТОМАТИЧЕСКИ) ---
