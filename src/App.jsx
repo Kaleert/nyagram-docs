@@ -106,6 +106,7 @@ function App() {
             setTimeout(() => loader.remove(), 500);
         }
         document.body.style.overflow = 'auto';
+        window.scrollTo(0, 0);
       }
     };
 

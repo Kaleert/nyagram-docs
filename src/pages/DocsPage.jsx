@@ -273,10 +273,6 @@ const DocsPage = ({ db }) => {
     if (!loading && !error) {
        if (isAutoScrollEnabled) {
            window.scrollTo(0, 0);
-       } else {
-           setTimeout(() => {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' });
-           }, 50);
        }
     }
   }, [currentPath, loading, error, isAutoScrollEnabled]);

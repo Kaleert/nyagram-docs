@@ -56,13 +56,6 @@ const PackagePage = ({ db, currentPkg }) => {
   useEffect(() => {
      if (isAutoScrollEnabled) {
          window.scrollTo(0, 0);
-     } else {
-         setTimeout(() => {
-             window.scrollTo({ 
-                 top: document.body.scrollHeight, 
-                 behavior: 'instant' 
-             });
-         }, 50);
      }
   }, [currentPkg, isAutoScrollEnabled]);
   
