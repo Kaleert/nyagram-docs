@@ -11,10 +11,10 @@
 Создай отдельный класс (например, `GlobalErrorHandler`). Пометь его аннотацией `@BotControllerAdvice`. Внутри ты можешь определить методы для разных типов ошибок.
 
 ```java
-import com.kaleert.nyagram.exception.BotControllerAdvice;
-import com.kaleert.nyagram.exception.BotExceptionHandler;
-import com.kaleert.nyagram.command.CommandContext;
-import com.kaleert.nyagram.exception.ArgumentParseException;
+import pro.kaleert.nyagram.exception.BotControllerAdvice;
+import pro.kaleert.nyagram.exception.BotExceptionHandler;
+import pro.kaleert.nyagram.command.CommandContext;
+import pro.kaleert.nyagram.exception.ArgumentParseException;
 
 @BotControllerAdvice // 1. Объявляем класс-советник
 public class GlobalErrorHandler {
@@ -28,7 +28,7 @@ public class GlobalErrorHandler {
     }
 
     // 3. Ловим отсутствие прав
-    @BotExceptionHandler(com.kaleert.nyagram.exception.NoPermissionException.class)
+    @BotExceptionHandler(pro.kaleert.nyagram.exception.NoPermissionException.class)
     public void handleNoPermission(Exception e, CommandContext ctx) {
         ctx.reply("⛔ <b>Доступ запрещен!</b> У вас недостаточно прав.");
     }

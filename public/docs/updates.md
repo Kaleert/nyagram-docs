@@ -26,8 +26,8 @@
 ### Пример: Логгер всех сообщений
 
 ```java
-import com.kaleert.nyagram.api.objects.Update;
-import com.kaleert.nyagram.core.spi.UpdateInterceptor;
+import pro.kaleert.nyagram.api.objects.Update;
+import pro.kaleert.nyagram.core.spi.UpdateInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -83,7 +83,7 @@ public boolean preHandle(Update update) {
 Для этого реализуй интерфейс `RawUpdateHandler`.
 
 ```java
-import com.kaleert.nyagram.core.spi.RawUpdateHandler;
+import pro.kaleert.nyagram.core.spi.RawUpdateHandler;
 import org.springframework.stereotype.Component;
 
 @Component

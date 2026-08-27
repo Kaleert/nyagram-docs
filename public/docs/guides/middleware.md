@@ -22,11 +22,11 @@
 Создай класс `PerformanceMiddleware.java`:
 
 ```java
-import com.kaleert.nyagram.middleware.Middleware;
-import com.kaleert.nyagram.middleware.MiddlewareChain;
-import com.kaleert.nyagram.middleware.MiddlewareResult;
-import com.kaleert.nyagram.command.CommandContext;
-import com.kaleert.nyagram.meta.CommandMeta;
+import pro.kaleert.nyagram.middleware.Middleware;
+import pro.kaleert.nyagram.middleware.MiddlewareChain;
+import pro.kaleert.nyagram.middleware.MiddlewareResult;
+import pro.kaleert.nyagram.command.CommandContext;
+import pro.kaleert.nyagram.meta.CommandMeta;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;

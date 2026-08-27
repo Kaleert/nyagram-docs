@@ -15,7 +15,7 @@ Nyagram берет это на себя.
 Реализуй интерфейс `BroadcastTargetProvider`.
 
 ```java
-import com.kaleert.nyagram.feature.broadcast.spi.BroadcastTargetProvider;
+import pro.kaleert.nyagram.feature.broadcast.spi.BroadcastTargetProvider;
 import org.springframework.stereotype.Component;
 import java.util.stream.Stream;
 
@@ -37,7 +37,7 @@ public class MyUserProvider implements BroadcastTargetProvider {
 Теперь в любой админской команде ты можешь вызвать `BroadcastManager`.
 
 ```java
-import com.kaleert.nyagram.feature.broadcast.BroadcastManager;
+import pro.kaleert.nyagram.feature.broadcast.BroadcastManager;
 
 @BotCommand("/admin")
 @RequiredArgsConstructor
@@ -63,7 +63,7 @@ public class AdminPanel {
 Слушай события Spring!
 
 ```java
-import com.kaleert.nyagram.feature.broadcast.event.BroadcastEvents;
+import pro.kaleert.nyagram.feature.broadcast.event.BroadcastEvents;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

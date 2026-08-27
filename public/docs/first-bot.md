@@ -34,9 +34,9 @@ public class MyBotApplication {
 ```java
 package com.example.mybot.commands;
 
-import com.kaleert.nyagram.command.BotCommand;
-import com.kaleert.nyagram.command.CommandContext;
-import com.kaleert.nyagram.command.CommandHandler;
+import pro.kaleert.nyagram.command.BotCommand;
+import pro.kaleert.nyagram.command.CommandContext;
+import pro.kaleert.nyagram.command.CommandHandler;
 
 // 1. Объявляем класс как команду
 @BotCommand(value = "/start", description = "Приветствие")
@@ -50,6 +50,8 @@ public class StartCommand {
     }
 }
 ```
+
+> P.s.: если вы используете версию ниже 1.2.1, то замените `pro` в начале импортов на `com`, т.е `com.kaleert.nyagram.*`
 
 ### Разбор полетов ✈️
 
@@ -84,7 +86,7 @@ public class StartCommand {
 Добавь в этот же класс (или создай новый) еще один метод:
 
 ```java
-import com.kaleert.nyagram.command.CommandArgument;
+import pro.kaleert.nyagram.command.CommandArgument;
 
 // ... внутри класса ...
 

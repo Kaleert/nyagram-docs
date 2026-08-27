@@ -1,4 +1,4 @@
-version: "1.2.1"
+version: "1.2.2"
 packages:
 - name: "api.dto"
   items:
@@ -1077,6 +1077,34 @@ packages:
     - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
+- name: "api.methods.business"
+  items:
+  - id: "GetBusinessConnection"
+    name: "GetBusinessConnection"
+    type: "Class"
+    description: "Используйте этот метод для получения информации о подключении бо\
+      та к бизнес-аккаунту пользователя.\n\n\n\nВозвращает объект `BusinessConnection`\
+      \ при успехе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 26
+    - name: "businessConnectionId"
+      type: "String"
+      visibility: "private"
+      description: "Уникальный идентификатор бизнес-соединения."
+      line: 29
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 19
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<BusinessConnection>"
+    implementsList: []
+    typeParameters: []
 - name: "api.methods.commands"
   items:
   - id: "GetMyCommands"
@@ -1139,6 +1167,36 @@ packages:
     enumConstants: []
     line: 19
     since: "1.0.0"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "SetMyDefaultAdministratorRights"
+    name: "SetMyDefaultAdministratorRights"
+    type: "Class"
+    description: "Изменяет права администратора по умолчанию, которые запрашиваютс\
+      я ботом при его добавлении\nв группу или канал."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 22
+    - name: "rights"
+      type: "ChatAdministratorRights"
+      visibility: "private"
+      description: "No description provided."
+      line: 24
+    - name: "forChannels"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 27
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 15
+    since: "1.2.2"
     extendsList:
     - "BotApiMethodBoolean"
     implementsList: []
@@ -1303,6 +1361,31 @@ packages:
     - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
+  - id: "GetMyDefaultAdministratorRights"
+    name: "GetMyDefaultAdministratorRights"
+    type: "Class"
+    description: "Получает права администратора по умолчанию, которые бот запрашив\
+      ает при добавлении в чат."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "forChannels"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<ChatAdministratorRights>"
+    implementsList: []
+    typeParameters: []
   - id: "SetMyName"
     name: "SetMyName"
     type: "Class"
@@ -1385,6 +1468,81 @@ packages:
     - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
+  - id: "ReopenGeneralForumTopic"
+    name: "ReopenGeneralForumTopic"
+    type: "Class"
+    description: "Используйте этот метод для открытия основного топика \"General\"\
+      \ в супергруппе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "EditGeneralForumTopic"
+    name: "EditGeneralForumTopic"
+    type: "Class"
+    description: "Используйте этот метод для изменения названия основного топика \"\
+      General\" в супергруппе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    - name: "name"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "GetForumTopicIconStickers"
+    name: "GetForumTopicIconStickers"
+    type: "Class"
+    description: "Получает список кастомных эмодзи (стикеров), которые можно испол\
+      ьзовать как иконки для топиков форума."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 15
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<List<Sticker>>"
+    implementsList: []
+    typeParameters: []
   - id: "CreateForumTopic"
     name: "CreateForumTopic"
     type: "Class"
@@ -1459,6 +1617,56 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<ForumTopic>"
+    implementsList: []
+    typeParameters: []
+  - id: "HideGeneralForumTopic"
+    name: "HideGeneralForumTopic"
+    type: "Class"
+    description: "Используйте этот метод для скрытия основного топика \"General\"\
+      \ в супергруппе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "CloseGeneralForumTopic"
+    name: "CloseGeneralForumTopic"
+    type: "Class"
+    description: "Используйте этот метод для закрытия основного топика \"General\"\
+      \ в супергруппе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
   - id: "CloseForumTopic"
@@ -1666,6 +1874,31 @@ packages:
     enumConstants: []
     line: 18
     since: "1.0.0"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "UnhideGeneralForumTopic"
+    name: "UnhideGeneralForumTopic"
+    type: "Class"
+    description: "Используйте этот метод для отмены скрытия основного топика \"General\"\
+      \ в супергруппе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
     extendsList:
     - "BotApiMethodBoolean"
     implementsList: []
@@ -1971,6 +2204,35 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Integer>"
+    implementsList: []
+    typeParameters: []
+  - id: "UnbanChatSenderChat"
+    name: "UnbanChatSenderChat"
+    type: "Class"
+    description: "Снимает блокировку с канала в группе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    - name: "senderChatId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 24
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
   - id: "RestrictChatMember"
@@ -2417,6 +2679,32 @@ packages:
     - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
+  - id: "GetChat"
+    name: "GetChat"
+    type: "Class"
+    description: "Используйте этот метод для получения актуальной информации о чат\
+      е.\n\n\n\nВозвращает объект `ChatFullInfo`, который содержит описание, привя\
+      занный канал,\nлокацию, настройки антиспама и доступные реакции."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 27
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 20
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<ChatFullInfo>"
+    implementsList: []
+    typeParameters: []
   - id: "EditChatInviteLink"
     name: "EditChatInviteLink"
     type: "Class"
@@ -2639,6 +2927,36 @@ packages:
     - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
+  - id: "BanChatSenderChat"
+    name: "BanChatSenderChat"
+    type: "Class"
+    description: "Блокирует канал (chat_sender), запрещая его владельцу писать соо\
+      бщения от имени этого канала в вашей группе."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    - name: "senderChatId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 24
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
   - id: "DeleteChatPhoto"
     name: "DeleteChatPhoto"
     type: "Class"
@@ -2803,6 +3121,11 @@ packages:
       visibility: "private"
       description: "No description provided."
       line: 136
+    - name: "canSendWelcomeMessages"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 142
     constructors: []
     methods:
     - name: "fullRights"
@@ -2823,7 +3146,7 @@ packages:
         type: "PromoteChatMember"
         desc: "готовый объект запроса с полными правами."
       exceptions: []
-      line: 165
+      line: 171
       since: "1.0.0"
     - name: "anonymous"
       anchor: "anonymous_0"
@@ -2836,7 +3159,7 @@ packages:
         type: "PromoteChatMember"
         desc: "текущий билдер."
       exceptions: []
-      line: 196
+      line: 203
       since: "1.0.0"
     enumConstants: []
     line: 19
@@ -2926,6 +3249,36 @@ packages:
     enumConstants: []
     line: 23
     since: "1.0.0"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "ApproveChatJoinRequest"
+    name: "ApproveChatJoinRequest"
+    type: "Class"
+    description: "Используйте этот метод для одобрения заявки пользователя на всту\
+      пление в чат.\n\n\n\nБот должен быть администратором в чате с правом can_invite_users."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 24
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 17
+    since: "1.2.2"
     extendsList:
     - "BotApiMethodBoolean"
     implementsList: []
@@ -3073,6 +3426,32 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "GetChatAdministrators"
+    name: "GetChatAdministrators"
+    type: "Class"
+    description: "Используйте этот метод для получения списка администраторов в ча\
+      те.\n\n\n\nВозвращает список объектов `ChatMember`, содержащих информацию об\
+      о всех создателях и администраторах."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 28
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 30
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 21
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<List<ChatMember>>"
     implementsList: []
     typeParameters: []
   - id: "BanChatMember"
@@ -3422,6 +3801,66 @@ packages:
     - "BotApiMethod<ChatInviteLink>"
     implementsList: []
     typeParameters: []
+  - id: "GetUserChatBoosts"
+    name: "GetUserChatBoosts"
+    type: "Class"
+    description: "Получает список бустов, добавленных конкретным пользователем в ч\
+      ат."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 23
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 25
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 28
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 16
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<UserChatBoosts>"
+    implementsList: []
+    typeParameters: []
+  - id: "DeclineChatJoinRequest"
+    name: "DeclineChatJoinRequest"
+    type: "Class"
+    description: "Используйте этот метод для отклонения заявки пользователя на вст\
+      упление в чат.\n\n\n\nБот должен быть администратором в чате с правом can_invite_users."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 24
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 17
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
   - id: "ExportChatInviteLink"
     name: "ExportChatInviteLink"
     type: "Class"
@@ -3665,6 +4104,59 @@ packages:
     since: "1.2.0"
     extendsList:
     - "BotApiMethod<SentGuestMessage>"
+    implementsList: []
+    typeParameters: []
+- name: "api.methods.inlinequery"
+  items:
+  - id: "SavePreparedInlineMessage"
+    name: "SavePreparedInlineMessage"
+    type: "Class"
+    description: "Сохраняет инлайн-сообщение, чтобы его можно было отправить польз\
+      ователем из Web App.\nВозвращает PreparedInlineMessage с ID, который вы пере\
+      даете в JS метод `shareMessage`."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 25
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 27
+    - name: "result"
+      type: "InlineQueryResult"
+      visibility: "private"
+      description: "No description provided."
+      line: 28
+    - name: "allowUserChats"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    - name: "allowBotChats"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 30
+    - name: "allowGroupChats"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 31
+    - name: "allowChannelChats"
+      type: "Boolean"
+      visibility: "private"
+      description: "No description provided."
+      line: 32
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 18
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<PreparedInlineMessage>"
     implementsList: []
     typeParameters: []
 - name: "api.methods.invoices"
@@ -4006,6 +4498,41 @@ packages:
     typeParameters: []
 - name: "api.methods.managedbots"
   items:
+  - id: "GetUserPersonalChatMessages"
+    name: "GetUserPersonalChatMessages"
+    type: "Class"
+    description: "Получает последние сообщения из личного чата пользователя.\nРабо\
+      тает только для бизнес-аккаунтов."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 26
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 28
+    - name: "limit"
+      type: "Integer"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    - name: "offsetMessageId"
+      type: "Integer"
+      visibility: "private"
+      description: "No description provided."
+      line: 30
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 19
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<List<Message>>"
+    implementsList: []
+    typeParameters: []
   - id: "SavePreparedKeyboardButton"
     name: "SavePreparedKeyboardButton"
     type: "Class"
@@ -4079,7 +4606,7 @@ packages:
     methods: []
     enumConstants: []
     line: 13
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList:
     - "BotApiMethod<String>"
     implementsList: []
@@ -4134,6 +4661,31 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethodBoolean"
+    implementsList: []
+    typeParameters: []
+  - id: "GetChatMenuButton"
+    name: "GetChatMenuButton"
+    type: "Class"
+    description: "Используйте этот метод для получения текущей настройки кнопки ме\
+      ню в приватном чате.\n\n\n\nВозвращает объект `MenuButton`."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 25
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 27
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 18
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<MenuButton>"
     implementsList: []
     typeParameters: []
 - name: "api.methods.passport"
@@ -4231,6 +4783,42 @@ packages:
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<List<StarTransaction>>"
+    implementsList: []
+    typeParameters: []
+  - id: "EditUserStarSubscription"
+    name: "EditUserStarSubscription"
+    type: "Class"
+    description: "Позволяет боту отменить или возобновить подписку пользователя, о\
+      плаченную в Telegram Stars."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 21
+    - name: "userId"
+      type: "Long"
+      visibility: "private"
+      description: "No description provided."
+      line: 23
+    - name: "telegramPaymentChargeId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 26
+    - name: "isCanceled"
+      type: "Boolean"
+      visibility: "private"
+      description: "Если True, подписка будет отменена. Если False, отмена будет о\
+        тозвана (возобновление)."
+      line: 30
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
     implementsList: []
     typeParameters: []
   - id: "GetMyStarBalance"
@@ -5016,87 +5604,87 @@ packages:
       type: "String"
       visibility: "public"
       description: "No description provided."
-      line: 35
+      line: 36
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 37
+      line: 38
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 40
+      line: 41
     - name: "animation"
       type: "InputFile"
       visibility: "private"
       description: "No description provided."
-      line: 43
+      line: 44
     - name: "duration"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 46
+      line: 47
     - name: "width"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 49
+      line: 50
     - name: "height"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 52
+      line: 53
     - name: "thumbnail"
       type: "InputFile"
       visibility: "private"
       description: "No description provided."
-      line: 55
+      line: 56
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 58
+      line: 59
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 61
+      line: 62
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "No description provided."
-      line: 64
+      line: 65
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 67
+      line: 68
     - name: "hasSpoiler"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 70
+      line: 71
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 73
+      line: 74
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 76
+      line: 77
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 79
+      line: 80
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 86
+      line: 87
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5106,7 +5694,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 93
+      line: 94
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5117,23 +5705,28 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 101
+      line: 102
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "No description provided."
-      line: 104
+      line: 105
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 107
+      line: 108
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 115
+      line: 116
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 123
     constructors: []
     methods:
     - name: "captionAbove"
@@ -5146,7 +5739,7 @@ packages:
         type: "SendAnimation"
         desc: "текущий билдер."
       exceptions: []
-      line: 154
+      line: 162
       since: "1.1.4"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -5161,7 +5754,7 @@ packages:
         type: "SendAnimation"
         desc: "текущий билдер."
       exceptions: []
-      line: 164
+      line: 172
       since: "1.1.4"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -5174,10 +5767,10 @@ packages:
         type: "SendAnimation"
         desc: "текущий билдер."
       exceptions: []
-      line: 174
+      line: 182
       since: "1.2.0"
     enumConstants: []
-    line: 26
+    line: 27
     since: "1.1.4"
     extendsList:
     - "BotApiMethod<Message>"
@@ -5458,57 +6051,57 @@ packages:
       type: "String"
       visibility: "public"
       description: "No description provided."
-      line: 28
+      line: 29
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 30
+      line: 31
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 33
+      line: 34
     - name: "phoneNumber"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 36
+      line: 37
     - name: "firstName"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 39
+      line: 40
     - name: "lastName"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 42
+      line: 43
     - name: "vcard"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 45
+      line: 46
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 48
+      line: 49
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 51
+      line: 52
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 54
+      line: 55
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 61
+      line: 62
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5518,7 +6111,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 68
+      line: 69
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5529,23 +6122,28 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 76
+      line: 77
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "No description provided."
-      line: 79
+      line: 80
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 82
+      line: 83
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 90
+      line: 91
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 98
     constructors: []
     methods:
     - name: "paidBroadcast"
@@ -5559,10 +6157,10 @@ packages:
         type: "SendContact"
         desc: "текущий билдер."
       exceptions: []
-      line: 115
+      line: 123
       since: "1.2.0"
     enumConstants: []
-    line: 19
+    line: 20
     since: "1.1.4"
     extendsList:
     - "BotApiMethod<Message>"
@@ -5578,42 +6176,42 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 37
+      line: 38
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 42
+      line: 43
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Идентификатор топика."
-      line: 48
+      line: 49
     - name: "sticker"
       type: "InputFile"
       visibility: "private"
       description: "Стикер для отправки (file_id, url или файл)."
-      line: 54
+      line: 55
     - name: "emoji"
       type: "String"
       visibility: "private"
       description: "Эмодзи, связанный со стикером."
-      line: 60
+      line: 61
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключить уведомление."
-      line: 66
+      line: 67
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защитить контент."
-      line: 72
+      line: 73
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 79
+      line: 80
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5623,7 +6221,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 86
+      line: 87
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5634,28 +6232,33 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 94
+      line: 95
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 100
+      line: 101
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 104
+      line: 105
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 108
+      line: 109
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 111
+      line: 112
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 119
     constructors: []
     methods:
     - name: "setChatId"
@@ -5670,7 +6273,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 140
+      line: 148
       since: "1.0.0"
     - name: "emoji"
       anchor: "emoji_1"
@@ -5686,7 +6289,7 @@ packages:
         type: "SendSticker"
         desc: "текущий билдер."
       exceptions: []
-      line: 153
+      line: 161
       since: "1.0.0"
     - name: "withFileId"
       anchor: "withFileId_2"
@@ -5704,7 +6307,7 @@ packages:
         type: "SendSticker"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 165
+      line: 173
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -5723,7 +6326,7 @@ packages:
         type: "SendSticker"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 182
+      line: 190
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -5736,10 +6339,10 @@ packages:
         type: "SendSticker"
         desc: "текущий билдер."
       exceptions: []
-      line: 199
+      line: 207
       since: "1.2.0"
     enumConstants: []
-    line: 27
+    line: 28
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -5755,76 +6358,81 @@ packages:
       type: "String"
       visibility: "public"
       description: "No description provided."
-      line: 33
+      line: 34
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 35
+      line: 36
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 38
+      line: 39
     - name: "videoNote"
       type: "InputFile"
       visibility: "private"
       description: "No description provided."
-      line: 41
+      line: 42
     - name: "duration"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 44
+      line: 45
     - name: "length"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 47
+      line: 48
     - name: "thumbnail"
       type: "InputFile"
       visibility: "private"
       description: "No description provided."
-      line: 50
+      line: 51
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 53
+      line: 54
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 56
+      line: 57
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 59
+      line: 60
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 62
+      line: 63
     - name: "replyParameters"
       type: "ReplyParameters"
       visibility: "private"
       description: "No description provided."
-      line: 65
+      line: 66
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "No description provided."
-      line: 68
+      line: 69
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 71
+      line: 72
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 79
     constructors: []
     methods: []
     enumConstants: []
-    line: 24
+    line: 25
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -5842,72 +6450,72 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 40
+      line: 41
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 45
+      line: 46
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Идентификатор топика."
-      line: 51
+      line: 52
     - name: "audio"
       type: "InputFile"
       visibility: "private"
       description: "Аудиофайл для отправки (file_id или новый файл)."
-      line: 57
+      line: 58
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "Подпись к аудио (0-1024 символов)."
-      line: 63
+      line: 64
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга подписи."
-      line: 69
+      line: 70
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "Список сущностей (для форматирования подписи)."
-      line: 75
+      line: 76
     - name: "duration"
       type: "Integer"
       visibility: "private"
       description: "Длительность аудио в секундах."
-      line: 81
+      line: 82
     - name: "performer"
       type: "String"
       visibility: "private"
       description: "Исполнитель."
-      line: 87
+      line: 88
     - name: "title"
       type: "String"
       visibility: "private"
       description: "Название трека."
-      line: 93
+      line: 94
     - name: "thumbnail"
       type: "InputFile"
       visibility: "private"
       description: "Обложка альбома (превью)."
-      line: 99
+      line: 100
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключить уведомление."
-      line: 105
+      line: 106
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защитить контент."
-      line: 111
+      line: 112
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 118
+      line: 119
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5917,7 +6525,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 125
+      line: 126
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -5928,34 +6536,39 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 133
+      line: 134
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 139
+      line: 140
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 143
+      line: 144
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 147
+      line: 148
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "Если True, подпись будет отображаться НАД медиафайлом (по умол\
         чанию False - под ним)."
-      line: 151
+      line: 152
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 154
+      line: 155
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 162
     constructors: []
     methods:
     - name: "withFileId"
@@ -5974,7 +6587,7 @@ packages:
         type: "SendAudio"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 189
+      line: 197
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -5992,7 +6605,7 @@ packages:
         type: "SendAudio"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 203
+      line: 211
       since: "1.0.0"
     - name: "captionAbove"
       anchor: "captionAbove_0"
@@ -6004,7 +6617,7 @@ packages:
         type: "SendAudio"
         desc: "текущий билдер."
       exceptions: []
-      line: 222
+      line: 230
       since: "1.0.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -6019,7 +6632,7 @@ packages:
         type: "SendAudio"
         desc: "текущий билдер."
       exceptions: []
-      line: 232
+      line: 240
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -6032,10 +6645,10 @@ packages:
         type: "SendAudio"
         desc: "текущий билдер."
       exceptions: []
-      line: 242
+      line: 250
       since: "1.2.0"
     enumConstants: []
-    line: 30
+    line: 31
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -6053,57 +6666,57 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 40
+      line: 41
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 45
+      line: 46
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Идентификатор топика."
-      line: 51
+      line: 52
     - name: "voice"
       type: "InputFile"
       visibility: "private"
       description: "Аудиофайл для отправки (file_id или новый файл)."
-      line: 57
+      line: 58
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "Подпись к голосовому сообщению."
-      line: 63
+      line: 64
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга подписи."
-      line: 69
+      line: 70
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "Список сущностей."
-      line: 75
+      line: 76
     - name: "duration"
       type: "Integer"
       visibility: "private"
       description: "Длительность записи в секундах."
-      line: 81
+      line: 82
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключить уведомление."
-      line: 87
+      line: 88
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защитить контент."
-      line: 93
+      line: 94
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 100
+      line: 101
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6113,7 +6726,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 107
+      line: 108
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6124,34 +6737,39 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 115
+      line: 116
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 121
+      line: 122
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 125
+      line: 126
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 129
+      line: 130
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "Если True, подпись будет отображаться НАД медиафайлом (по умол\
         чанию False - под ним)."
-      line: 133
+      line: 134
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 136
+      line: 137
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 144
     constructors: []
     methods:
     - name: "setChatId"
@@ -6166,7 +6784,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 170
+      line: 178
       since: "1.0.0"
     - name: "withFileId"
       anchor: "withFileId_2"
@@ -6185,7 +6803,7 @@ packages:
         type: "SendVoice"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 181
+      line: 189
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -6204,7 +6822,7 @@ packages:
         type: "SendVoice"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 198
+      line: 206
       since: "1.0.0"
     - name: "captionAbove"
       anchor: "captionAbove_0"
@@ -6216,7 +6834,7 @@ packages:
         type: "SendVoice"
         desc: "текущий билдер."
       exceptions: []
-      line: 209
+      line: 217
       since: "1.0.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -6231,7 +6849,7 @@ packages:
         type: "SendVoice"
         desc: "текущий билдер."
       exceptions: []
-      line: 219
+      line: 227
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -6244,10 +6862,10 @@ packages:
         type: "SendVoice"
         desc: "текущий билдер."
       exceptions: []
-      line: 229
+      line: 237
       since: "1.2.0"
     enumConstants: []
-    line: 30
+    line: 31
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -6426,58 +7044,58 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 35
+      line: 36
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор целевого чата или username целевого к\
         анала (в формате `@channelusername`)."
-      line: 40
+      line: 41
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Уникальный идентификатор топика (Message Thread ID).\nОбязател\
         ен, если сообщение отправляется в конкретный топик супергруппы-форума."
-      line: 47
+      line: 48
     - name: "text"
       type: "String"
       visibility: "private"
       description: "Текст отправляемого сообщения (1-4096 символов)."
-      line: 53
+      line: 54
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга сущностей в тексте сообщения.\n\n\n\nВозможные\
         \ значения: \"MarkdownV2\", \"HTML\", \"Markdown\".\nРекомендуется использ\
         овать `pro.kaleert.nyagram.api.methods.ParseMode`."
-      line: 63
+      line: 64
     - name: "entities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "No description provided."
-      line: 66
+      line: 67
     - name: "linkPreviewOptions"
       type: "LinkPreviewOptions"
       visibility: "private"
       description: "No description provided."
-      line: 69
+      line: 70
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключает уведомление о сообщении.\nПользователи получат уведо\
         мление без звука."
-      line: 76
+      line: 77
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защищает содержимое отправленного сообщения от пересылки и сох\
         ранения."
-      line: 82
+      line: 83
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 89
+      line: 90
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6487,7 +7105,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 96
+      line: 97
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6498,31 +7116,36 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 104
+      line: 105
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Дополнительные возможности интерфейса.\nОбъект, представляющий\
         \ Inline-клавиатуру, обычную клавиатуру (ReplyKeyboard) или удаление клави\
         атуры."
-      line: 111
+      line: 112
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 115
+      line: 116
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 119
+      line: 120
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 127
+      line: 128
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 135
     constructors: []
     methods:
     - name: "setChatId"
@@ -6537,7 +7160,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 164
+      line: 172
       since: "1.0.0"
     - name: "enableHtml"
       anchor: "enableHtml_0"
@@ -6550,7 +7173,7 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 174
+      line: 182
       since: "1.0.0"
     - name: "enableMarkdown"
       anchor: "enableMarkdown_0"
@@ -6563,7 +7186,7 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 185
+      line: 193
       since: "1.0.0"
     - name: "disableWebPagePreview"
       anchor: "disableWebPagePreview_0"
@@ -6577,7 +7200,7 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 199
+      line: 207
       since: "1.0.0"
     - name: "replyTo"
       anchor: "replyTo_1"
@@ -6592,7 +7215,7 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 213
+      line: 221
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -6605,7 +7228,7 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 223
+      line: 231
       since: "1.2.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -6620,10 +7243,10 @@ packages:
         type: "SendMessage"
         desc: "текущий билдер."
       exceptions: []
-      line: 235
+      line: 243
       since: "1.2.1"
     enumConstants: []
-    line: 27
+    line: 28
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -6729,86 +7352,91 @@ packages:
       type: "String"
       visibility: "public"
       description: "No description provided."
-      line: 35
+      line: 36
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 37
+      line: 38
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 40
+      line: 41
     - name: "livePhoto"
       type: "InputFile"
       visibility: "private"
       description: "No description provided."
-      line: 43
+      line: 44
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 46
+      line: 47
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 49
+      line: 50
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "No description provided."
-      line: 52
+      line: 53
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 55
+      line: 56
     - name: "hasSpoiler"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 58
+      line: 59
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 61
+      line: 62
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 64
+      line: 65
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 67
+      line: 68
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 70
+      line: 71
     - name: "replyParameters"
       type: "ReplyParameters"
       visibility: "private"
       description: "No description provided."
-      line: 73
+      line: 74
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "No description provided."
-      line: 76
+      line: 77
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 79
+      line: 80
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 87
     constructors: []
     methods: []
     enumConstants: []
-    line: 26
+    line: 27
     since: "1.2.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -6896,77 +7524,77 @@ packages:
       type: "String"
       visibility: "public"
       description: "No description provided."
-      line: 28
+      line: 29
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 30
+      line: 31
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 33
+      line: 34
     - name: "latitude"
       type: "Double"
       visibility: "private"
       description: "No description provided."
-      line: 36
+      line: 37
     - name: "longitude"
       type: "Double"
       visibility: "private"
       description: "No description provided."
-      line: 39
+      line: 40
     - name: "title"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 42
+      line: 43
     - name: "address"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 45
+      line: 46
     - name: "foursquareId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 48
+      line: 49
     - name: "foursquareType"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 51
+      line: 52
     - name: "googlePlaceId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 54
+      line: 55
     - name: "googlePlaceType"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 57
+      line: 58
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 60
+      line: 61
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 63
+      line: 64
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 66
+      line: 67
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 73
+      line: 74
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6976,7 +7604,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 80
+      line: 81
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -6987,23 +7615,28 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 88
+      line: 89
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "No description provided."
-      line: 91
+      line: 92
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 94
+      line: 95
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 102
+      line: 103
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 110
     constructors: []
     methods:
     - name: "paidBroadcast"
@@ -7017,10 +7650,10 @@ packages:
         type: "SendVenue"
         desc: "текущий билдер."
       exceptions: []
-      line: 129
+      line: 137
       since: "1.2.0"
     enumConstants: []
-    line: 19
+    line: 20
     since: "1.1.4"
     extendsList:
     - "BotApiMethod<Message>"
@@ -7035,49 +7668,49 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 28
+      line: 29
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 33
+      line: 34
     - name: "latitude"
       type: "Double"
       visibility: "private"
       description: "Широта (Latitude)."
-      line: 39
+      line: 40
     - name: "longitude"
       type: "Double"
       visibility: "private"
       description: "Долгота (Longitude)."
-      line: 45
+      line: 46
     - name: "livePeriod"
       type: "Integer"
       visibility: "private"
       description: "Период в секундах, в течение которого локация будет обновлятьс\
         я (Live Location).\n(60-86400)."
-      line: 52
+      line: 53
     - name: "heading"
       type: "Integer"
       visibility: "private"
       description: "Направление движения пользователя в градусах (1-360)."
-      line: 58
+      line: 59
     - name: "proximityAlertRadius"
       type: "Integer"
       visibility: "private"
       description: "Радиус предупреждения о приближении в метрах (0-100000)."
-      line: 64
+      line: 65
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 68
+      line: 69
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 75
+      line: 76
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7087,7 +7720,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 82
+      line: 83
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7098,12 +7731,17 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 90
+      line: 91
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 94
+      line: 95
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 102
     constructors: []
     methods:
     - name: "live"
@@ -7120,7 +7758,7 @@ packages:
         type: "SendLocation"
         desc: "текущий билдер."
       exceptions: []
-      line: 121
+      line: 129
       since: "1.0.0"
     - name: "of"
       anchor: "of_3"
@@ -7141,10 +7779,10 @@ packages:
         type: "SendLocation"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 134
+      line: 142
       since: "1.0.0"
     enumConstants: []
-    line: 18
+    line: 19
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -7229,82 +7867,82 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 39
+      line: 40
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата или username канала."
-      line: 44
+      line: 45
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Идентификатор топика."
-      line: 50
+      line: 51
     - name: "video"
       type: "InputFile"
       visibility: "private"
       description: "Видео для отправки (file_id, url или новый файл)."
-      line: 56
+      line: 57
     - name: "duration"
       type: "Integer"
       visibility: "private"
       description: "Длительность видео в секундах."
-      line: 62
+      line: 63
     - name: "width"
       type: "Integer"
       visibility: "private"
       description: "Ширина видео."
-      line: 68
+      line: 69
     - name: "height"
       type: "Integer"
       visibility: "private"
       description: "Высота видео."
-      line: 74
+      line: 75
     - name: "thumbnail"
       type: "InputFile"
       visibility: "private"
       description: "Обложка (превью) для видео."
-      line: 80
+      line: 81
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "Подпись к видео (0-1024 символов)."
-      line: 86
+      line: 87
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга подписи (HTML/Markdown)."
-      line: 92
+      line: 93
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "Список специальных сущностей в подписи."
-      line: 98
+      line: 99
     - name: "supportsStreaming"
       type: "Boolean"
       visibility: "private"
       description: "Если true, видео будет оптимизировано для потоковой передачи (streaming)."
-      line: 104
+      line: 105
     - name: "hasSpoiler"
       type: "Boolean"
       visibility: "private"
       description: "Добавляет эффект спойлера (мерцание)."
-      line: 110
+      line: 111
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключить уведомление."
-      line: 116
+      line: 117
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защитить контент от пересылки и сохранения."
-      line: 122
+      line: 123
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 129
+      line: 130
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7314,7 +7952,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 136
+      line: 137
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7325,35 +7963,40 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 144
+      line: 145
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 150
+      line: 151
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 154
+      line: 155
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 158
+      line: 159
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "Если True, подпись будет отображаться НАД медиафайлом (по умол\
         чанию False - под ним)."
-      line: 162
+      line: 163
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 170
+      line: 171
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 178
     constructors: []
     methods:
     - name: "setChatId"
@@ -7368,7 +8011,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 203
+      line: 211
       since: "1.0.0"
     - name: "asStreaming"
       anchor: "asStreaming_0"
@@ -7381,7 +8024,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 215
+      line: 223
       since: "1.0.0"
     - name: "spoiler"
       anchor: "spoiler_0"
@@ -7394,7 +8037,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 226
+      line: 234
       since: "1.0.0"
     - name: "withDimensions"
       anchor: "withDimensions_2"
@@ -7412,7 +8055,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 238
+      line: 246
       since: "1.0.0"
     - name: "withDuration"
       anchor: "withDuration_1"
@@ -7427,7 +8070,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 250
+      line: 258
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -7445,7 +8088,7 @@ packages:
         type: "SendVideo"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 262
+      line: 270
       since: "1.0.0"
     - name: "withFileId"
       anchor: "withFileId_2"
@@ -7463,7 +8106,7 @@ packages:
         type: "SendVideo"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 276
+      line: 284
       since: "1.0.0"
     - name: "captionAbove"
       anchor: "captionAbove_0"
@@ -7475,7 +8118,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 295
+      line: 303
       since: "1.0.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -7490,7 +8133,7 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 305
+      line: 313
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -7503,10 +8146,10 @@ packages:
         type: "SendVideo"
         desc: "текущий билдер."
       exceptions: []
-      line: 315
+      line: 323
       since: "1.2.0"
     enumConstants: []
-    line: 29
+    line: 30
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -7523,63 +8166,63 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 40
+      line: 41
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 45
+      line: 46
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "Идентификатор топика."
-      line: 51
+      line: 52
     - name: "document"
       type: "InputFile"
       visibility: "private"
       description: "Файл для отправки."
-      line: 57
+      line: 58
     - name: "thumbnail"
       type: "InputFile"
       visibility: "private"
       description: "Превью (обложка) документа."
-      line: 63
+      line: 64
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "Подпись к документу."
-      line: 69
+      line: 70
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга подписи."
-      line: 75
+      line: 76
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "Список сущностей."
-      line: 81
+      line: 82
     - name: "disableContentTypeDetection"
       type: "Boolean"
       visibility: "private"
       description: "Отключает автоматическое определение типа контента на стороне\
         \ сервера."
-      line: 87
+      line: 88
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "Отключить уведомление."
-      line: 93
+      line: 94
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "Защитить контент."
-      line: 99
+      line: 100
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 109
+      line: 110
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7589,7 +8232,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 116
+      line: 117
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7600,35 +8243,40 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 124
+      line: 125
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 130
+      line: 131
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 134
+      line: 135
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 138
+      line: 139
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "Если True, подпись будет отображаться НАД медиафайлом (по умол\
         чанию False - под ним)."
-      line: 142
+      line: 143
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 150
+      line: 151
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 158
     constructors: []
     methods:
     - name: "setChatId"
@@ -7643,7 +8291,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 183
+      line: 191
       since: "1.0.0"
     - name: "enableHtml"
       anchor: "enableHtml_0"
@@ -7655,7 +8303,7 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 192
+      line: 200
       since: "1.0.0"
     - name: "enableMarkdown"
       anchor: "enableMarkdown_0"
@@ -7667,7 +8315,7 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 202
+      line: 210
       since: "1.0.0"
     - name: "disableDetection"
       anchor: "disableDetection_0"
@@ -7680,7 +8328,7 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 212
+      line: 220
       since: "1.0.0"
     - name: "withFileId"
       anchor: "withFileId_2"
@@ -7698,7 +8346,7 @@ packages:
         type: "SendDocument"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 224
+      line: 232
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -7716,7 +8364,7 @@ packages:
         type: "SendDocument"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 238
+      line: 246
       since: "1.0.0"
     - name: "withStream"
       anchor: "withStream_3"
@@ -7738,7 +8386,7 @@ packages:
         type: "SendDocument"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 253
+      line: 261
       since: "1.0.0"
     - name: "captionAbove"
       anchor: "captionAbove_0"
@@ -7750,7 +8398,7 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 276
+      line: 284
       since: "1.0.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -7765,7 +8413,7 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 286
+      line: 294
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -7778,10 +8426,10 @@ packages:
         type: "SendDocument"
         desc: "текущий билдер."
       exceptions: []
-      line: 296
+      line: 304
       since: "1.2.0"
     enumConstants: []
-    line: 30
+    line: 31
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -7800,58 +8448,58 @@ packages:
       type: "String"
       visibility: "public"
       description: "Имя метода в Telegram Bot API."
-      line: 44
+      line: 45
     - name: "chatId"
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор чата."
-      line: 49
+      line: 50
     - name: "messageThreadId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 52
+      line: 53
     - name: "photo"
       type: "InputFile"
       visibility: "private"
       description: "Фотография для отправки.\nПередайте file_id как строку или исп\
         ользуйте `InputFile` для загрузки файла."
-      line: 59
+      line: 60
     - name: "caption"
       type: "String"
       visibility: "private"
       description: "Подпись к фотографии (0-1024 символов)."
-      line: 65
+      line: 66
     - name: "parseMode"
       type: "String"
       visibility: "private"
       description: "Режим парсинга сущностей в подписи (HTML/Markdown)."
-      line: 71
+      line: 72
     - name: "captionEntities"
       type: "List<MessageEntity>"
       visibility: "private"
       description: "No description provided."
-      line: 74
+      line: 75
     - name: "hasSpoiler"
       type: "Boolean"
       visibility: "private"
       description: "Добавляет \"спойлер\" (эффект мерцания) на фото."
-      line: 80
+      line: 81
     - name: "disableNotification"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 83
+      line: 84
     - name: "protectContent"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 86
+      line: 87
     - name: "replyToMessageId"
       type: "Integer"
       visibility: "private"
       description: "Если сообщение является ответом, ID исходного сообщения."
-      line: 93
+      line: 94
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7861,7 +8509,7 @@ packages:
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 100
+      line: 101
       deprecation:
         isDeprecated: true
         since: "1.1.5"
@@ -7872,35 +8520,40 @@ packages:
       visibility: "private"
       description: "Параметры ответа. Заменяет reply_to_message_id.\nНеобходим для\
         \ ответов на варианты опросов (API 9.6)."
-      line: 108
+      line: 109
     - name: "replyMarkup"
       type: "ReplyKeyboard"
       visibility: "private"
       description: "Клавиатура."
-      line: 114
+      line: 115
     - name: "messageEffectId"
       type: "String"
       visibility: "private"
       description: "Идентификатор эффекта сообщения (например, ID анимации огня ил\
         и сердечек)."
-      line: 118
+      line: 119
     - name: "businessConnectionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор бизнес-соединения."
-      line: 122
+      line: 123
     - name: "showCaptionAboveMedia"
       type: "Boolean"
       visibility: "private"
       description: "Если True, подпись будет отображаться НАД медиафайлом (по умол\
         чанию False - под ним)."
-      line: 126
+      line: 127
     - name: "allowPaidBroadcast"
       type: "Boolean"
       visibility: "private"
       description: "Позволяет отправить сообщение даже тем пользователям, которые\
         \ заблокировали бота, \nза счет списания Telegram Stars с баланса бота."
-      line: 134
+      line: 135
+    - name: "ephemeralMessageParameters"
+      type: "EphemeralMessageParameters"
+      visibility: "private"
+      description: "Параметры для эфемерных сообщений."
+      line: 142
     constructors: []
     methods:
     - name: "setChatId"
@@ -7915,7 +8568,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 163
+      line: 171
       since: "1.0.0"
     - name: "enableHtml"
       anchor: "enableHtml_0"
@@ -7927,7 +8580,7 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 172
+      line: 180
       since: "1.0.0"
     - name: "enableMarkdown"
       anchor: "enableMarkdown_0"
@@ -7939,7 +8592,7 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 182
+      line: 190
       since: "1.0.0"
     - name: "spoiler"
       anchor: "spoiler_0"
@@ -7952,7 +8605,7 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 193
+      line: 201
       since: "1.0.0"
     - name: "withFileId"
       anchor: "withFileId_2"
@@ -7971,7 +8624,7 @@ packages:
         type: "SendPhoto"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 206
+      line: 214
       since: "1.0.0"
     - name: "withFile"
       anchor: "withFile_2"
@@ -7989,7 +8642,7 @@ packages:
         type: "SendPhoto"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 220
+      line: 228
       since: "1.0.0"
     - name: "withStream"
       anchor: "withStream_3"
@@ -8013,7 +8666,7 @@ packages:
         type: "SendPhoto"
         desc: "готовый объект запроса."
       exceptions: []
-      line: 238
+      line: 246
       since: "1.0.0"
     - name: "captionAbove"
       anchor: "captionAbove_0"
@@ -8025,7 +8678,7 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 254
+      line: 262
       since: "1.0.0"
     - name: "withEffect"
       anchor: "withEffect_1"
@@ -8040,7 +8693,7 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 264
+      line: 272
       since: "1.0.0"
     - name: "paidBroadcast"
       anchor: "paidBroadcast_0"
@@ -8053,10 +8706,10 @@ packages:
         type: "SendPhoto"
         desc: "текущий билдер."
       exceptions: []
-      line: 273
+      line: 281
       since: "1.2.0"
     enumConstants: []
-    line: 34
+    line: 35
     since: "1.0.0"
     extendsList:
     - "BotApiMethod<Message>"
@@ -8190,6 +8843,72 @@ packages:
     - "BotApiMethod<List<Message>>"
     implementsList:
     - "MultipartRequest"
+    typeParameters: []
+  - id: "SendMessageDraft"
+    name: "SendMessageDraft"
+    type: "Class"
+    description: "Устанавливает черновик (Draft) сообщения в поле ввода пользовате\
+      ля в чате."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 26
+    - name: "chatId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 28
+    - name: "messageThreadId"
+      type: "Integer"
+      visibility: "private"
+      description: "No description provided."
+      line: 29
+    - name: "text"
+      type: "String"
+      visibility: "private"
+      description: "В API 10.3 текст может быть пустым для очистки черновика."
+      line: 32
+    - name: "parseMode"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 33
+    - name: "entities"
+      type: "List<MessageEntity>"
+      visibility: "private"
+      description: "No description provided."
+      line: 34
+    - name: "linkPreviewOptions"
+      type: "LinkPreviewOptions"
+      visibility: "private"
+      description: "No description provided."
+      line: 35
+    - name: "replyParameters"
+      type: "ReplyParameters"
+      visibility: "private"
+      description: "No description provided."
+      line: 36
+    - name: "canStop"
+      type: "Boolean"
+      visibility: "private"
+      description: "Остановить генерацию черновика (например, если бот \"печатает\"\
+        )."
+      line: 39
+    - name: "keepOnStop"
+      type: "Boolean"
+      visibility: "private"
+      description: "Сохранять черновик, если генерация остановлена."
+      line: 41
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 19
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethodBoolean"
+    implementsList: []
     typeParameters: []
 - name: "api.methods.stickers"
   items:
@@ -9033,6 +9752,69 @@ packages:
     implementsList:
     - "MultipartRequest"
     typeParameters: []
+- name: "api.methods.webapp"
+  items:
+  - id: "AnswerWebAppQuery"
+    name: "AnswerWebAppQuery"
+    type: "Class"
+    description: "Задает результат взаимодействия пользователя с Web App (Mini App)\
+      \ и отправляет соответствующее\ninline-сообщение от лица пользователя в чат."
+    fields:
+    - name: "PATH"
+      type: "String"
+      visibility: "public"
+      description: "No description provided."
+      line: 26
+    - name: "webAppQueryId"
+      type: "String"
+      visibility: "private"
+      description: "No description provided."
+      line: 28
+    - name: "result"
+      type: "InlineQueryResult"
+      visibility: "private"
+      description: "No description provided."
+      line: 31
+    constructors: []
+    methods: []
+    enumConstants: []
+    line: 19
+    since: "1.2.2"
+    extendsList:
+    - "BotApiMethod<AnswerWebAppQuery.SentWebAppMessage>"
+    implementsList: []
+    typeParameters: []
+  - id: "AnswerWebAppQuery.SentWebAppMessage"
+    name: "AnswerWebAppQuery.SentWebAppMessage"
+    type: "Record"
+    description: "No description provided."
+    fields:
+    - name: "inlineMessageId"
+      type: "String"
+      visibility: "private final"
+      description: "Record component"
+      line: 50
+    constructors:
+    - name: "AnswerWebAppQuery.SentWebAppMessage"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "AnswerWebAppQuery.SentWebAppMessage(String inlineMessageId)"
+      parameters:
+      - name: "inlineMessageId"
+        type: "String"
+        desc: ""
+      returns:
+        type: "AnswerWebAppQuery.SentWebAppMessage"
+        desc: ""
+      exceptions: []
+      line: 48
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 48
+    since: "1.2.2"
+    typeParameters: []
 - name: "api.objects"
   items:
   - id: "UserProfileAudios"
@@ -9572,132 +10354,137 @@ packages:
       type: "Long"
       visibility: "private"
       description: "Уникальный идентификатор обновления."
-      line: 34
+      line: 35
     - name: "message"
       type: "Message"
       visibility: "private"
       description: "Новое входящее сообщение любого типа."
-      line: 38
+      line: 39
     - name: "editedMessage"
       type: "Message"
       visibility: "private"
       description: "Новая версия сообщения, которое было отредактировано."
-      line: 42
+      line: 43
     - name: "channelPost"
       type: "Message"
       visibility: "private"
       description: "Новый пост в канале."
-      line: 46
+      line: 47
     - name: "editedChannelPost"
       type: "Message"
       visibility: "private"
       description: "Отредактированный пост в канале."
-      line: 50
+      line: 51
     - name: "businessConnection"
       type: "BusinessConnection"
       visibility: "private"
       description: "No description provided."
-      line: 53
+      line: 54
     - name: "businessMessage"
       type: "Message"
       visibility: "private"
       description: "No description provided."
-      line: 56
+      line: 57
     - name: "editedBusinessMessage"
       type: "Message"
       visibility: "private"
       description: "No description provided."
-      line: 59
+      line: 60
     - name: "deletedBusinessMessages"
       type: "BusinessMessagesDeleted"
       visibility: "private"
       description: "No description provided."
-      line: 62
+      line: 63
     - name: "callbackQuery"
       type: "CallbackQuery"
       visibility: "private"
       description: "No description provided."
-      line: 65
+      line: 66
     - name: "inlineQuery"
       type: "InlineQuery"
       visibility: "private"
       description: "No description provided."
-      line: 68
+      line: 69
     - name: "chosenInlineResult"
       type: "ChosenInlineResult"
       visibility: "private"
       description: "No description provided."
-      line: 71
+      line: 72
     - name: "shippingQuery"
       type: "ShippingQuery"
       visibility: "private"
       description: "No description provided."
-      line: 74
+      line: 75
     - name: "preCheckoutQuery"
       type: "PreCheckoutQuery"
       visibility: "private"
       description: "No description provided."
-      line: 77
+      line: 78
     - name: "purchasedPaidMedia"
       type: "PaidMediaPurchased"
       visibility: "private"
       description: "No description provided."
-      line: 80
+      line: 81
     - name: "poll"
       type: "Poll"
       visibility: "private"
       description: "No description provided."
-      line: 83
+      line: 84
     - name: "pollAnswer"
       type: "PollAnswer"
       visibility: "private"
       description: "No description provided."
-      line: 86
+      line: 87
     - name: "myChatMember"
       type: "ChatMemberUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 89
+      line: 90
     - name: "chatMember"
       type: "ChatMemberUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 92
+      line: 93
     - name: "chatJoinRequest"
       type: "ChatJoinRequest"
       visibility: "private"
       description: "No description provided."
-      line: 95
+      line: 96
     - name: "chatBoost"
       type: "ChatBoostUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 98
+      line: 99
     - name: "removedChatBoost"
       type: "ChatBoostRemoved"
       visibility: "private"
       description: "No description provided."
-      line: 101
+      line: 102
     - name: "messageReaction"
       type: "MessageReactionUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 104
+      line: 105
     - name: "messageReactionCount"
       type: "MessageReactionCountUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 107
+      line: 108
     - name: "managedBot"
       type: "ManagedBotUpdated"
       visibility: "private"
       description: "No description provided."
-      line: 110
+      line: 111
     - name: "guestMessage"
       type: "Message"
       visibility: "private"
       description: "No description provided."
-      line: 113
+      line: 114
+    - name: "subscription"
+      type: "BotSubscriptionUpdated"
+      visibility: "private"
+      description: "No description provided."
+      line: 117
     constructors: []
     methods:
     - name: "getType"
@@ -9711,7 +10498,7 @@ packages:
         desc: "строка типа (например, \"message\", \"callback_query\", \"unknown\"\
           )."
       exceptions: []
-      line: 121
+      line: 126
       since: "1.0.0"
     - name: "getChatId"
       anchor: "getChatId_0"
@@ -9726,7 +10513,7 @@ packages:
         desc: "ID чата или null, если обновление не связано с конкретным чатом (на\
           пример, InlineQuery)."
       exceptions: []
-      line: 163
+      line: 170
       since: "1.0.0"
     - name: "getFromId"
       anchor: "getFromId_0"
@@ -9739,7 +10526,7 @@ packages:
         type: "Long"
         desc: "ID пользователя или null."
       exceptions: []
-      line: 192
+      line: 201
       since: "1.0.0"
     - name: "getUser"
       anchor: "getUser_0"
@@ -9752,7 +10539,7 @@ packages:
         type: "User"
         desc: "объект User или null."
       exceptions: []
-      line: 222
+      line: 233
       since: "1.1.4"
     - name: "getPayload"
       anchor: "getPayload_0"
@@ -9765,7 +10552,7 @@ packages:
         type: "String"
         desc: "Строка с данными или null."
       exceptions: []
-      line: 251
+      line: 263
       since: "1.0.0"
     - name: "isCommand"
       anchor: "isCommand_0"
@@ -9779,7 +10566,7 @@ packages:
         type: "boolean"
         desc: "true, если это команда."
       exceptions: []
-      line: 273
+      line: 285
       since: "1.0.0"
     - name: "hasMessage"
       anchor: "hasMessage_0"
@@ -9791,7 +10578,7 @@ packages:
         type: "boolean"
         desc: "true, если это message."
       exceptions: []
-      line: 282
+      line: 294
       since: "1.0.0"
     - name: "hasCallbackQuery"
       anchor: "hasCallbackQuery_0"
@@ -9803,7 +10590,7 @@ packages:
         type: "boolean"
         desc: "true, если это inline_query."
       exceptions: []
-      line: 288
+      line: 300
       since: "1.0.0"
     - name: "hasInlineQuery"
       anchor: "hasInlineQuery_0"
@@ -9816,7 +10603,7 @@ packages:
         type: "boolean"
         desc: "true, если это inline_query."
       exceptions: []
-      line: 298
+      line: 310
       since: "1.0.0"
     - name: "hasEditedMessage"
       anchor: "hasEditedMessage_0"
@@ -9828,7 +10615,7 @@ packages:
         type: "boolean"
         desc: "true, если это edited_message."
       exceptions: []
-      line: 304
+      line: 316
       since: "1.0.0"
     - name: "hasChannelPost"
       anchor: "hasChannelPost_0"
@@ -9840,7 +10627,7 @@ packages:
         type: "boolean"
         desc: "true, если это channel_post."
       exceptions: []
-      line: 310
+      line: 322
       since: "1.0.0"
     - name: "hasBusinessMessage"
       anchor: "hasBusinessMessage_0"
@@ -9853,7 +10640,7 @@ packages:
         type: "boolean"
         desc: "true, если это business_message."
       exceptions: []
-      line: 316
+      line: 328
       since: "1.0.0"
     - name: "hasMyChatMember"
       anchor: "hasMyChatMember_0"
@@ -9866,7 +10653,7 @@ packages:
         type: "boolean"
         desc: "true, если это my_chat_member."
       exceptions: []
-      line: 323
+      line: 335
       since: "1.0.0"
     - name: "hasChatMember"
       anchor: "hasChatMember_0"
@@ -9879,7 +10666,7 @@ packages:
         type: "boolean"
         desc: "true, если это chat_member."
       exceptions: []
-      line: 329
+      line: 341
       since: "1.0.0"
     - name: "hasMessageReaction"
       anchor: "hasMessageReaction_0"
@@ -9891,7 +10678,7 @@ packages:
         type: "boolean"
         desc: "true, если это message_reaction."
       exceptions: []
-      line: 335
+      line: 347
       since: "1.0.0"
     - name: "hasManagedBot"
       anchor: "hasManagedBot_0"
@@ -9902,10 +10689,60 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 337
+      line: 349
       since: "1.0.0"
+    - name: "hasSubscription"
+      anchor: "hasSubscription_0"
+      tag: "API"
+      description: "No description provided."
+      signature: "public boolean hasSubscription()"
+      parameters: []
+      returns:
+        type: "boolean"
+      exceptions: []
+      line: 351
+      since: "1.0.0"
+    - name: "isSubscriptionUpdate"
+      anchor: "isSubscriptionUpdate_0"
+      tag: "API"
+      description: "Проверяет, является ли обновление изменением платной подписки\
+        \ (Telegram Stars) на бота."
+      signature: "public boolean isSubscriptionUpdate()"
+      parameters: []
+      returns:
+        type: "boolean"
+        desc: "true, если это апдейт подписки."
+      exceptions: []
+      line: 358
+      since: "1.2.2"
+    - name: "isBusinessConnection"
+      anchor: "isBusinessConnection_0"
+      tag: "API"
+      description: "Проверяет, является ли обновление подключением бота к бизнес-а\
+        ккаунту."
+      signature: "public boolean isBusinessConnection()"
+      parameters: []
+      returns:
+        type: "boolean"
+        desc: "true, если это привязка Business Connection."
+      exceptions: []
+      line: 368
+      since: "1.2.2"
+    - name: "isBusinessMessage"
+      anchor: "isBusinessMessage_0"
+      tag: "API"
+      description: "Проверяет, пришло ли сообщение в рамках автоматизации личного\
+        \ чата (Telegram Business)."
+      signature: "public boolean isBusinessMessage()"
+      parameters: []
+      returns:
+        type: "boolean"
+        desc: "true, если это бизнес-сообщение."
+      exceptions: []
+      line: 378
+      since: "1.2.2"
     enumConstants: []
-    line: 27
+    line: 28
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -9920,38 +10757,38 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор бизнес-соединения."
-      line: 347
+      line: 390
     - name: "user"
       type: "User"
       visibility: "private"
       description: "Пользователь бизнес-аккаунта, создавший соединение."
-      line: 350
+      line: 393
     - name: "userChatId"
       type: "Long"
       visibility: "private"
       description: "Идентификатор приватного чата с пользователем, создавшим соеди\
         нение."
-      line: 353
+      line: 396
     - name: "date"
       type: "Long"
       visibility: "private"
       description: "Дата установления соединения (Unix timestamp)."
-      line: 356
+      line: 399
     - name: "canReply"
       type: "Boolean"
       visibility: "private"
       description: "True, если бот может отвечать на сообщения от имени бизнес-акк\
         аунта."
-      line: 359
+      line: 402
     - name: "isEnabled"
       type: "Boolean"
       visibility: "private"
       description: "True, если соединение активно."
-      line: 362
+      line: 405
     constructors: []
     methods: []
     enumConstants: []
-    line: 344
+    line: 387
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -9967,21 +10804,21 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор бизнес-соединения."
-      line: 374
+      line: 417
     - name: "chat"
       type: "Chat"
       visibility: "private"
       description: "Чат, в котором были удалены сообщения."
-      line: 377
+      line: 420
     - name: "messageIds"
       type: "List<Integer>"
       visibility: "private"
       description: "Список идентификаторов удаленных сообщений в чате."
-      line: 380
+      line: 423
     constructors: []
     methods: []
     enumConstants: []
-    line: 370
+    line: 413
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -9997,16 +10834,16 @@ packages:
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 390
+      line: 433
     - name: "paidMediaPayload"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 391
+      line: 434
     constructors: []
     methods: []
     enumConstants: []
-    line: 388
+    line: 431
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10022,16 +10859,16 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 401
+      line: 444
     - name: "boost"
       type: "ChatBoost"
       visibility: "private"
       description: "No description provided."
-      line: 402
+      line: 445
     constructors: []
     methods: []
     enumConstants: []
-    line: 399
+    line: 442
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10046,26 +10883,26 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 412
+      line: 455
     - name: "boostId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 413
+      line: 456
     - name: "removeDate"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 414
+      line: 457
     - name: "source"
       type: "ChatBoostSource"
       visibility: "private"
       description: "No description provided."
-      line: 415
+      line: 458
     constructors: []
     methods: []
     enumConstants: []
-    line: 410
+    line: 453
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10080,26 +10917,26 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 425
+      line: 468
     - name: "addDate"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 426
+      line: 469
     - name: "expirationDate"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 427
+      line: 470
     - name: "source"
       type: "ChatBoostSource"
       visibility: "private"
       description: "No description provided."
-      line: 428
+      line: 471
     constructors: []
     methods: []
     enumConstants: []
-    line: 423
+    line: 466
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10115,31 +10952,31 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 439
+      line: 482
     - name: "user"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 440
+      line: 483
     - name: "giveawayMessageId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 441
+      line: 484
     - name: "prizeStarCount"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 442
+      line: 485
     - name: "isUnclaimed"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 443
+      line: 486
     constructors: []
     methods: []
     enumConstants: []
-    line: 437
+    line: 480
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10157,47 +10994,47 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор запроса."
-      line: 460
+      line: 503
     - name: "from"
       type: "User"
       visibility: "private"
       description: "Пользователь, нажавший кнопку."
-      line: 463
+      line: 506
     - name: "message"
       type: "Message"
       visibility: "private"
       description: "Сообщение, к которому была привязана клавиатура. \nМожет быть\
         \ null, если сообщение слишком старое."
-      line: 469
+      line: 512
     - name: "inlineMessageId"
       type: "String"
       visibility: "private"
       description: "Идентификатор inline-сообщения, если кнопка была в сообщении,\
         \ отправленном через inline-режим."
-      line: 472
+      line: 515
     - name: "chatInstance"
       type: "String"
       visibility: "private"
       description: "Глобальный идентификатор, уникально соответствующий чату, в ко\
         торый было отправлено сообщение.\nПолезен для ведения статистики в inline-р\
         ежиме."
-      line: 478
+      line: 521
     - name: "data"
       type: "String"
       visibility: "private"
       description: "Данные, привязанные к кнопке (callback_data). \nПрисутствует,\
         \ если кнопка не является кнопкой игры."
-      line: 484
+      line: 527
     - name: "gameShortName"
       type: "String"
       visibility: "private"
       description: "Короткое имя игры, которую нужно вернуть. \nПрисутствует тольк\
         о если это кнопка игры."
-      line: 490
+      line: 533
     constructors: []
     methods: []
     enumConstants: []
-    line: 456
+    line: 499
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10213,36 +11050,36 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 501
+      line: 544
     - name: "from"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 502
+      line: 545
     - name: "query"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 503
+      line: 546
     - name: "offset"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 504
+      line: 547
     - name: "chatType"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 505
+      line: 548
     - name: "location"
       type: "Location"
       visibility: "private"
       description: "No description provided."
-      line: 506
+      line: 549
     constructors: []
     methods: []
     enumConstants: []
-    line: 499
+    line: 542
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10258,31 +11095,31 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 517
+      line: 560
     - name: "from"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 518
+      line: 561
     - name: "location"
       type: "Location"
       visibility: "private"
       description: "No description provided."
-      line: 519
+      line: 562
     - name: "inlineMessageId"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 520
+      line: 563
     - name: "query"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 521
+      line: 564
     constructors: []
     methods: []
     enumConstants: []
-    line: 515
+    line: 558
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10298,41 +11135,41 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 532
+      line: 575
     - name: "messageId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 533
+      line: 576
     - name: "user"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 534
+      line: 577
     - name: "actorChat"
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 535
+      line: 578
     - name: "date"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 536
+      line: 579
     - name: "oldReaction"
       type: "List<ReactionType>"
       visibility: "private"
       description: "No description provided."
-      line: 537
+      line: 580
     - name: "newReaction"
       type: "List<ReactionType>"
       visibility: "private"
       description: "No description provided."
-      line: 538
+      line: 581
     constructors: []
     methods: []
     enumConstants: []
-    line: 530
+    line: 573
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10348,26 +11185,26 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 549
+      line: 592
     - name: "messageId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 550
+      line: 593
     - name: "date"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 551
+      line: 594
     - name: "reactions"
       type: "List<ReactionCount>"
       visibility: "private"
       description: "No description provided."
-      line: 552
+      line: 595
     constructors: []
     methods: []
     enumConstants: []
-    line: 547
+    line: 590
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10382,21 +11219,21 @@ packages:
       type: "String"
       visibility: "private"
       description: "Тип реакции: \"emoji\", \"custom_emoji\" или \"paid\"."
-      line: 563
+      line: 606
     - name: "emoji"
       type: "String"
       visibility: "private"
       description: "Эмодзи (для type=\"emoji\")."
-      line: 566
+      line: 609
     - name: "customEmojiId"
       type: "String"
       visibility: "private"
       description: "Идентификатор кастомного эмодзи (для type=\"custom_emoji\")."
-      line: 569
+      line: 612
     constructors: []
     methods: []
     enumConstants: []
-    line: 560
+    line: 603
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10411,16 +11248,16 @@ packages:
       type: "ReactionType"
       visibility: "private"
       description: "Тип реакции."
-      line: 580
+      line: 623
     - name: "totalCount"
       type: "Integer"
       visibility: "private"
       description: "Общее количество таких реакций."
-      line: 583
+      line: 626
     constructors: []
     methods: []
     enumConstants: []
-    line: 577
+    line: 620
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10436,46 +11273,46 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 594
+      line: 637
     - name: "from"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 595
+      line: 638
     - name: "date"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 596
+      line: 639
     - name: "oldChatMember"
       type: "ChatMember"
       visibility: "private"
       description: "No description provided."
-      line: 597
+      line: 640
     - name: "newChatMember"
       type: "ChatMember"
       visibility: "private"
       description: "No description provided."
-      line: 598
+      line: 641
     - name: "inviteLink"
       type: "ChatInviteLink"
       visibility: "private"
       description: "No description provided."
-      line: 599
+      line: 642
     - name: "viaJoinRequest"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 600
+      line: 643
     - name: "viaChatFolderInviteLink"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 601
+      line: 644
     constructors: []
     methods: []
     enumConstants: []
-    line: 592
+    line: 635
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10491,36 +11328,36 @@ packages:
       type: "Chat"
       visibility: "private"
       description: "No description provided."
-      line: 612
+      line: 655
     - name: "from"
       type: "User"
       visibility: "private"
       description: "No description provided."
-      line: 613
+      line: 656
     - name: "userChatId"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 614
+      line: 657
     - name: "date"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 615
+      line: 658
     - name: "bio"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 616
+      line: 659
     - name: "inviteLink"
       type: "ChatInviteLink"
       visibility: "private"
       description: "No description provided."
-      line: 617
+      line: 660
     constructors: []
     methods: []
     enumConstants: []
-    line: 610
+    line: 653
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10537,41 +11374,41 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор запроса."
-      line: 630
+      line: 673
     - name: "from"
       type: "User"
       visibility: "private"
       description: "Пользователь, отправивший запрос."
-      line: 633
+      line: 676
     - name: "currency"
       type: "String"
       visibility: "private"
       description: "Трехбуквенный код валюты (ISO 4217)."
-      line: 636
+      line: 679
     - name: "totalAmount"
       type: "Integer"
       visibility: "private"
       description: "Общая цена в минимальных единицах валюты (копейки, центы)."
-      line: 639
+      line: 682
     - name: "invoicePayload"
       type: "String"
       visibility: "private"
       description: "Полезная нагрузка, указанная ботом при создании счета."
-      line: 642
+      line: 685
     - name: "shippingOptionId"
       type: "String"
       visibility: "private"
       description: "Идентификатор выбранной опции доставки (если применимо)."
-      line: 645
+      line: 688
     - name: "orderInfo"
       type: "OrderInfo"
       visibility: "private"
       description: "Информация о заказе, предоставленная пользователем."
-      line: 648
+      line: 691
     constructors: []
     methods: []
     enumConstants: []
-    line: 627
+    line: 670
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10586,26 +11423,26 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор запроса."
-      line: 660
+      line: 703
     - name: "from"
       type: "User"
       visibility: "private"
       description: "Пользователь, отправивший запрос."
-      line: 663
+      line: 706
     - name: "invoicePayload"
       type: "String"
       visibility: "private"
       description: "Полезная нагрузка, указанная ботом при создании счета."
-      line: 666
+      line: 709
     - name: "shippingAddress"
       type: "ShippingAddress"
       visibility: "private"
       description: "Адрес доставки, указанный пользователем."
-      line: 669
+      line: 712
     constructors: []
     methods: []
     enumConstants: []
-    line: 657
+    line: 700
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10620,27 +11457,27 @@ packages:
       type: "String"
       visibility: "private"
       description: "Уникальный идентификатор опроса."
-      line: 680
+      line: 723
     - name: "voterChat"
       type: "Chat"
       visibility: "private"
       description: "Чат, в котором был отправлен голос (если голос от имени чата/к\
         анала)."
-      line: 683
+      line: 726
     - name: "user"
       type: "User"
       visibility: "private"
       description: "Пользователь, который проголосовал."
-      line: 686
+      line: 729
     - name: "optionIds"
       type: "List<Integer>"
       visibility: "private"
       description: "Список индексов выбранных опций (0-based)."
-      line: 689
+      line: 732
     constructors: []
     methods: []
     enumConstants: []
-    line: 677
+    line: 720
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10656,66 +11493,66 @@ packages:
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 700
+      line: 743
     - name: "question"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 701
+      line: 744
     - name: "options"
       type: "List<PollOption>"
       visibility: "private"
       description: "No description provided."
-      line: 702
+      line: 745
     - name: "totalVoterCount"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 703
+      line: 746
     - name: "isClosed"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 704
+      line: 747
     - name: "isAnonymous"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 705
+      line: 748
     - name: "type"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 706
+      line: 749
     - name: "allowsMultipleAnswers"
       type: "Boolean"
       visibility: "private"
       description: "No description provided."
-      line: 707
+      line: 750
     - name: "correctOptionId"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 708
+      line: 751
     - name: "explanation"
       type: "String"
       visibility: "private"
       description: "No description provided."
-      line: 709
+      line: 752
     - name: "openPeriod"
       type: "Integer"
       visibility: "private"
       description: "No description provided."
-      line: 710
+      line: 753
     - name: "closeDate"
       type: "Long"
       visibility: "private"
       description: "No description provided."
-      line: 711
+      line: 754
     constructors: []
     methods: []
     enumConstants: []
-    line: 698
+    line: 741
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -10730,16 +11567,16 @@ packages:
       type: "String"
       visibility: "private"
       description: "Текст опции (1-100 символов)."
-      line: 722
+      line: 765
     - name: "voterCount"
       type: "Integer"
       visibility: "private"
       description: "Количество голосов за эту опцию."
-      line: 724
+      line: 767
     constructors: []
     methods: []
     enumConstants: []
-    line: 719
+    line: 762
     since: "1.0.0"
     extendsList: []
     implementsList:
@@ -13235,6 +14072,11 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 34
+    - name: "canSendWelcomeMessages"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 39
     constructors:
     - name: "ChatAdministratorRights"
       anchor: "new"
@@ -13245,7 +14087,8 @@ packages:
         \ Boolean canPromoteMembers, Boolean canChangeInfo, Boolean canInviteUsers,\
         \ Boolean canPostStories, Boolean canEditStories, Boolean canDeleteStories,\
         \ Boolean canPostMessages, Boolean canEditMessages, Boolean canPinMessages,\
-        \ Boolean canManageTopics, Boolean canManageDirectMessages, Boolean canManageTags)"
+        \ Boolean canManageTopics, Boolean canManageDirectMessages, Boolean canManageTags,\
+        \ Boolean canSendWelcomeMessages)"
       parameters:
       - name: "isAnonymous"
         type: "Boolean"
@@ -13296,6 +14139,9 @@ packages:
         type: "Boolean"
         desc: ""
       - name: "canManageTags"
+        type: "Boolean"
+        desc: ""
+      - name: "canSendWelcomeMessages"
         type: "Boolean"
         desc: ""
       returns:
@@ -13495,6 +14341,37 @@ packages:
     typeParameters: []
 - name: "api.objects.boost"
   items:
+  - id: "UserChatBoosts"
+    name: "UserChatBoosts"
+    type: "Record"
+    description: "Обертка для списка бустов пользователя в чате."
+    fields:
+    - name: "boosts"
+      type: "List<ChatBoost>"
+      visibility: "private final"
+      description: "Record component"
+      line: 14
+    constructors:
+    - name: "UserChatBoosts"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "UserChatBoosts(List<ChatBoost> boosts)"
+      parameters:
+      - name: "boosts"
+        type: "List<ChatBoost>"
+        desc: ""
+      returns:
+        type: "UserChatBoosts"
+        desc: ""
+      exceptions: []
+      line: 12
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 12
+    since: "1.2.2"
+    typeParameters: []
   - id: "ChatBoostSource"
     name: "ChatBoostSource"
     type: "Class"
@@ -13749,7 +14626,7 @@ packages:
         desc: ""
       exceptions: []
       line: 57
-      since: "1.2.1"
+      since: "1.2.2"
     methods:
     - name: "getDurationMinutes"
       anchor: "getDurationMinutes_0"
@@ -13762,10 +14639,10 @@ packages:
         desc: "количество минут."
       exceptions: []
       line: 67
-      since: "1.2.1"
+      since: "1.2.2"
     enumConstants: []
     line: 57
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BusinessIntro"
     name: "BusinessIntro"
@@ -15969,6 +16846,11 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 52
+    - name: "canSendWelcomeMessages"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 57
     constructors:
     - name: "ChatMemberAdministrator"
       anchor: "new"
@@ -15980,7 +16862,7 @@ packages:
         \ Boolean canInviteUsers, Boolean canPostMessages, Boolean canEditMessages,\
         \ Boolean canPinMessages, Boolean canManageTopics, String customTitle, Boolean\
         \ canPostStories, Boolean canEditStories, Boolean canDeleteStories, Boolean\
-        \ canManageDirectMessages, Boolean canManageTags)"
+        \ canManageDirectMessages, Boolean canManageTags, Boolean canSendWelcomeMessages)"
       parameters:
       - name: "user"
         type: "User"
@@ -16040,6 +16922,9 @@ packages:
         type: "Boolean"
         desc: ""
       - name: "canManageTags"
+        type: "Boolean"
+        desc: ""
+      - name: "canSendWelcomeMessages"
         type: "Boolean"
         desc: ""
       returns:
@@ -16230,11 +17115,11 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeAllPrivateChats"
     name: "BotCommandScopeAllPrivateChats"
@@ -16253,11 +17138,11 @@ packages:
         desc: ""
       exceptions: []
       line: 80
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 80
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeAllGroupChats"
     name: "BotCommandScopeAllGroupChats"
@@ -16277,11 +17162,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeAllChatAdministrators"
     name: "BotCommandScopeAllChatAdministrators"
@@ -16300,11 +17185,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeChat"
     name: "BotCommandScopeChat"
@@ -16331,11 +17216,11 @@ packages:
         desc: ""
       exceptions: []
       line: 109
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeChatAdministrators"
     name: "BotCommandScopeChatAdministrators"
@@ -16362,11 +17247,11 @@ packages:
         desc: ""
       exceptions: []
       line: 121
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 121
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "BotCommandScopeChatMember"
     name: "BotCommandScopeChatMember"
@@ -16401,11 +17286,11 @@ packages:
         desc: ""
       exceptions: []
       line: 134
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 134
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
 - name: "api.objects.forum"
   items:
@@ -17002,6 +17887,46 @@ packages:
     typeParameters: []
 - name: "api.objects.inlinequery"
   items:
+  - id: "PreparedInlineMessage"
+    name: "PreparedInlineMessage"
+    type: "Record"
+    description: "Подготовленное инлайн-сообщение для отправки пользователем из Mini\
+      \ App."
+    fields:
+    - name: "id"
+      type: "String"
+      visibility: "private final"
+      description: "Record component"
+      line: 13
+    - name: "expirationDate"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 14
+    constructors:
+    - name: "PreparedInlineMessage"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "PreparedInlineMessage(String id, Integer expirationDate)"
+      parameters:
+      - name: "id"
+        type: "String"
+        desc: ""
+      - name: "expirationDate"
+        type: "Integer"
+        desc: ""
+      returns:
+        type: "PreparedInlineMessage"
+        desc: ""
+      exceptions: []
+      line: 11
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 11
+    since: "1.2.2"
+    typeParameters: []
   - id: "SwitchInlineQueryChosenChat"
     name: "SwitchInlineQueryChosenChat"
     type: "Record"
@@ -17977,6 +18902,79 @@ packages:
     typeParameters: []
 - name: "api.objects.managedbots"
   items:
+  - id: "BotAccessSettings"
+    name: "BotAccessSettings"
+    type: "Record"
+    description: "Настройки доступа для управляемого (Managed) бота."
+    fields:
+    - name: "canReadMessages"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 15
+    - name: "canSendMessages"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 16
+    - name: "canRestrictMembers"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 17
+    - name: "canPromoteMembers"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 18
+    - name: "canManageTopics"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 19
+    - name: "canPinMessages"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 20
+    constructors:
+    - name: "BotAccessSettings"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "BotAccessSettings(Boolean canReadMessages, Boolean canSendMessages,\
+        \ Boolean canRestrictMembers, Boolean canPromoteMembers, Boolean canManageTopics,\
+        \ Boolean canPinMessages)"
+      parameters:
+      - name: "canReadMessages"
+        type: "Boolean"
+        desc: ""
+      - name: "canSendMessages"
+        type: "Boolean"
+        desc: ""
+      - name: "canRestrictMembers"
+        type: "Boolean"
+        desc: ""
+      - name: "canPromoteMembers"
+        type: "Boolean"
+        desc: ""
+      - name: "canManageTopics"
+        type: "Boolean"
+        desc: ""
+      - name: "canPinMessages"
+        type: "Boolean"
+        desc: ""
+      returns:
+        type: "BotAccessSettings"
+        desc: ""
+      exceptions: []
+      line: 12
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 12
+    since: "1.2.2"
+    typeParameters: []
   - id: "PreparedKeyboardButton"
     name: "PreparedKeyboardButton"
     type: "Record"
@@ -18121,11 +19119,11 @@ packages:
         desc: ""
       exceptions: []
       line: 9
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 9
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "PaidMediaPhoto"
     name: "PaidMediaPhoto"
@@ -18152,11 +19150,11 @@ packages:
         desc: ""
       exceptions: []
       line: 18
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 18
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "PaidMediaVideo"
     name: "PaidMediaVideo"
@@ -18183,11 +19181,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "PaidMedia"
     name: "PaidMedia"
@@ -19029,6 +20027,37 @@ packages:
     typeParameters: []
 - name: "api.objects.message"
   items:
+  - id: "EphemeralMessageParameters"
+    name: "EphemeralMessageParameters"
+    type: "Record"
+    description: "Описывает параметры для эфемерных (исчезающих) сообщений."
+    fields:
+    - name: "replaceCallbackQueryMessage"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 18
+    constructors:
+    - name: "EphemeralMessageParameters"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "EphemeralMessageParameters(Boolean replaceCallbackQueryMessage)"
+      parameters:
+      - name: "replaceCallbackQueryMessage"
+        type: "Boolean"
+        desc: ""
+      returns:
+        type: "EphemeralMessageParameters"
+        desc: ""
+      exceptions: []
+      line: 14
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
+    typeParameters: []
   - id: "Message"
     name: "Message"
     type: "Record"
@@ -22523,11 +23552,11 @@ packages:
         desc: ""
       exceptions: []
       line: 43
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 43
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginHiddenUser"
     name: "MessageOrigin.MessageOriginHiddenUser"
@@ -22563,11 +23592,11 @@ packages:
         desc: ""
       exceptions: []
       line: 54
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 54
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChat"
     name: "MessageOrigin.MessageOriginChat"
@@ -22611,11 +23640,11 @@ packages:
         desc: ""
       exceptions: []
       line: 66
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChannel"
     name: "MessageOrigin.MessageOriginChannel"
@@ -22667,11 +23696,11 @@ packages:
         desc: ""
       exceptions: []
       line: 79
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 79
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "MessageOrigin.UnknownMessageOrigin"
     name: "MessageOrigin.UnknownMessageOrigin"
@@ -22698,11 +23727,11 @@ packages:
         desc: ""
       exceptions: []
       line: 89
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 89
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
 - name: "api.objects.passport"
   items:
@@ -22774,11 +23803,11 @@ packages:
         desc: ""
       exceptions: []
       line: 38
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 38
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "PassportElementErrorUnspecified"
     name: "PassportElementErrorUnspecified"
@@ -22822,11 +23851,11 @@ packages:
         desc: ""
       exceptions: []
       line: 56
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 56
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "PassportData"
     name: "PassportData"
@@ -23365,6 +24394,96 @@ packages:
     enumConstants: []
     line: 12
     since: "1.1.4"
+    typeParameters: []
+  - id: "BotSubscriptionUpdated"
+    name: "BotSubscriptionUpdated"
+    type: "Record"
+    description: "Описывает изменение в подписке пользователя на платные услуги бо\
+      та (Telegram Stars)."
+    fields:
+    - name: "user"
+      type: "User"
+      visibility: "private final"
+      description: "Record component"
+      line: 16
+    - name: "chat"
+      type: "Chat"
+      visibility: "private final"
+      description: "Record component"
+      line: 17
+    - name: "status"
+      type: "String"
+      visibility: "private final"
+      description: "Record component"
+      line: 18
+    - name: "startDate"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 19
+    - name: "expirationDate"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 20
+    - name: "invoicePayload"
+      type: "String"
+      visibility: "private final"
+      description: "Record component"
+      line: 21
+    - name: "subscriptionPeriod"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 22
+    - name: "subscriptionPrice"
+      type: "Integer"
+      visibility: "private final"
+      description: "Record component"
+      line: 23
+    constructors:
+    - name: "BotSubscriptionUpdated"
+      anchor: "new"
+      tag: "API"
+      description: "Canonical constructor"
+      signature: "BotSubscriptionUpdated(User user, Chat chat, String status, Integer\
+        \ startDate, Integer expirationDate, String invoicePayload, Integer subscriptionPeriod,\
+        \ Integer subscriptionPrice)"
+      parameters:
+      - name: "user"
+        type: "User"
+        desc: ""
+      - name: "chat"
+        type: "Chat"
+        desc: ""
+      - name: "status"
+        type: "String"
+        desc: ""
+      - name: "startDate"
+        type: "Integer"
+        desc: ""
+      - name: "expirationDate"
+        type: "Integer"
+        desc: ""
+      - name: "invoicePayload"
+        type: "String"
+        desc: ""
+      - name: "subscriptionPeriod"
+        type: "Integer"
+        desc: ""
+      - name: "subscriptionPrice"
+        type: "Integer"
+        desc: ""
+      returns:
+        type: "BotSubscriptionUpdated"
+        desc: ""
+      exceptions: []
+      line: 14
+      since: "1.2.2"
+    methods: []
+    enumConstants: []
+    line: 14
+    since: "1.2.2"
     typeParameters: []
   - id: "Invoice"
     name: "Invoice"
@@ -24326,15 +25445,24 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 25
+    - name: "forceReply"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 31
     constructors:
     - name: "InlineKeyboardMarkup"
       anchor: "new"
       tag: "API"
       description: "Canonical constructor"
-      signature: "InlineKeyboardMarkup(List<List<InlineKeyboardButton>> inlineKeyboard)"
+      signature: "InlineKeyboardMarkup(List<List<InlineKeyboardButton>> inlineKeyboard,\
+        \ Boolean forceReply)"
       parameters:
       - name: "inlineKeyboard"
         type: "List<List<InlineKeyboardButton>>"
+        desc: ""
+      - name: "forceReply"
+        type: "Boolean"
         desc: ""
       returns:
         type: "InlineKeyboardMarkup"
@@ -24357,7 +25485,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 34
+      line: 39
       since: "1.0.0"
     - name: "createVertical"
       anchor: "createVertical_1"
@@ -24374,7 +25502,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 43
+      line: 48
       since: "1.0.0"
     - name: "createHorizontal"
       anchor: "createHorizontal_1"
@@ -24390,7 +25518,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 56
+      line: 61
       since: "1.0.0"
     enumConstants: []
     line: 23
@@ -24501,6 +25629,11 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 41
+    - name: "forceReply"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 46
     constructors:
     - name: "ReplyKeyboardMarkup"
       anchor: "new"
@@ -24508,7 +25641,7 @@ packages:
       description: "Canonical constructor"
       signature: "ReplyKeyboardMarkup(List<List<KeyboardButton>> keyboard, Boolean\
         \ isPersistent, Boolean resizeKeyboard, Boolean oneTimeKeyboard, String inputFieldPlaceholder,\
-        \ Boolean selective)"
+        \ Boolean selective, Boolean forceReply)"
       parameters:
       - name: "keyboard"
         type: "List<List<KeyboardButton>>"
@@ -24526,6 +25659,9 @@ packages:
         type: "String"
         desc: ""
       - name: "selective"
+        type: "Boolean"
+        desc: ""
+      - name: "forceReply"
         type: "Boolean"
         desc: ""
       returns:
@@ -24552,7 +25688,7 @@ packages:
         type: "ReplyKeyboardMarkup"
         desc: "объект ReplyKeyboardMarkup."
       exceptions: []
-      line: 50
+      line: 55
       since: "1.0.0"
     - name: "vertical"
       anchor: "vertical_2"
@@ -24572,7 +25708,7 @@ packages:
         type: "ReplyKeyboardMarkup"
         desc: "объект ReplyKeyboardMarkup."
       exceptions: []
-      line: 70
+      line: 75
       since: "1.0.0"
     enumConstants: []
     line: 31
@@ -24670,6 +25806,11 @@ packages:
       visibility: "private final"
       description: "Record component"
       line: 48
+    - name: "disabled"
+      type: "Boolean"
+      visibility: "private final"
+      description: "Record component"
+      line: 53
     constructors:
     - name: "InlineKeyboardButton"
       anchor: "new"
@@ -24678,7 +25819,8 @@ packages:
       signature: "InlineKeyboardButton(String text, String url, String callbackData,\
         \ WebAppInfo webApp, LoginUrl loginUrl, String switchInlineQuery, String switchInlineQueryCurrentChat,\
         \ SwitchInlineQueryChosenChat switchInlineQueryChosenChat, CallbackGame callbackGame,\
-        \ Boolean pay, String iconCustomEmojiId, String style, CopyTextButton copyText)"
+        \ Boolean pay, String iconCustomEmojiId, String style, CopyTextButton copyText,\
+        \ Boolean disabled)"
       parameters:
       - name: "text"
         type: "String"
@@ -24719,6 +25861,9 @@ packages:
       - name: "copyText"
         type: "CopyTextButton"
         desc: ""
+      - name: "disabled"
+        type: "Boolean"
+        desc: ""
       returns:
         type: "InlineKeyboardButton"
         desc: ""
@@ -24742,7 +25887,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 58
+      line: 63
       since: "1.0.0"
     - name: "callback"
       anchor: "callback_2"
@@ -24763,7 +25908,7 @@ packages:
       exceptions:
       - type: "IllegalArgumentException"
         desc: "если data > 64 байт."
-      line: 70
+      line: 75
       since: "1.0.0"
     - name: "webApp"
       anchor: "webApp_2"
@@ -24782,7 +25927,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 84
+      line: 89
       since: "1.0.0"
     - name: "switchInlineQuery"
       anchor: "switchInlineQuery_2"
@@ -24802,7 +25947,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 98
+      line: 103
       since: "1.0.0"
     - name: "switchInlineQueryCurrentChat"
       anchor: "switchInlineQueryCurrentChat_2"
@@ -24821,7 +25966,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 109
+      line: 114
       since: "1.0.0"
     - name: "login"
       anchor: "login_2"
@@ -24839,7 +25984,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 120
+      line: 125
       since: "1.0.0"
     - name: "pay"
       anchor: "pay_1"
@@ -24855,7 +26000,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 133
+      line: 138
       since: "1.0.0"
     - name: "switchInlineQueryChosenChat"
       anchor: "switchInlineQueryChosenChat_2"
@@ -24874,7 +26019,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 144
+      line: 149
       since: "1.0.0"
     - name: "copyText"
       anchor: "copyText_2"
@@ -24893,7 +26038,7 @@ packages:
         type: "InlineKeyboardButton"
         desc: "объект кнопки."
       exceptions: []
-      line: 157
+      line: 162
       since: "1.1.4"
     enumConstants: []
     line: 32
@@ -25001,11 +26146,11 @@ packages:
         desc: ""
       exceptions: []
       line: 8
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 8
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "CopyTextButton"
     name: "CopyTextButton"
@@ -25340,11 +26485,11 @@ packages:
         desc: ""
       exceptions: []
       line: 122
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 122
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "KeyboardButtonRequestChat"
     name: "KeyboardButtonRequestChat"
@@ -25896,11 +27041,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.VideoChatStarted"
     name: "SystemMessages.VideoChatStarted"
@@ -25919,11 +27064,11 @@ packages:
         desc: ""
       exceptions: []
       line: 33
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 33
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.VideoChatEnded"
     name: "SystemMessages.VideoChatEnded"
@@ -25950,11 +27095,11 @@ packages:
         desc: ""
       exceptions: []
       line: 41
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 41
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.VideoChatParticipantsInvited"
     name: "SystemMessages.VideoChatParticipantsInvited"
@@ -25981,11 +27126,11 @@ packages:
         desc: ""
       exceptions: []
       line: 51
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 51
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.ForumTopicClosed"
     name: "SystemMessages.ForumTopicClosed"
@@ -26004,11 +27149,11 @@ packages:
         desc: ""
       exceptions: []
       line: 61
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 61
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.ForumTopicReopened"
     name: "SystemMessages.ForumTopicReopened"
@@ -26027,11 +27172,11 @@ packages:
         desc: ""
       exceptions: []
       line: 67
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 67
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.ForumTopicEdited"
     name: "SystemMessages.ForumTopicEdited"
@@ -26067,11 +27212,11 @@ packages:
         desc: ""
       exceptions: []
       line: 76
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 76
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicHidden"
     name: "SystemMessages.GeneralForumTopicHidden"
@@ -26090,11 +27235,11 @@ packages:
         desc: ""
       exceptions: []
       line: 85
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 85
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicUnhidden"
     name: "SystemMessages.GeneralForumTopicUnhidden"
@@ -26113,11 +27258,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.MessageAutoDeleteTimerChanged"
     name: "SystemMessages.MessageAutoDeleteTimerChanged"
@@ -26144,11 +27289,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.WriteAccessAllowed"
     name: "SystemMessages.WriteAccessAllowed"
@@ -26194,11 +27339,11 @@ packages:
         desc: ""
       exceptions: []
       line: 115
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 115
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.ChatBoostAdded"
     name: "SystemMessages.ChatBoostAdded"
@@ -26225,11 +27370,11 @@ packages:
         desc: ""
       exceptions: []
       line: 127
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.GiveawayCreated"
     name: "SystemMessages.GiveawayCreated"
@@ -26256,11 +27401,11 @@ packages:
         desc: ""
       exceptions: []
       line: 137
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 137
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.GiveawayCompleted"
     name: "SystemMessages.GiveawayCompleted"
@@ -26304,11 +27449,11 @@ packages:
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 149
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "SystemMessages.PaidMessagePriceChanged"
     name: "SystemMessages.PaidMessagePriceChanged"
@@ -26747,7 +27892,7 @@ packages:
         desc: ""
       exceptions: []
       line: 78
-      since: "1.2.1"
+      since: "1.2.2"
     methods:
     - name: "matches"
       anchor: "matches_1"
@@ -26763,10 +27908,10 @@ packages:
         desc: "true, если соответствует."
       exceptions: []
       line: 86
-      since: "1.2.1"
+      since: "1.2.2"
     enumConstants: []
     line: 78
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "CallbackMeta"
     name: "CallbackMeta"
@@ -27183,7 +28328,7 @@ packages:
       returns:
         type: "T"
       exceptions: []
-      line: 196
+      line: 201
       since: "1.0.0"
     - name: "buildMultipart"
       anchor: "buildMultipart_2"
@@ -27201,7 +28346,7 @@ packages:
       returns:
         type: "MultiValueMap<String,Object>"
       exceptions: []
-      line: 222
+      line: 227
       since: "1.0.0"
     - name: "requiresMultipart"
       anchor: "requiresMultipart_1"
@@ -27215,7 +28360,7 @@ packages:
       returns:
         type: "boolean"
       exceptions: []
-      line: 243
+      line: 248
       since: "1.0.0"
     - name: "handleClientError"
       anchor: "handleClientError_2"
@@ -27233,7 +28378,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 281
+      line: 286
       since: "1.0.0"
     - name: "parseRetryAfter"
       anchor: "parseRetryAfter_1"
@@ -27247,7 +28392,7 @@ packages:
       returns:
         type: "long"
       exceptions: []
-      line: 295
+      line: 300
       since: "1.0.0"
     - name: "sleep"
       anchor: "sleep_1"
@@ -27261,7 +28406,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 303
+      line: 308
       since: "1.0.0"
     - name: "getFileAsync"
       anchor: "getFileAsync_1"
@@ -27278,7 +28423,7 @@ packages:
         type: "CompletableFuture<File>"
         desc: "Future с объектом {@link File}."
       exceptions: []
-      line: 317
+      line: 322
       since: "1.0.0"
     - name: "downloadFileAsStream"
       anchor: "downloadFileAsStream_1"
@@ -27294,7 +28439,7 @@ packages:
         type: "InputStream"
         desc: "InputStream с содержимым файла."
       exceptions: []
-      line: 330
+      line: 335
       since: "1.0.0"
     - name: "toJson"
       anchor: "toJson_1"
@@ -27308,7 +28453,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 398
+      line: 403
       since: "1.0.0"
     enumConstants: []
     line: 51
@@ -27328,22 +28473,22 @@ packages:
       type: "long"
       visibility: "private"
       description: "No description provided."
-      line: 343
+      line: 348
     - name: "refillPeriodNanos"
       type: "long"
       visibility: "private"
       description: "No description provided."
-      line: 344
+      line: 349
     - name: "tokens"
       type: "AtomicLong"
       visibility: "private"
       description: "No description provided."
-      line: 345
+      line: 350
     - name: "lastRefillNanos"
       type: "AtomicLong"
       visibility: "private"
       description: "No description provided."
-      line: 346
+      line: 351
     constructors:
     - name: "NyagramClient.TokenBucketRateLimiter"
       anchor: "new_2"
@@ -27361,8 +28506,8 @@ packages:
         type: "NyagramClient.TokenBucketRateLimiter"
         desc: ""
       exceptions: []
-      line: 354
-      since: "1.2.1"
+      line: 359
+      since: "1.2.2"
     methods:
     - name: "acquire"
       anchor: "acquire_0"
@@ -27375,8 +28520,8 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 368
-      since: "1.2.1"
+      line: 373
+      since: "1.2.2"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -27386,11 +28531,11 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 386
-      since: "1.2.1"
+      line: 391
+      since: "1.2.2"
     enumConstants: []
-    line: 342
-    since: "1.2.1"
+    line: 347
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -27764,11 +28909,11 @@ packages:
         desc: ""
       exceptions: []
       line: 136
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList:
     - "ByteArrayResource"
     implementsList: []
@@ -28389,65 +29534,6 @@ packages:
     line: 45
     since: "1.0.0"
     typeParameters: []
-  - id: "ICommand"
-    name: "ICommand"
-    type: "Interface"
-    description: "Базовый интерфейс для реализации команд бота (устаревший подход\
-      ).\n\n\n\nВ современных версиях Nyagram рекомендуется использовать аннотации\
-      \ `CommandHandler`\nи `BotCommand`, однако этот интерфейс может быть полезен\
-      \ для динамической регистрации\nили сложной кастомной логики."
-    fields: []
-    constructors: []
-    methods:
-    - name: "execute"
-      anchor: "execute_1"
-      tag: "Internal"
-      description: "Выполняет основную логику команды."
-      signature: " void execute(CommandContext context)"
-      parameters:
-      - name: "context"
-        type: "CommandContext"
-        desc: "Контекст, предоставляющий доступ к Update и Raw API."
-      returns:
-        type: "void"
-      exceptions: []
-      line: 17
-      since: "1.2.1"
-    - name: "canHandle"
-      anchor: "canHandle_1"
-      tag: "Internal"
-      description: "Определяет, может ли данная команда обработать текущий Update."
-      signature: " boolean canHandle(CommandContext context)"
-      parameters:
-      - name: "context"
-        type: "CommandContext"
-        desc: "Входящий контекст с апдейтом."
-      returns:
-        type: "boolean"
-        desc: "true, если команда должна быть выполнена."
-      exceptions: []
-      line: 24
-      since: "1.2.1"
-    - name: "getCommand"
-      anchor: "getCommand_0"
-      tag: "Internal"
-      description: "Возвращает строковое представление команды (например, \"/start\"\
-        ).\nМожет использоваться для генерации меню помощи или логирования."
-      signature: " String getCommand()"
-      parameters: []
-      returns:
-        type: "String"
-        desc: "Команда со слэшем или null/пустая строка, если это обработчик общег\
-          о назначения."
-      exceptions: []
-      line: 31
-      since: "1.2.1"
-    enumConstants: []
-    line: 11
-    since: "1.2.1"
-    extendsList: []
-    implementsList: []
-    typeParameters: []
   - id: "CommandArgument"
     name: "CommandArgument"
     type: "Type"
@@ -28628,7 +29714,7 @@ packages:
         type: "Long"
         desc: "ID пользователя."
       exceptions: []
-      line: 158
+      line: 159
       since: "1.0.0"
     - name: "getTopicId"
       anchor: "getTopicId_0"
@@ -28642,7 +29728,7 @@ packages:
         type: "Integer"
         desc: "ID топика или null."
       exceptions: []
-      line: 170
+      line: 171
       since: "1.0.0"
     - name: "getText"
       anchor: "getText_0"
@@ -28655,7 +29741,7 @@ packages:
         type: "String"
         desc: "текст сообщения или пустая строка."
       exceptions: []
-      line: 182
+      line: 183
       since: "1.0.0"
     - name: "isPrivateChat"
       anchor: "isPrivateChat_0"
@@ -28667,7 +29753,7 @@ packages:
         type: "boolean"
         desc: "true, если это личный чат с пользователем."
       exceptions: []
-      line: 193
+      line: 194
       since: "1.0.0"
     - name: "isGroupChat"
       anchor: "isGroupChat_0"
@@ -28679,7 +29765,7 @@ packages:
         type: "boolean"
         desc: "true, если это групповой чат."
       exceptions: []
-      line: 204
+      line: 205
       since: "1.0.0"
     - name: "reply"
       anchor: "reply_1"
@@ -28695,7 +29781,7 @@ packages:
         type: "CompletableFuture<Message>"
         desc: "Future, который завершится отправленным сообщением."
       exceptions: []
-      line: 217
+      line: 218
       since: "1.0.0"
     - name: "reply"
       anchor: "reply_2"
@@ -28713,13 +29799,14 @@ packages:
         type: "CompletableFuture<Message>"
         desc: "Future, который завершится отправленным сообщением."
       exceptions: []
-      line: 228
+      line: 229
       since: "1.0.0"
     - name: "reply"
       anchor: "reply_4"
       tag: "API"
       description: "Полный метод отправки сообщения с клавиатурой и ответом на кон\
-        кретное сообщение."
+        кретное сообщение.\n\n\n\nАвтоматически использует современный ReplyParameters\
+        \ вместо устаревшего reply_to_message_id."
       signature: "public CompletableFuture<Message> reply(String text, String parseMode,\
         \ Integer replyToMessageId, ReplyKeyboard replyMarkup)"
       parameters:
@@ -28739,7 +29826,7 @@ packages:
         type: "CompletableFuture<Message>"
         desc: "Future, который завершится отправленным сообщением."
       exceptions: []
-      line: 241
+      line: 245
       since: "1.0.0"
     - name: "deleteMessage"
       anchor: "deleteMessage_1"
@@ -28755,7 +29842,7 @@ packages:
         type: "boolean"
         desc: "true, если удаление прошло успешно."
       exceptions: []
-      line: 265
+      line: 274
       since: "1.0.0"
     - name: "react"
       anchor: "react_1"
@@ -28771,7 +29858,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 291
+      line: 300
       since: "1.1.4"
     - name: "answerCallback"
       anchor: "answerCallback_2"
@@ -28791,7 +29878,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 321
+      line: 330
       since: "1.1.4"
     - name: "translate"
       anchor: "translate_1"
@@ -28806,7 +29893,7 @@ packages:
       returns:
         type: "TranslationResolver"
       exceptions: []
-      line: 342
+      line: 351
       since: "1.1.4"
     - name: "editMessage"
       anchor: "editMessage_2"
@@ -28826,7 +29913,7 @@ packages:
       returns:
         type: "CompletableFuture<Serializable>"
       exceptions: []
-      line: 357
+      line: 366
       since: "1.1.4"
     - name: "editMessage"
       anchor: "editMessage_1"
@@ -28840,7 +29927,7 @@ packages:
       returns:
         type: "CompletableFuture<Serializable>"
       exceptions: []
-      line: 390
+      line: 399
       since: "1.0.0"
     - name: "editMedia"
       anchor: "editMedia_2"
@@ -28859,7 +29946,7 @@ packages:
       returns:
         type: "CompletableFuture<Serializable>"
       exceptions: []
-      line: 402
+      line: 411
       since: "1.1.5"
     - name: "editMedia"
       anchor: "editMedia_1"
@@ -28873,7 +29960,7 @@ packages:
       returns:
         type: "CompletableFuture<Serializable>"
       exceptions: []
-      line: 418
+      line: 427
       since: "1.0.0"
     - name: "deleteMessageQuietly"
       anchor: "deleteMessageQuietly_1"
@@ -28888,8 +29975,86 @@ packages:
       returns:
         type: "CompletableFuture<Void>"
       exceptions: []
-      line: 429
+      line: 438
       since: "1.1.4"
+    - name: "setDraft"
+      anchor: "setDraft_1"
+      tag: "API"
+      description: "Вставляет черновик (Draft) в поле ввода пользователя в текущем\
+        \ чате.\n\n\n\nИдеально для ботов-ассистентов: бот не отправляет сообщение\
+        , \nа подготавливает его, чтобы пользователь мог отредактировать перед отп\
+        равкой."
+      signature: "public CompletableFuture<Boolean> setDraft(String text)"
+      parameters:
+      - name: "text"
+        type: "String"
+        desc: "Текст черновика."
+      returns:
+        type: "CompletableFuture<Boolean>"
+        desc: "Future с результатом выполнения."
+      exceptions: []
+      line: 465
+      since: "1.2.2"
+    - name: "clearDraft"
+      anchor: "clearDraft_0"
+      tag: "API"
+      description: "Очищает поле ввода пользователя от черновика в текущем чате."
+      signature: "public CompletableFuture<Boolean> clearDraft()"
+      parameters: []
+      returns:
+        type: "CompletableFuture<Boolean>"
+        desc: "Future с результатом."
+      exceptions: []
+      line: 483
+      since: "1.2.2"
+    - name: "getBusinessConnection"
+      anchor: "getBusinessConnection_0"
+      tag: "API"
+      description: "Получает информацию о бизнес-подключении для текущего контекст\
+        а.\n\n\n\nЕсли бот был добавлен в личный аккаунт Telegram Premium (Business\
+        \ Mode),\nэтот метод вернет детали привязки."
+      signature: "public CompletableFuture<Update.BusinessConnection> getBusinessConnection()"
+      parameters: []
+      returns:
+        type: "CompletableFuture<Update.BusinessConnection>"
+        desc: "Future с объектом BusinessConnection."
+      exceptions:
+      - type: "IllegalStateException"
+        desc: "если контекст не связан с бизнес-сообщением."
+      line: 498
+      since: "1.2.2"
+    - name: "forwardTo"
+      anchor: "forwardTo_1"
+      tag: "API"
+      description: "Быстро пересылает текущее сообщение в другой чат."
+      signature: "public CompletableFuture<Message> forwardTo(Long targetChatId)"
+      parameters:
+      - name: "targetChatId"
+        type: "Long"
+        desc: "ID чата, куда нужно переслать сообщение."
+      returns:
+        type: "CompletableFuture<Message>"
+        desc: "Future с отправленным сообщением."
+      exceptions: []
+      line: 528
+      since: "1.2.2"
+    - name: "copyTo"
+      anchor: "copyTo_1"
+      tag: "API"
+      description: "Быстро копирует текущее сообщение (без плашки \"Переслано от\"\
+        ) в другой чат."
+      signature: "public CompletableFuture<pro.kaleert.nyagram.api.objects.MessageId>\
+        \ copyTo(Long targetChatId)"
+      parameters:
+      - name: "targetChatId"
+        type: "Long"
+        desc: "ID чата, куда нужно скопировать сообщение."
+      returns:
+        type: "CompletableFuture<pro.kaleert.nyagram.api.objects.MessageId>"
+        desc: "Future с ID нового сообщения."
+      exceptions: []
+      line: 545
+      since: "1.2.2"
     enumConstants: []
     line: 33
     since: "1.0.0"
@@ -29410,7 +30575,7 @@ packages:
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList:
     - "RedisTemplate<K, V>"
     implementsList: []
@@ -29657,7 +30822,7 @@ packages:
         \ задач (генерация отчетов, долгие I/O запросы),\nкоторые не изменяют сост\
         ояние FSM."
     line: 30
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "CommandResult"
     name: "CommandResult"
@@ -29863,7 +31028,7 @@ packages:
         type: "void"
       exceptions: []
       line: 34
-      since: "1.2.1"
+      since: "1.2.2"
     - name: "checkForUpdates"
       anchor: "checkForUpdates_0"
       tag: "API"
@@ -29874,7 +31039,7 @@ packages:
         type: "void"
       exceptions: []
       line: 45
-      since: "1.2.1"
+      since: "1.2.2"
     - name: "isNewerVersion"
       anchor: "isNewerVersion_2"
       tag: "Internal"
@@ -29891,10 +31056,10 @@ packages:
         type: "boolean"
       exceptions: []
       line: 88
-      since: "1.2.1"
+      since: "1.2.2"
     enumConstants: []
     line: 21
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -30360,11 +31525,11 @@ packages:
         desc: ""
       exceptions: []
       line: 271
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 267
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "ThreadFactory"
@@ -30547,7 +31712,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 214
+      line: 213
       since: "1.0.0"
     - name: "handleLogicalError"
       anchor: "handleLogicalError_1"
@@ -30561,7 +31726,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 227
+      line: 226
       since: "1.0.0"
     - name: "ensureSafeDelay"
       anchor: "ensureSafeDelay_0"
@@ -30576,7 +31741,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 242
+      line: 241
       since: "1.0.0"
     - name: "buildAllowedUpdatesParam"
       anchor: "buildAllowedUpdatesParam_0"
@@ -30588,7 +31753,7 @@ packages:
       returns:
         type: "String"
       exceptions: []
-      line: 264
+      line: 263
       since: "1.1.1"
     - name: "processUpdatesWithBackpressure"
       anchor: "processUpdatesWithBackpressure_1"
@@ -30602,7 +31767,7 @@ packages:
       returns:
         type: "long"
       exceptions: []
-      line: 277
+      line: 276
       since: "1.0.0"
     - name: "sleep"
       anchor: "sleep_1"
@@ -30616,7 +31781,7 @@ packages:
       returns:
         type: "void"
       exceptions: []
-      line: 311
+      line: 310
       deprecation:
         isDeprecated: true
         since: "1.1.1"
@@ -30973,7 +32138,7 @@ packages:
     methods: []
     enumConstants: []
     line: 26
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Integer>"
@@ -30987,7 +32152,7 @@ packages:
     methods: []
     enumConstants: []
     line: 46
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Long>"
@@ -31001,7 +32166,7 @@ packages:
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Double>"
@@ -31026,7 +32191,7 @@ packages:
     methods: []
     enumConstants: []
     line: 87
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Boolean>"
@@ -31040,7 +32205,7 @@ packages:
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<String>"
@@ -31054,7 +32219,7 @@ packages:
     methods: []
     enumConstants: []
     line: 126
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Enum<?>>"
@@ -31071,7 +32236,7 @@ packages:
     methods: []
     enumConstants: []
     line: 158
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Object>"
@@ -31572,7 +32737,7 @@ packages:
     - name: "WEBHOOK"
       description: "Telegram отправляет запросы на сервер бота."
     line: 120
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
 - name: "dispatcher"
   items:
@@ -32174,6 +33339,8 @@ packages:
       description: "Пользователь изменил реакцию на сообщение."
     - name: "MANAGED_BOT_UPDATED"
       description: "Создан управляемый бот или изменен его токен."
+    - name: "SUBSCRIPTION"
+      description: "Обновление статуса платной подписки пользователя на бота."
     line: 9
     since: "1.0.0"
     typeParameters: []
@@ -32406,11 +33573,11 @@ packages:
         desc: ""
       exceptions: []
       line: 101
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 101
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "TelegramNetworkException"
     name: "TelegramNetworkException"
@@ -32854,7 +34021,7 @@ packages:
     methods: []
     enumConstants: []
     line: 23
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -32892,7 +34059,7 @@ packages:
     methods: []
     enumConstants: []
     line: 34
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -33862,11 +35029,11 @@ packages:
         desc: ""
       exceptions: []
       line: 167
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 167
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
 - name: "fsm"
   items:
@@ -34214,11 +35381,11 @@ packages:
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 145
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList:
     - "UserSession"
     implementsList: []
@@ -34976,11 +36143,11 @@ packages:
         desc: ""
       exceptions: []
       line: 63
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 63
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "CommandMeta.RateLimitMeta"
     name: "CommandMeta.RateLimitMeta"
@@ -35024,11 +36191,11 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "EventMeta"
     name: "EventMeta"
@@ -35451,7 +36618,7 @@ packages:
       description: "Перенаправить выполнение на другую команду (внутренний редирек\
         т)."
     line: 20
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "ContextMiddleware"
     name: "ContextMiddleware"
@@ -35878,7 +37045,7 @@ packages:
         desc: ""
       exceptions: []
       line: 125
-      since: "1.2.1"
+      since: "1.2.2"
     methods:
     - name: "tryConsume"
       anchor: "tryConsume_0"
@@ -35893,7 +37060,7 @@ packages:
           \ если токенов нет (лимит превышен)."
       exceptions: []
       line: 142
-      since: "1.2.1"
+      since: "1.2.2"
     - name: "getRetryAfterSeconds"
       anchor: "getRetryAfterSeconds_0"
       tag: "API"
@@ -35906,7 +37073,7 @@ packages:
         desc: "Количество секунд или 0, если токены есть."
       exceptions: []
       line: 161
-      since: "1.2.1"
+      since: "1.2.2"
     - name: "isExpired"
       anchor: "isExpired_1"
       tag: "API"
@@ -35922,7 +37089,7 @@ packages:
         desc: "true, если бакет можно удалить."
       exceptions: []
       line: 186
-      since: "1.2.1"
+      since: "1.2.2"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -35933,10 +37100,10 @@ packages:
         type: "void"
       exceptions: []
       line: 191
-      since: "1.2.1"
+      since: "1.2.2"
     enumConstants: []
     line: 112
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -36101,7 +37268,7 @@ packages:
     methods: []
     enumConstants: []
     line: 57
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -36248,7 +37415,7 @@ packages:
       description: "Лимит применяется ко всему чату (Chat ID), независимо от того\
         , кто пишет."
     line: 50
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
   - id: "LevelRequired"
     name: "LevelRequired"
@@ -37366,11 +38533,11 @@ packages:
         desc: ""
       exceptions: []
       line: 103
-      since: "1.2.1"
+      since: "1.2.2"
     methods: []
     enumConstants: []
     line: 103
-    since: "1.2.1"
+    since: "1.2.2"
     typeParameters: []
 - name: "validation"
   items:
@@ -37792,10 +38959,10 @@ packages:
         type: "void"
       exceptions: []
       line: 57
-      since: "1.2.1"
+      since: "1.2.2"
     enumConstants: []
     line: 16
-    since: "1.2.1"
+    since: "1.2.2"
     extendsList: []
     implementsList:
     - "SmartLifecycle"
