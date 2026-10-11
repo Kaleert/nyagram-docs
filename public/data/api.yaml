@@ -1,4 +1,4 @@
-version: "1.2.2"
+version: "1.2.3"
 packages:
 - name: "api.dto"
   items:
@@ -4606,7 +4606,7 @@ packages:
     methods: []
     enumConstants: []
     line: 13
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList:
     - "BotApiMethod<String>"
     implementsList: []
@@ -9809,11 +9809,11 @@ packages:
         desc: ""
       exceptions: []
       line: 48
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 48
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "api.objects"
   items:
@@ -14626,7 +14626,7 @@ packages:
         desc: ""
       exceptions: []
       line: 57
-      since: "1.2.2"
+      since: "1.2.3"
     methods:
     - name: "getDurationMinutes"
       anchor: "getDurationMinutes_0"
@@ -14639,10 +14639,10 @@ packages:
         desc: "количество минут."
       exceptions: []
       line: 67
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 57
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BusinessIntro"
     name: "BusinessIntro"
@@ -17115,11 +17115,11 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeAllPrivateChats"
     name: "BotCommandScopeAllPrivateChats"
@@ -17138,11 +17138,11 @@ packages:
         desc: ""
       exceptions: []
       line: 80
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 80
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeAllGroupChats"
     name: "BotCommandScopeAllGroupChats"
@@ -17162,11 +17162,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeAllChatAdministrators"
     name: "BotCommandScopeAllChatAdministrators"
@@ -17185,11 +17185,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeChat"
     name: "BotCommandScopeChat"
@@ -17216,11 +17216,11 @@ packages:
         desc: ""
       exceptions: []
       line: 109
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeChatAdministrators"
     name: "BotCommandScopeChatAdministrators"
@@ -17247,11 +17247,11 @@ packages:
         desc: ""
       exceptions: []
       line: 121
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 121
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "BotCommandScopeChatMember"
     name: "BotCommandScopeChatMember"
@@ -17286,11 +17286,11 @@ packages:
         desc: ""
       exceptions: []
       line: 134
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 134
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "api.objects.forum"
   items:
@@ -19119,11 +19119,11 @@ packages:
         desc: ""
       exceptions: []
       line: 9
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 9
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "PaidMediaPhoto"
     name: "PaidMediaPhoto"
@@ -19150,11 +19150,11 @@ packages:
         desc: ""
       exceptions: []
       line: 18
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 18
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "PaidMediaVideo"
     name: "PaidMediaVideo"
@@ -19181,11 +19181,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "PaidMedia"
     name: "PaidMedia"
@@ -23552,11 +23552,11 @@ packages:
         desc: ""
       exceptions: []
       line: 43
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 43
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginHiddenUser"
     name: "MessageOrigin.MessageOriginHiddenUser"
@@ -23592,11 +23592,11 @@ packages:
         desc: ""
       exceptions: []
       line: 54
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 54
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChat"
     name: "MessageOrigin.MessageOriginChat"
@@ -23640,11 +23640,11 @@ packages:
         desc: ""
       exceptions: []
       line: 66
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "MessageOrigin.MessageOriginChannel"
     name: "MessageOrigin.MessageOriginChannel"
@@ -23696,11 +23696,11 @@ packages:
         desc: ""
       exceptions: []
       line: 79
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 79
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "MessageOrigin.UnknownMessageOrigin"
     name: "MessageOrigin.UnknownMessageOrigin"
@@ -23727,11 +23727,11 @@ packages:
         desc: ""
       exceptions: []
       line: 89
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 89
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "api.objects.passport"
   items:
@@ -23803,11 +23803,11 @@ packages:
         desc: ""
       exceptions: []
       line: 38
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 38
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "PassportElementErrorUnspecified"
     name: "PassportElementErrorUnspecified"
@@ -23851,11 +23851,11 @@ packages:
         desc: ""
       exceptions: []
       line: 56
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 56
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "PassportData"
     name: "PassportData"
@@ -25444,12 +25444,12 @@ packages:
       type: "List<List<InlineKeyboardButton>>"
       visibility: "private final"
       description: "Record component"
-      line: 25
+      line: 27
     - name: "forceReply"
       type: "Boolean"
       visibility: "private final"
       description: "Record component"
-      line: 31
+      line: 33
     constructors:
     - name: "InlineKeyboardMarkup"
       anchor: "new"
@@ -25468,7 +25468,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: ""
       exceptions: []
-      line: 23
+      line: 24
       since: "1.0.0"
     methods:
     - name: "createSingle"
@@ -25485,7 +25485,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 39
+      line: 41
       since: "1.0.0"
     - name: "createVertical"
       anchor: "createVertical_1"
@@ -25502,7 +25502,7 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 48
+      line: 50
       since: "1.0.0"
     - name: "createHorizontal"
       anchor: "createHorizontal_1"
@@ -25518,10 +25518,10 @@ packages:
         type: "InlineKeyboardMarkup"
         desc: "клавиатура."
       exceptions: []
-      line: 61
+      line: 63
       since: "1.0.0"
     enumConstants: []
-    line: 23
+    line: 24
     since: "1.0.0"
     typeParameters: []
   - id: "ReplyKeyboardRemove"
@@ -26146,11 +26146,11 @@ packages:
         desc: ""
       exceptions: []
       line: 8
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 8
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "CopyTextButton"
     name: "CopyTextButton"
@@ -26485,11 +26485,11 @@ packages:
         desc: ""
       exceptions: []
       line: 122
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 122
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "KeyboardButtonRequestChat"
     name: "KeyboardButtonRequestChat"
@@ -27041,11 +27041,11 @@ packages:
         desc: ""
       exceptions: []
       line: 25
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 25
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.VideoChatStarted"
     name: "SystemMessages.VideoChatStarted"
@@ -27064,11 +27064,11 @@ packages:
         desc: ""
       exceptions: []
       line: 33
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 33
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.VideoChatEnded"
     name: "SystemMessages.VideoChatEnded"
@@ -27095,11 +27095,11 @@ packages:
         desc: ""
       exceptions: []
       line: 41
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 41
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.VideoChatParticipantsInvited"
     name: "SystemMessages.VideoChatParticipantsInvited"
@@ -27126,11 +27126,11 @@ packages:
         desc: ""
       exceptions: []
       line: 51
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 51
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.ForumTopicClosed"
     name: "SystemMessages.ForumTopicClosed"
@@ -27149,11 +27149,11 @@ packages:
         desc: ""
       exceptions: []
       line: 61
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 61
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.ForumTopicReopened"
     name: "SystemMessages.ForumTopicReopened"
@@ -27172,11 +27172,11 @@ packages:
         desc: ""
       exceptions: []
       line: 67
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 67
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.ForumTopicEdited"
     name: "SystemMessages.ForumTopicEdited"
@@ -27212,11 +27212,11 @@ packages:
         desc: ""
       exceptions: []
       line: 76
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 76
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicHidden"
     name: "SystemMessages.GeneralForumTopicHidden"
@@ -27235,11 +27235,11 @@ packages:
         desc: ""
       exceptions: []
       line: 85
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 85
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.GeneralForumTopicUnhidden"
     name: "SystemMessages.GeneralForumTopicUnhidden"
@@ -27258,11 +27258,11 @@ packages:
         desc: ""
       exceptions: []
       line: 91
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 91
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.MessageAutoDeleteTimerChanged"
     name: "SystemMessages.MessageAutoDeleteTimerChanged"
@@ -27289,11 +27289,11 @@ packages:
         desc: ""
       exceptions: []
       line: 99
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 99
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.WriteAccessAllowed"
     name: "SystemMessages.WriteAccessAllowed"
@@ -27339,11 +27339,11 @@ packages:
         desc: ""
       exceptions: []
       line: 115
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 115
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.ChatBoostAdded"
     name: "SystemMessages.ChatBoostAdded"
@@ -27370,11 +27370,11 @@ packages:
         desc: ""
       exceptions: []
       line: 127
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.GiveawayCreated"
     name: "SystemMessages.GiveawayCreated"
@@ -27401,11 +27401,11 @@ packages:
         desc: ""
       exceptions: []
       line: 137
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 137
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.GiveawayCompleted"
     name: "SystemMessages.GiveawayCompleted"
@@ -27449,11 +27449,11 @@ packages:
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 149
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "SystemMessages.PaidMessagePriceChanged"
     name: "SystemMessages.PaidMessagePriceChanged"
@@ -27892,7 +27892,7 @@ packages:
         desc: ""
       exceptions: []
       line: 78
-      since: "1.2.2"
+      since: "1.2.3"
     methods:
     - name: "matches"
       anchor: "matches_1"
@@ -27908,10 +27908,10 @@ packages:
         desc: "true, если соответствует."
       exceptions: []
       line: 86
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 78
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "CallbackMeta"
     name: "CallbackMeta"
@@ -28507,7 +28507,7 @@ packages:
         desc: ""
       exceptions: []
       line: 359
-      since: "1.2.2"
+      since: "1.2.3"
     methods:
     - name: "acquire"
       anchor: "acquire_0"
@@ -28521,7 +28521,7 @@ packages:
         type: "void"
       exceptions: []
       line: 373
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -28532,10 +28532,10 @@ packages:
         type: "void"
       exceptions: []
       line: 391
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 347
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -28909,11 +28909,11 @@ packages:
         desc: ""
       exceptions: []
       line: 136
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 127
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList:
     - "ByteArrayResource"
     implementsList: []
@@ -30418,6 +30418,23 @@ packages:
       exceptions: []
       line: 248
       since: "1.0.0"
+    - name: "defaultBaseUrlController"
+      anchor: "defaultBaseUrlController_1"
+      tag: "API"
+      description: "Регистрирует контроллер базового URL по умолчанию, \nесли разр\
+        аботчик не предоставил свою реализацию для динамического переключения."
+      signature: "public BaseUrlController defaultBaseUrlController(NyagramBotConfig\
+        \ config)"
+      parameters:
+      - name: "config"
+        type: "NyagramBotConfig"
+        desc: "Конфигурация бота, содержащая базовый URL."
+      returns:
+        type: "BaseUrlController"
+        desc: "Контроллер базового URL."
+      exceptions: []
+      line: 262
+      since: "1.2.3"
     enumConstants: []
     line: 55
     since: "1.0.0"
@@ -30575,7 +30592,7 @@ packages:
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList:
     - "RedisTemplate<K, V>"
     implementsList: []
@@ -30822,7 +30839,7 @@ packages:
         \ задач (генерация отчетов, долгие I/O запросы),\nкоторые не изменяют сост\
         ояние FSM."
     line: 30
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "CommandResult"
     name: "CommandResult"
@@ -31028,7 +31045,7 @@ packages:
         type: "void"
       exceptions: []
       line: 34
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "checkForUpdates"
       anchor: "checkForUpdates_0"
       tag: "API"
@@ -31039,7 +31056,7 @@ packages:
         type: "void"
       exceptions: []
       line: 45
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "isNewerVersion"
       anchor: "isNewerVersion_2"
       tag: "Internal"
@@ -31056,10 +31073,10 @@ packages:
         type: "boolean"
       exceptions: []
       line: 88
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 21
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -31525,11 +31542,11 @@ packages:
         desc: ""
       exceptions: []
       line: 271
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 267
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "ThreadFactory"
@@ -31590,11 +31607,11 @@ packages:
       type: "NyagramBotConfig"
       visibility: "private"
       description: "No description provided."
-      line: 19
+      line: 15
     constructors: []
     methods: []
     enumConstants: []
-    line: 14
+    line: 12
     since: "1.2.0"
     extendsList: []
     implementsList:
@@ -32138,7 +32155,7 @@ packages:
     methods: []
     enumConstants: []
     line: 26
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Integer>"
@@ -32152,7 +32169,7 @@ packages:
     methods: []
     enumConstants: []
     line: 46
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Long>"
@@ -32166,7 +32183,7 @@ packages:
     methods: []
     enumConstants: []
     line: 66
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Double>"
@@ -32191,7 +32208,7 @@ packages:
     methods: []
     enumConstants: []
     line: 87
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Boolean>"
@@ -32205,7 +32222,7 @@ packages:
     methods: []
     enumConstants: []
     line: 109
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<String>"
@@ -32219,7 +32236,7 @@ packages:
     methods: []
     enumConstants: []
     line: 126
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Enum<?>>"
@@ -32236,7 +32253,7 @@ packages:
     methods: []
     enumConstants: []
     line: 158
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "TypedArgumentResolver<Object>"
@@ -32737,7 +32754,7 @@ packages:
     - name: "WEBHOOK"
       description: "Telegram отправляет запросы на сервер бота."
     line: 120
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "dispatcher"
   items:
@@ -33573,11 +33590,11 @@ packages:
         desc: ""
       exceptions: []
       line: 101
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 101
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "TelegramNetworkException"
     name: "TelegramNetworkException"
@@ -34021,7 +34038,7 @@ packages:
     methods: []
     enumConstants: []
     line: 23
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -34059,7 +34076,7 @@ packages:
     methods: []
     enumConstants: []
     line: 34
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -35029,11 +35046,11 @@ packages:
         desc: ""
       exceptions: []
       line: 167
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 167
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "fsm"
   items:
@@ -35381,11 +35398,11 @@ packages:
         desc: ""
       exceptions: []
       line: 149
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 145
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList:
     - "UserSession"
     implementsList: []
@@ -36143,11 +36160,11 @@ packages:
         desc: ""
       exceptions: []
       line: 63
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 63
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "CommandMeta.RateLimitMeta"
     name: "CommandMeta.RateLimitMeta"
@@ -36191,11 +36208,11 @@ packages:
         desc: ""
       exceptions: []
       line: 72
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 72
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "EventMeta"
     name: "EventMeta"
@@ -36618,7 +36635,7 @@ packages:
       description: "Перенаправить выполнение на другую команду (внутренний редирек\
         т)."
     line: 20
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "ContextMiddleware"
     name: "ContextMiddleware"
@@ -37045,7 +37062,7 @@ packages:
         desc: ""
       exceptions: []
       line: 125
-      since: "1.2.2"
+      since: "1.2.3"
     methods:
     - name: "tryConsume"
       anchor: "tryConsume_0"
@@ -37060,7 +37077,7 @@ packages:
           \ если токенов нет (лимит превышен)."
       exceptions: []
       line: 142
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "getRetryAfterSeconds"
       anchor: "getRetryAfterSeconds_0"
       tag: "API"
@@ -37073,7 +37090,7 @@ packages:
         desc: "Количество секунд или 0, если токены есть."
       exceptions: []
       line: 161
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "isExpired"
       anchor: "isExpired_1"
       tag: "API"
@@ -37089,7 +37106,7 @@ packages:
         desc: "true, если бакет можно удалить."
       exceptions: []
       line: 186
-      since: "1.2.2"
+      since: "1.2.3"
     - name: "refill"
       anchor: "refill_0"
       tag: "Internal"
@@ -37100,10 +37117,10 @@ packages:
         type: "void"
       exceptions: []
       line: 191
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 112
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -37268,7 +37285,7 @@ packages:
     methods: []
     enumConstants: []
     line: 57
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList: []
     typeParameters: []
@@ -37415,7 +37432,7 @@ packages:
       description: "Лимит применяется ко всему чату (Chat ID), независимо от того\
         , кто пишет."
     line: 50
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
   - id: "LevelRequired"
     name: "LevelRequired"
@@ -38533,11 +38550,11 @@ packages:
         desc: ""
       exceptions: []
       line: 103
-      since: "1.2.2"
+      since: "1.2.3"
     methods: []
     enumConstants: []
     line: 103
-    since: "1.2.2"
+    since: "1.2.3"
     typeParameters: []
 - name: "validation"
   items:
@@ -38959,10 +38976,10 @@ packages:
         type: "void"
       exceptions: []
       line: 57
-      since: "1.2.2"
+      since: "1.2.3"
     enumConstants: []
     line: 16
-    since: "1.2.2"
+    since: "1.2.3"
     extendsList: []
     implementsList:
     - "SmartLifecycle"

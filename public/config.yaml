@@ -65,8 +65,12 @@ sidebar:
   - title: "Updates"
     icon: "updates"
     items:
+      - label: "v1.2.3"
+        link: "/version/1.2.3"
+        icon: "version"
       - label: "v1.2.2"
         link: "/version/1.2.2"
+        icon: "version"
       - label: "v1.2.1"
         link: "/version/1.2.1"
         icon: "version"
